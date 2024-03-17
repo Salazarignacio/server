@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "zapatillas",
+    "photo": "zapatillas.jpg",
+    "category": "shoes",
+    "price": 65,
+    "stock": 2000
+  },
+  {
+    "id": 2,
+    "title": "zapatillas",
+    "photo": "zapatillas.jpg",
+    "category": "shoes",
+    "price": 65,
+    "stock": 2000
+  },
+  {
+    "id": "9629a40191ed9f0c44a1a43f",
+    "title": "remera",
+    "photo": "remera.jpg",
+    "category": "t-shirt",
+    "price": 10,
+    "stock": 2000
+  },
+  {
+    "id": "4af8150e0f243011bc583715",
+    "title": "bermuda",
+    "photo": "bermuda.jpg",
+    "category": "shorts",
+    "price": 30,
+    "stock": 1500
+  },
+  {
+    "id": "4dac7d2674dc1bf0254482aa",
+    "title": "medias",
+    "photo": "medias.jpg",
+    "category": "socks",
+    "price": 5,
+    "stock": 3000
+  },
+  {
+    "id": "9b4febd786048193c6f0e540",
+    "title": "jeans",
+    "photo": "jeans.jpg",
+    "category": "jeans",
+    "price": 65,
+    "stock": 1000
+  },
+  {
+    "id": "5101f346e593d87b8225158c",
+    "title": "chomba",
+    "photo": "chomba.jpg",
+    "category": "shirt",
+    "price": 65,
+    "stock": 1000
+  },
+  {
+    "id": "f27af8e643b84a1db9b8e91e",
+    "title": "chomba roja",
+    "photo": "chombaroja.jpg",
+    "category": "shirt",
+    "price": 25,
+    "stock": 1000
+  },
+  {
+    "id": "8577fad7d0118d70a9def774",
+    "title": "zapatilla nike",
+    "photo": "nike.jpg",
+    "category": "shoes",
+    "price": 105,
+    "stock": 1000
+  },
+  {
+    "id": "3b799b44cbf607b1ef8c4f77",
+    "title": "zapatilla asics",
+    "photo": "asics.jpg",
+    "category": "shoes",
+    "price": 165,
+    "stock": 2000
+  },
+  {
+    "id": "0f8892ba87298e50da8c9563",
+    "title": "sandalia",
+    "photo": "sandalia.jpg",
+    "category": "flip-flop",
+    "price": 15,
+    "stock": 2000
+  },
+  {
+    "id": "931e098249fb7d26c646f0b5",
+    "title": "campera nieve roja",
+    "photo": "jacket.jpg",
+    "category": "jackets",
+    "price": 165,
+    "stock": 1000
+  }
+]
