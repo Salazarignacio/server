@@ -1,10 +1,10 @@
-const crypto = require("crypto");
-const fs = require("fs");
+import fs from "fs";
+import crypto from "crypto";
 
 /* se crea la clase ProductManager */
 class ProductManager {
-  constructor(path) {
-    this.path = path;
+  constructor() {
+    this.path = "./data/fs/files/products";
     this.init();
   }
   init() {
@@ -48,6 +48,7 @@ class ProductManager {
   async read() {
     try {
       const readFile = await fs.promises.readFile(this.path, "utf-8");
+      
       if (readFile) {
         return readFile;
       } else {
@@ -89,8 +90,8 @@ class ProductManager {
   }
 }
 async function run() {
+  const instanceOfProducts = new ProductManager();
   /* instancia de ProductManager */
-  const instanceOfProducts = new ProductManager("./files/products");
   /* se crean 10 productos */
   await instanceOfProducts.create({
     id: 1,
@@ -179,7 +180,72 @@ async function run() {
     price: 165,
     stock: 1000,
   });
-  console.log(await instanceOfProducts.read())
+  await instanceOfProducts.create({
+    title: "boots adidas",
+    photo: "adidas.jpg",
+    category: "shoes",
+    price: 185,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots nike",
+    photo: "nike.jpg",
+    category: "shoes",
+    price: 185,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots puma",
+    photo: "puma.jpg",
+    category: "shoes",
+    price: 185,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots asics",
+    photo: "asics.jpg",
+    category: "shoes",
+    price: 185,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots umbro",
+    photo: "umbro.jpg",
+    category: "shoes",
+    price: 125,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots misuno",
+    photo: "misuno.jpg",
+    category: "shoes",
+    price: 135,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots topper",
+    photo: "misuno.jpg",
+    category: "shoes",
+    price: 115,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots new balance",
+    photo: "new-balance.jpg",
+    category: "shoes",
+    price: 195,
+    stock: 3000,
+  })
+  await instanceOfProducts.create({
+    title: "boots kappa",
+    photo: "kappa.jpg",
+    category: "shoes",
+    price: 155,
+    stock: 3000,
+  })
 }
+/* run() */
 
-run();
+const iProducts = new ProductManager();
+
+export default iProducts;
