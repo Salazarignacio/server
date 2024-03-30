@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+import crypto from 'crypto' 
 
 /* se crea la clase ProductManager */
 class ProductManager {
@@ -9,7 +9,7 @@ class ProductManager {
   create(data) {
     /* propiedades de cada producto */
     const product = {
-      id: data.id || crypto.randomBytes(12).toString("hex"),
+      id: data.id ||  crypto.randomBytes(12).toString("hex"),
       title: data.title,
       photo: data.photo,
       category: data.category,
@@ -24,7 +24,7 @@ class ProductManager {
       if (ProductManager.#products.length != 0) {
         return ProductManager.#products;
       } else {
-        throw new Error("No hay productos cargados");
+        throw new Error("PRODUCTS NOT FOUND");
       }
     } catch (err) {
       console.log(err);
@@ -36,11 +36,20 @@ class ProductManager {
       if (findId) {
         return findId;
       } else {
-        throw new Error("El ID no fue encontrado, ingrese un ID valido");
+        throw new Error("ID NOT FOUND, INSERT A VALID ID");
       }
     } catch (err) {
       console.log(err);
     }
+  }
+  update(id, obj) {
+    let read =  ProductManager.#products;
+    let filter = read.find((element) => element.id == id);
+    for (let a in obj) {
+      filter[a] = obj[a];
+    }
+
+    return this.readOne(id);
   }
   destroy(id) {
     const filterId = ProductManager.#products.filter(
@@ -49,7 +58,7 @@ class ProductManager {
     try {
       if (filterId.length == ProductManager.#products.length) {
         console.log("err");
-        throw new Error("No se pudo eliminar archivo, ID no encontrado");
+        throw new Error("CAN NOT DELETE FILE, ID NOT FOUND");
       } else {
         ProductManager.#products = filterId;
         return ProductManager.#products;
@@ -100,4 +109,6 @@ instanceOfProducts.create({
   price: 65,
   stock: 1000,
 });
-console.log(instanceOfProducts.destroy(1));
+/* console.log(instanceOfProducts.destroy(1)); */
+console.log(instanceOfProducts.update(1, {title: 'new title'}));
+

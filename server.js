@@ -1,5 +1,8 @@
 import express from "express";
-import iProducts from "./data/fs/ProductManager.js";
+import errorHandler from "./data/middlewares/errorHandler.mid.js";
+import pathHandler from "./data/middlewares/pathHandler.mid.js";
+import router from "./data/routers/index.router.js";
+import morgan from "morgan";
 
 const server = express();
 
@@ -9,64 +12,11 @@ const ready = () => console.log("server ready on port " + PORT);
 server.listen(PORT, ready);
 
 /* middlewares */
+server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+/* implementacion de morgan */
+server.use(morgan("dev"));
+server.use("/", router);
 
-/* routes */
-
-server.get("/", (req, res) => {
-  try {
-    return res.status(200).json({ respose: "HOME", succes: true });
-  } catch (err) {
-    return res.status(500).json({ succes: false });
-  }
-});
-
-/* RUTA QUE LEE TODOS LOS PRODUCTOS */
-
-server.get("/api/products", async (req, res) => {
-  try {
-    const read = await iProducts.read();
-    if (read) {
-      return res.status(200).json({
-        response: read,
-        succes: true,
-      });
-    } else {
-      const error = new Error("Not Found");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(error.statusCode).json({
-      statusCode: 404,
-      response: null,
-      message: error.message,
-    });
-  }
-});
-
-/* RUTA QUE TOMA EL PARAMETRO PID PARA LEER UN PRODUCTO ESPECIFICO */
-server.get("/api/products/:pid", async (req, res) => {
-  try {
-    const { pid } = req.params;
-    const readOne = await iProducts.readOne(pid);
-    if (readOne) {
-      return res.status(200).json({
-        response: readOne,
-        success: true,
-      });
-    } else {
-      const error = new Error("NOT FOUND");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(error.statusCode).json({
-      statusCode: 404,
-      response: null,
-      message: error.message,
-    });
-  }
-});
+server.use(errorHandler);
+server.use(pathHandler);
