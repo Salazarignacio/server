@@ -1,0 +1,330 @@
+[
+  {
+    "id": 1,
+    "title": "zapatillas",
+    "photo": "zapatillas.jpg",
+    "category": "shoes",
+    "price": 65,
+    "stock": 2000
+  },
+  {
+    "id": 2,
+    "title": "zapatillas",
+    "photo": "zapatillas.jpg",
+    "category": "shoes",
+    "price": 65,
+    "stock": 2000
+  },
+  {
+    "id": "e33e8cf00de70f2d149c5ade",
+    "title": "remera",
+    "photo": "remera.jpg",
+    "category": "t-shirt",
+    "price": 10,
+    "stock": 2000
+  },
+  {
+    "id": "4ff5cb4d68cf0d4a1695633e",
+    "title": "bermuda",
+    "photo": "bermuda.jpg",
+    "category": "shorts",
+    "price": 30,
+    "stock": 1500
+  },
+  {
+    "id": "a456ba98900f49f971762bc7",
+    "title": "medias",
+    "photo": "medias.jpg",
+    "category": "socks",
+    "price": 5,
+    "stock": 3000
+  },
+  {
+    "id": "00eed056947d19e0da274262",
+    "title": "jeans",
+    "photo": "jeans.jpg",
+    "category": "jeans",
+    "price": 65,
+    "stock": 1000
+  },
+  {
+    "id": "b7b5a71dff28a2ba7c7aea26",
+    "title": "chomba",
+    "photo": "chomba.jpg",
+    "category": "shirt",
+    "price": 65,
+    "stock": 1000
+  },
+  {
+    "id": "b69df3221e4371e3d76b9ea1",
+    "title": "chomba roja",
+    "photo": "chombaroja.jpg",
+    "category": "shirt",
+    "price": 25,
+    "stock": 1000
+  },
+  {
+    "id": "14bd2f2bb33485afc9ca4153",
+    "title": "zapatilla nike",
+    "photo": "nike.jpg",
+    "category": "shoes",
+    "price": 105,
+    "stock": 1000
+  },
+  {
+    "id": "ed9d2ae74796724d3fae57e2",
+    "title": "zapatilla asics",
+    "photo": "asics.jpg",
+    "category": "shoes",
+    "price": 165,
+    "stock": 2000
+  },
+  {
+    "id": "94237d0472ea9d4fa6e36065",
+    "title": "sandalia",
+    "photo": "sandalia.jpg",
+    "category": "flip-flop",
+    "price": 15,
+    "stock": 2000
+  },
+  {
+    "id": "928a067f37974a8fdaf6295d",
+    "title": "campera nieve roja",
+    "photo": "jacket.jpg",
+    "category": "jackets",
+    "price": 165,
+    "stock": 1000
+  },
+  {
+    "id": "507ddf7ca67fa405deed0c44",
+    "title": "boots adidas",
+    "photo": "adidas.jpg",
+    "category": "shoes",
+    "price": 185,
+    "stock": 3000
+  },
+  {
+    "id": "730f79482f4d2e0f4ed48f32",
+    "title": "boots nike",
+    "photo": "nike.jpg",
+    "category": "shoes",
+    "price": 185,
+    "stock": 3000
+  },
+  {
+    "id": "2c00d16311e45ecc86166904",
+    "title": "boots puma",
+    "photo": "puma.jpg",
+    "category": "shoes",
+    "price": 185,
+    "stock": 3000
+  },
+  {
+    "id": "3c1b38d558be8ed3e8ed9e3c",
+    "title": "boots asics",
+    "photo": "asics.jpg",
+    "category": "shoes",
+    "price": 185,
+    "stock": 3000
+  },
+  {
+    "id": "d5c701bb0ebbf1952b68eb0f",
+    "title": "boots umbro",
+    "photo": "umbro.jpg",
+    "category": "shoes",
+    "price": 125,
+    "stock": 3000
+  },
+  {
+    "id": "2642be82dafe216c9d8d60f8",
+    "title": "boots misuno",
+    "photo": "misuno.jpg",
+    "category": "shoes",
+    "price": 135,
+    "stock": 3000
+  },
+  {
+    "id": "55aab75657de7aad8f2dad77",
+    "title": "boots topper",
+    "photo": "misuno.jpg",
+    "category": "shoes",
+    "price": 115,
+    "stock": 3000
+  },
+  {
+    "id": "1146ee1d04ba69a9ba6f8690",
+    "title": "boots new balance",
+    "photo": "new-balance.jpg",
+    "category": "shoes",
+    "price": 195,
+    "stock": 3000
+  },
+  {
+    "id": "66f14265cbf3770671f390ff",
+    "title": "boots kappa",
+    "photo": "kappa.jpg",
+    "category": "shoes",
+    "price": 155,
+    "stock": 3000
+  },
+  {
+    "id": "98c21417359fc5a70ea47f12",
+    "title": "Nike Air Force 1",
+    "photo": "nikeairforce01.jpg",
+    "category": "shoes",
+    "price": 90,
+    "stock": 800
+  },
+  {
+    "id": "e3aa6cfda962357aedc9c580",
+    "title": "Vans Old Skool",
+    "photo": "vansoldskool05.jpg",
+    "category": "shoes",
+    "price": 55,
+    "stock": 1000
+  },
+  {
+    "id": "e9e9c5dd56b7be4c7ffd441c",
+    "title": "Converse Chuck Taylor All Star",
+    "photo": "conversechucktaylor02.jpg",
+    "category": "shoes",
+    "price": 50,
+    "stock": 950
+  },
+  {
+    "id": "ae9699afd9260a3b301bd9d4",
+    "title": "New Balance 574",
+    "photo": "newbalance57403.jpg",
+    "category": "shoes",
+    "price": 75,
+    "stock": 700
+  },
+  {
+    "id": "6ffa97af9688529791223028",
+    "title": "Puma Suede Classic",
+    "photo": "pumasuedeclassic01.jpg",
+    "category": "shoes",
+    "price": 60,
+    "stock": 850
+  },
+  {
+    "id": "e893c897b079e95c3f0e1c51",
+    "title": "Adidas Superstar",
+    "photo": "adidassuperstar04.jpg",
+    "category": "shoes",
+    "price": 80,
+    "stock": 900
+  },
+  {
+    "id": "a179174e860efaca2075d8dc",
+    "title": "Reebok Classic Leather",
+    "photo": "reebokclassicleather02.jpg",
+    "category": "shoes",
+    "price": 70,
+    "stock": 750
+  },
+  {
+    "id": "86f59a5e084a260cc0856ca9",
+    "title": "Timberland 6-Inch Premium Waterproof Boots",
+    "photo": "timberlandboots01.jpg",
+    "category": "boots",
+    "price": 150,
+    "stock": 500
+  },
+  {
+    "id": "5b5e25d72ee456d19de9a99d",
+    "title": "Dr. Martens 1460",
+    "photo": "drmartens1460.jpg",
+    "category": "boots",
+    "price": 130,
+    "stock": 600
+  },
+  {
+    "id": "09447d13c80b5b5d0eb5ee23",
+    "title": "UGG Classic Short II",
+    "photo": "uggclassicshortii.jpg",
+    "category": "boots",
+    "price": 160,
+    "stock": 450
+  },
+  {
+    "id": "2712cfc4a9f788a02e0d6ed7",
+    "title": "Caterpillar Second Shift Steel Toe Work Boot",
+    "photo": "caterpillarworkboot.jpg",
+    "category": "boots",
+    "price": 110,
+    "stock": 550
+  },
+  {
+    "id": "406bccc26791c3568d756ce5",
+    "title": "Skechers Workshire Steel Toe Work Boot",
+    "photo": "skechersworkboot.jpg",
+    "category": "boots",
+    "price": 90,
+    "stock": 700
+  },
+  {
+    "id": "5ffea1195486441325a815f4",
+    "title": "Fila Disruptor II",
+    "photo": "filadisruptorii.jpg",
+    "category": "shoes",
+    "price": 70,
+    "stock": 850
+  },
+  {
+    "id": "816b96a1682ac4a1d3cc2f8b",
+    "title": "ASICS Gel-Kayano 27",
+    "photo": "asicsgelkayano27.jpg",
+    "category": "shoes",
+    "price": 160,
+    "stock": 600
+  },
+  {
+    "id": "05d7f1b51382611943a6e912",
+    "title": "Brooks Ghost 13",
+    "photo": "brooksgoast13.jpg",
+    "category": "shoes",
+    "price": 130,
+    "stock": 700
+  },
+  {
+    "id": "2349f20fec6e9d467fe2c808",
+    "title": "Salomon Speedcross 5",
+    "photo": "salomonspeedcross5.jpg",
+    "category": "shoes",
+    "price": 140,
+    "stock": 500
+  },
+  {
+    "id": "eacd936206ccb4501e341dd2",
+    "title": "Merrell Moab 2 Waterproof",
+    "photo": "merrellmoab2waterproof.jpg",
+    "category": "shoes",
+    "price": 120,
+    "stock": 800
+  },
+  {
+    "id": "327c987b49580f81c2fd07c4",
+    "title": "Keen Targhee III Waterproof",
+    "photo": "keentargheeiiiwaterproof.jpg",
+    "category": "shoes",
+    "price": 150,
+    "stock": 650
+  },
+  {
+    "id": "b4d095729cc2f1288cffca0d",
+    "title": "Hoka One One Bondi 7",
+    "photo": "hokaoneonebondi7.jpg",
+    "category": "shoes",
+    "price": 170,
+    "stock": 550
+  },
+  {
+    "id": "d7d11fad322414bcabb8d4de",
+    "title": "Under Armour HOVR Phantom 2",
+    "photo": "underarmourhovrphantom2.jpg",
+    "category": "shoes",
+    "price": 140,
+    "stock": 700
+  }
+]
