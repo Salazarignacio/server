@@ -1,0 +1,14 @@
+<h1>Products</h1>
+<section>
+  <article id="products"></article>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io(); socket.on('products', data=> { let template = ``;
+  template = data.map(element=> `<div class="card" style="width: 18rem;"> <img
+  src=${element.photo} class="card-img-top" alt=${element.id}> <div
+  class="card-body"> <h5 class="card-title">${element.title}</h5> <p
+  class="card-text">$${element.price}</p> <a href="#" class="btn btn-primary">Go
+  somewhere</a> </div> </div>`).join('')
+  document.querySelector('#products').innerHTML = template })
+</script>

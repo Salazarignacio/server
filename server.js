@@ -1,15 +1,26 @@
 import express from "express";
-import errorHandler from "./data/middlewares/errorHandler.mid.js";
-import pathHandler from "./data/middlewares/pathHandler.mid.js";
-import router from "./data/routers/index.router.js";
+import pathHandler from "./src/middlewares/pathHandler.mid.js";
+import errorHandler from "./src/middlewares/errorHandler.mid.js";
+import router from "./src/routers/index.router.js";
 import morgan from "morgan";
+import { engine } from "express-handlebars";
+import __dirname from "./utils.js";
+import {createServer} from 'http'
+import { Server} from 'socket.io'
+import socketCb from './src/routers/index.socket.js'
 
 const server = express();
-
 const PORT = 8080;
 const ready = () => console.log("server ready on port " + PORT);
+const nodeServer = createServer(server)
+const socketServer = new Server(nodeServer)
+socketServer.on('connection', socketCb)
+nodeServer.listen(PORT, ready);
 
-server.listen(PORT, ready);
+server.engine("handlebars", engine());
+server.set("view engine", "handlebars");
+server.set("views", __dirname + "/src/views");
+
 
 /* middlewares */
 server.use(express.json());
