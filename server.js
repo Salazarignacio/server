@@ -15,6 +15,7 @@ const ready = () => console.log("server ready on port " + PORT);
 const nodeServer = createServer(server)
 const socketServer = new Server(nodeServer)
 socketServer.on('connection', socketCb)
+socketServer.emit("general", { text: "to all"})
 nodeServer.listen(PORT, ready);
 
 server.engine("handlebars", engine());

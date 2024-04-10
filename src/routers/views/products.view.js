@@ -12,7 +12,7 @@ productsRouter.get("/", async (req, res, next) => {
   }
 });
 
-productsRouter.get("/:pid", async (req, res, next) => {
+productsRouter.get("/details/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
     const readOne = await iProducts.readOne(pid);
@@ -21,5 +21,13 @@ productsRouter.get("/:pid", async (req, res, next) => {
     next(error);
   }
 });
+
+productsRouter.get('/real', async (req,res,next)=>{
+  try {
+    return res.render('real', {title: "real"})
+  } catch (error) {
+    next(error)
+  }
+})
 
 export default productsRouter;

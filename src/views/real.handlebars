@@ -1,0 +1,52 @@
+<h1>Real!</h1>
+<section class="d-flex w-100">
+  <article id="realProducts" class="w-50"></article>
+  <article id="realForm" class="w-50">
+    <form>
+         <label for="id">ID:</label>
+        <input type="name" id="id">
+   
+         <label for="title">Title:</label>
+        <input type="name" id="title">
+
+         <label for="photo">Photo:</label>
+        <input type="name" id="photo">
+
+         <label for="category">Category:</label>
+        <input type="name" id="category">
+
+        <label for="price">Price:</label>
+        <input type="name" id="price">
+
+        <label for="stock">Stock</label>
+        <input type="name" id="stock">
+        <button class="btn btn-primary" id="form" onclick="run()" type="button">SEnd</button>
+    </form>
+  </article>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+ 
+<script>
+  const socket = io(); socket.on('real', data=> { let template = ``; template =
+  data.map(element=> ` <div class="card" style="width: 18rem;"> <img
+  src=${element.photo} class="card-img-top" alt=${element.id}> <div
+  class="card-body"> <h5 class="card-title">${element.title}</h5> <p
+  class="card-text">$${element.price}</p> <a
+  href="/products/details/${element.id}" class="btn btn-primary">Details</a>
+  <button class="btn btn-primary" onclick="destroy('${element.id}')" type="button">Delete</button>
+  </div> </div> `).join(''); document.querySelector('#realProducts').innerHTML =
+  template })
+        function run(){
+        const id = document.querySelector('#id').value
+        const title = document.querySelector('#title').value
+        const photo = document.querySelector('#photo').value
+        const category = document.querySelector('#category').value
+        const price = document.querySelector('#price').value
+        const stock = document.querySelector('#stock').value
+    socket.emit('create', {title: title, photo: photo, category: category, price: price, stock:stock})
+    }
+
+function destroy(id){
+    socket.emit('destroy', id)
+}
+</script>

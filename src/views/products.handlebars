@@ -10,6 +10,6 @@
   template = data.map(element=> `<div class="card" style="width: 18rem;"> <img
   src=${element.photo} class="card-img-top" alt=${element.id}> <div
   class="card-body"> <h5 class="card-title">${element.title}</h5> <p
-  class="card-text">$${element.price}</p> <a href="/products/${element.id}" class="btn btn-primary">Details</a> </div> </div>`).join('')
+  class="card-text">$${element.price}</p> <a href="/products/details/${element.id}" class="btn btn-primary">Details</a> </div> </div>`).join('')
   document.querySelector('#products').innerHTML = template })
 </script>
