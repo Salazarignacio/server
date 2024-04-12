@@ -2,7 +2,7 @@
   {
     "id": "e33e8cf00de70f2d149c5ade",
     "title": "remera",
-    "photo": "remera.jpg",
+    "photo": "https://puraimagendigital.com.ar/2473-thickbox_default/remera-adulto-unisex-blanca-sublimable.jpg",
     "category": "t-shirt",
     "price": 10,
     "stock": 2000
@@ -10,7 +10,7 @@
   {
     "id": "4ff5cb4d68cf0d4a1695633e",
     "title": "bermuda",
-    "photo": "bermuda.jpg",
+    "photo": "https://vcp.com.ar/cdn/shop/files/ScratchedBlack1_20067a59-94ef-46a0-9a9c-9fb873f4223c.jpg?v=1703173411&width=2500",
     "category": "shorts",
     "price": 30,
     "stock": 1500
@@ -18,7 +18,7 @@
   {
     "id": "a456ba98900f49f971762bc7",
     "title": "medias",
-    "photo": "medias.jpg",
+    "photo": "https://nikearprod.vtexassets.com/arquivos/ids/155713/SX4120_001_A-hei-3144-wid-3144-fmt.jpg?v=638086282013100000",
     "category": "socks",
     "price": 5,
     "stock": 3000
@@ -26,7 +26,7 @@
   {
     "id": "00eed056947d19e0da274262",
     "title": "jeans",
-    "photo": "jeans.jpg",
+    "photo": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/bd2ec1fd-b63e-4670-a582-8f567b3f5eaf_1648731536.jpeg?itok=Xg0UuvBr",
     "category": "jeans",
     "price": 65,
     "stock": 1000
@@ -34,7 +34,7 @@
   {
     "id": "b7b5a71dff28a2ba7c7aea26",
     "title": "chomba",
-    "photo": "chomba.jpg",
+    "photo": "https://d368r8jqz0fwvm.cloudfront.net/26153-product_lg/chomba-de-mujer-natya.jpg",
     "category": "shirt",
     "price": 65,
     "stock": 1000
@@ -42,7 +42,7 @@
   {
     "id": "b69df3221e4371e3d76b9ea1",
     "title": "chomba roja",
-    "photo": "chombaroja.jpg",
+    "photo": "https://www.devre.la/media/catalog/product/d/e/devre-chomba_06d000110-020_001.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1350&width=900&canvas=900:1350",
     "category": "shirt",
     "price": 25,
     "stock": 1000
@@ -50,7 +50,7 @@
   {
     "id": "14bd2f2bb33485afc9ca4153",
     "title": "zapatilla nike",
-    "photo": "nike.jpg",
+    "photo": "https://nikearprod.vtexassets.com/arquivos/ids/379764-800-800?width=800&height=800&aspect=true",
     "category": "shoes",
     "price": 105,
     "stock": 1000

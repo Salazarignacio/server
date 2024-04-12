@@ -19,5 +19,12 @@
     "photo": "https://resizer.glanacion.com/resizer/v2/la-plegaria-de-ignacio-malcorra-luego-de-anotar-EED2CA36IJBDNAG5APQNBH4T4U.jpg?auth=c925b3c11cb359cbf9b980765a13508f0b36617408311e4f49eef05dce408504&width=880&height=586&quality=70&smart=true",
     "password": "123",
     "role": "enganche"
+  },
+  {
+    "id": "1234",
+    "email": "miguelo@gmail.com",
+    "photo": "https://media.lmneuquen.com/p/ca4f819231aa63f49c9dc7a995e0e6bd/adjuntos/195/imagenes/007/694/0007694301/770x0/smart/imagepng.png",
+    "password": "papadeniul",
+    "role": "admin"
   }
 ]
