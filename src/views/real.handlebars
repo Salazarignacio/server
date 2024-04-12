@@ -20,7 +20,7 @@
   {{! Products form }}
   <article class="border-start w-50 p-4">
     <form class="mb-3">
-      <h3>Products</h3>
+      <h3><i class="fa-solid fa-shirt"></i> Products</h3>
       <label for="id">ID:</label>
       <input class="form-control" type="name" id="id" />
 
@@ -43,11 +43,11 @@
         id="form"
         onclick="run()"
         type="button"
-      >SEnd</button>
+      > <i class="fa-solid fa-plus"></i></button>
     </form>
   </article>
   <article class="border-start w-50 p-4">
-      <h3>Users</h3>
+      <h3> <i class="fa-solid fa-user"></i> Users</h3>
     <form class="mb-3">
       
 
@@ -71,7 +71,7 @@
         id="formUser"
         onclick="runUser()"
         type="button"
-      >Send
+      ><i class="fa-solid fa-plus"></i>
       </button>
     </form>
   </article>
@@ -85,9 +85,9 @@
   src=${element.photo} class="card-img-top" alt=${element.id}> <div
   class="card-body"> <h5 class="card-title">${element.title}</h5> <p
   class="card-text">$${element.price}</p> <a
-  href="/products/details/${element.id}" class="btn btn-primary">Details</a>
-  <button class="btn btn-primary" onclick="destroy('${element.id}')"
-  type="button">Delete</button> </div> </div> `).join('');
+  href="/products/details/${element.id}" class="btn btn-outline-secondary">Details</a>
+  <button class="btn btn-outline-secondary" onclick="destroy('${element.id}')"
+  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div> `).join('');
   document.querySelector('#realProducts').innerHTML = template }); 
 
   socket.on('realUsers', data=>{
@@ -97,8 +97,8 @@
       <img src=${element.photo} class="card-img-top" alt=${element.id}> 
       <div class="card-body"> <h5 class="card-title">${element.id}</h5>
        <p class="card-text">${element.email}</p> 
-       <a href="/users/details/${element.id}" class="btn btn-primary">Details</a>
-  <button class="btn btn-primary" onclick="destroyUser('${element.id}')" type="button">Delete</button>
+       <a href="/users/details/${element.id}" class="btn btn-outline-secondary">Details</a>
+  <button class="btn btn-outline-secondary" onclick="destroyUser('${element.id}')" type="button"><i class="fa-regular fa-trash-can"></i></button>
    </div>
   </div>`).join('')
   document.querySelector('#realUsers').innerHTML = template
@@ -128,3 +128,4 @@
   socket.emit('createUser', {id:id, photo: photo, email: email, password: password, role: role})
   }
 </script>
+<script src="https://kit.fontawesome.com/02894371fc.js" crossorigin="anonymous"></script>
