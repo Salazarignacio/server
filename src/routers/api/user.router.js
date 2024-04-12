@@ -36,7 +36,7 @@ async function read(req, res) {
       throw error;
     }
   } catch (error) {
-    return console.log('mistake');
+    return next(error);
   }
 }
 async function readOne(req, res, next) {
