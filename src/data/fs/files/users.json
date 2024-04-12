@@ -1,0 +1,23 @@
+[
+  {
+    "id": 2,
+    "email": "rubenmarco@gmail.com",
+    "photo": "https://pbs.twimg.com/profile_images/574633842151063552/hRVGICQA_400x400.png",
+    "password": "9deoro",
+    "role": "admin"
+  },
+  {
+    "id": "347aace2a43dd57eda511ce5",
+    "email": "carlosquintana@gmail.com",
+    "photo": "https://www.cadena3.com/admin/playerswf/fotos/ARCHI_1043733.jpg",
+    "password": "123",
+    "role": "www"
+  },
+  {
+    "id": "10",
+    "email": "nachomalcorra@gmail.com",
+    "photo": "https://resizer.glanacion.com/resizer/v2/la-plegaria-de-ignacio-malcorra-luego-de-anotar-EED2CA36IJBDNAG5APQNBH4T4U.jpg?auth=c925b3c11cb359cbf9b980765a13508f0b36617408311e4f49eef05dce408504&width=880&height=586&quality=70&smart=true",
+    "password": "123",
+    "role": "enganche"
+  }
+]

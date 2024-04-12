@@ -1,6 +1,8 @@
 <h1>WELLCOME!</h1>
 <section>
-  
+   {{#each users}}
+    <a href="/users/{{this.id}}" class="pt-3 ps-3">{{this.email}}</a>
+{{/each}} 
   
 </section>
 <script src="/socket.io/socket.io.js"></script>

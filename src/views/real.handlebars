@@ -1,52 +1,118 @@
 <h1>Real!</h1>
 <section class="d-flex w-100">
-  <article id="realProducts" class="w-50"></article>
-  <article id="realForm" class="w-50">
+  {{! Products }}
+  <article id="realProducts" class="w-50">
+    <h3>Loading...</h3>
+  </article>
+  {{! Users }}
+  <article id="realUsers" class="w-50">
+    <h3>Loading...</h3>
+  </article>
+  {{! Products form }}
+  <article class="w-50">
     <form>
-         <label for="id">ID:</label>
-        <input type="name" id="id">
-   
-         <label for="title">Title:</label>
-        <input type="name" id="title">
+      <h3>Products</h3>
+      <label for="id">ID:</label>
+      <input type="name" id="id" />
 
-         <label for="photo">Photo:</label>
-        <input type="name" id="photo">
+      <label for="title">Title:</label>
+      <input type="name" id="title" />
 
-         <label for="category">Category:</label>
-        <input type="name" id="category">
+      <label for="photo">Photo:</label>
+      <input type="name" id="photo" />
 
-        <label for="price">Price:</label>
-        <input type="name" id="price">
+      <label for="category">Category:</label>
+      <input type="name" id="category" />
 
-        <label for="stock">Stock</label>
-        <input type="name" id="stock">
-        <button class="btn btn-primary" id="form" onclick="run()" type="button">SEnd</button>
+      <label for="price">Price:</label>
+      <input type="name" id="price" />
+
+      <label for="stock">Stock</label>
+      <input type="name" id="stock" />
+      <button
+        class="btn btn-primary"
+        id="form"
+        onclick="run()"
+        type="button"
+      >SEnd</button>
+    </form>
+  </article>
+  <article>
+    <form>
+      <h3>Users</h3>
+      <label for="id">ID:</label>
+      <input type="name" id="idUser" />
+
+      <label for="email">Email:</label>
+      <input type="name" id="email" />
+
+      <label for="photo">Photo:</label>
+      <input type="name" id="photoUser" />
+
+      <label for="password">Password:</label>
+      <input type="name" id="password" />
+
+      <label for="role">Role:</label>
+      <input type="name" id="role" />
+
+      <button
+        class="btn btn-primary"
+        id="formUser"
+        onclick="runUser()"
+        type="button"
+      >SEnding
+      </button>
     </form>
   </article>
 </section>
 <script src="/socket.io/socket.io.js"></script>
- 
+
 <script>
-  const socket = io(); socket.on('real', data=> { let template = ``; template =
+  const socket = io(); socket.on('products', data=> { let template = ``; template =
   data.map(element=> ` <div class="card" style="width: 18rem;"> <img
   src=${element.photo} class="card-img-top" alt=${element.id}> <div
   class="card-body"> <h5 class="card-title">${element.title}</h5> <p
   class="card-text">$${element.price}</p> <a
   href="/products/details/${element.id}" class="btn btn-primary">Details</a>
-  <button class="btn btn-primary" onclick="destroy('${element.id}')" type="button">Delete</button>
-  </div> </div> `).join(''); document.querySelector('#realProducts').innerHTML =
-  template })
-        function run(){
-        const id = document.querySelector('#id').value
-        const title = document.querySelector('#title').value
-        const photo = document.querySelector('#photo').value
-        const category = document.querySelector('#category').value
-        const price = document.querySelector('#price').value
-        const stock = document.querySelector('#stock').value
-    socket.emit('create', {title: title, photo: photo, category: category, price: price, stock:stock})
-    }
+  <button class="btn btn-primary" onclick="destroy('${element.id}')"
+  type="button">Delete</button> </div> </div> `).join('');
+  document.querySelector('#realProducts').innerHTML = template }); 
 
-function destroy(id){
-    socket.emit('destroy', id)
-}
+  socket.on('realUsers', data=>{
+    let template = ``;
+    template = data.map(element=> ` 
+    <div class="card" style="width: 18rem;"> 
+      <img src=${element.photo} class="card-img-top" alt=${element.id}> 
+      <div class="card-body"> <h5 class="card-title">${element.id}</h5>
+       <p class="card-text">${element.email}</p> 
+       <a href="/users/details/${element.id}" class="btn btn-primary">Details</a>
+  <button class="btn btn-primary" onclick="destroyUser('${element.id}')" type="button">Delete</button>
+   </div>
+  </div>`).join('')
+  document.querySelector('#realUsers').innerHTML = template
+  })
+  function run()
+      { const id = document.querySelector('#id').value; 
+      const title = document.querySelector('#title').value; 
+      const photo = document.querySelector('#photo').value; 
+      const category = document.querySelector('#category').value; 
+      const price = document.querySelector('#price').value;
+     const stock = document.querySelector('#stock').value; 
+     socket.emit('create', {title: title, photo: photo, category: category, price: price, stock:stock}) } 
+  function destroy(id)
+  { socket.emit('destroy', id) }; 
+  
+  function destroyUser(id)
+  { socket.emit('destroyUser', id) }; 
+
+  function runUser()
+{
+  console.log('hola')
+  const id = document.querySelector('#idUser').value; 
+  const photo = document.querySelector('#photoUser').value; 
+  const email = document.querySelector('#email').value; 
+  const password= document.querySelector('#password').value; 
+  const role= document.querySelector('#role').value ;
+  socket.emit('createUser', {id:id, photo: photo, email: email, password: password, role: role})
+  }
 </script>

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import iProducts from "../../data/fs/ProductManager.js";
 
-const productsRouter = Router();
+const productsViewRouter = Router();
 
-productsRouter.get("/", async (req, res, next) => {
+productsViewRouter.get("/", async (req, res, next) => {
   try {
     const products = await iProducts.read();
     return res.render("products", { products });
@@ -12,22 +12,22 @@ productsRouter.get("/", async (req, res, next) => {
   }
 });
 
-productsRouter.get("/details/:pid", async (req, res, next) => {
+productsViewRouter.get("/details/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
     const readOne = await iProducts.readOne(pid);
-    return res.render("details", { product: readOne });
+    return res.render("productsDetails", { product: readOne });
   } catch (error) {
     next(error);
   }
 });
 
-productsRouter.get('/real', async (req,res,next)=>{
+productsViewRouter.get("/real", async (req, res, next) => {
   try {
-    return res.render('real', {title: "real"})
+    return res.render("real", { title: "real" });
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 
-export default productsRouter;
+export default productsViewRouter;

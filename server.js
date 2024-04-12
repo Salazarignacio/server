@@ -12,10 +12,10 @@ import socketCb from './src/routers/index.socket.js'
 const server = express();
 const PORT = 8080;
 const ready = () => console.log("server ready on port " + PORT);
+
 const nodeServer = createServer(server)
 const socketServer = new Server(nodeServer)
 socketServer.on('connection', socketCb)
-socketServer.emit("general", { text: "to all"})
 nodeServer.listen(PORT, ready);
 
 server.engine("handlebars", engine());
