@@ -12,9 +12,13 @@
 
 <div class="br-2 d-flex w-50 ">
   {{! Products form }}
-  <article class="border-start w-50 p-4">
+  <article class="border-start w-75 p-4">
     <form class="mb-3">
-      <h3><i class="fa-solid fa-shirt"></i> Products</h3>
+      <div class="d-flex flex-row-reverse">
+  <div class="p-2"><h3 class="d-flex gap-2">Products  <i class="fa-solid fa-shirt"></i> </h3></div>
+
+</div>
+      
       <label for="id">ID:</label>
       <input class="form-control" type="name" id="id" />
 
@@ -39,36 +43,7 @@
         type="button"
       > <i class="fa-solid fa-plus"></i></button>
     </form>
-  </article>
-  <article class="border-start w-50 p-4">
-      <h3> <i class="fa-solid fa-user"></i> Users</h3>
-    <form class="mb-3">
-      
 
-      <label for="idUser" >ID:</label>
-      <input type="name" id="idUser"  class="form-control" placeholder="ID"/>
-
-      <label for="email" class="form-label">Email:</label>
-      <input type="name" id="email"   class="form-control"/>
-
-      <label for="photo" class="form-label">Photo:</label>
-      <input type="name" id="photoUser" class="form-control" />
-
-      <label for="password" class="form-label">Password:</label>
-      <input type="name" id="password" class="form-control"/>
-
-      <label for="role" class="form-label">Role:</label>
-      <input type="name" id="role" class="mb-3 form-control"/>
-
-      <button
-        class="btn btn-primary"
-        id="formUser"
-        onclick="runUser()"
-        type="button"
-      ><i class="fa-solid fa-plus"></i>
-      </button>
-    </form>
-  </article>
   </div>
 
 </section>
@@ -78,33 +53,4 @@
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
-{{!-- <script src="../../public/scripts/realP.js"></script>  <-----por alguna razon no puedo importarlo--}}
-
-<script>
-  const socket = io(); 
-socket.on('products', (data)=> 
-{ let template = ``; 
-template = data.map(element=> `<div class="card mb-2" style="width: 18rem;"> 
-<img src=${element.photo} class="card-img-top" alt=${element.id}> 
-<div class="card-body"> <h5 class="card-title">${element.title}</h5> 
-<p class="card-text">$${element.price}</p> 
-<a href="/products/details/${element.id}" class="btn btn-outline-secondary">Details</a>
-<button class="btn btn-outline-secondary" onclick="destroy('${element.id}')"
-type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div> `).join('');
-document.querySelector('#realProducts').innerHTML = template }); 
-
-function run()
-    { const id = document.querySelector('#id').value; 
-    const title = document.querySelector('#title').value; 
-    const photo = document.querySelector('#photo').value; 
-    const category = document.querySelector('#category').value; 
-    const price = document.querySelector('#price').value;
-   const stock = document.querySelector('#stock').value; 
-   socket.emit('create', {title: title, photo: photo, category: category, price: price, stock:stock}) } 
-function destroy(id)
-{ socket.emit('destroy', id) }; 
-
-
-
-
-</script>
+<script src="/scripts/realP.js"></script>  

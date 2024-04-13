@@ -12,12 +12,16 @@
   <div class="br-2 d-flex w-50">
 
 
-    <article class="border-start w-50 p-4">
-      <h3> <i class="fa-solid fa-user"></i> Users</h3>
+    <article class="border-start  w-75 p-4">
+        <div class="d-flex flex-row-reverse">
+  <div class="p-2"><h3 class="d-flex gap-2">Users  <i class="fa-solid d-flex aligtn-items-center justify-content-end fa-user mb-5"></i> </h3></div>
+
+</div>
+      
       <form class="mb-3">
 
         <label for="idUser">ID:</label>
-        <input type="name" id="idUser" class="form-control" placeholder="ID" />
+        <input type="name" id="idUser" class="form-control"  />
 
         <label for="email" class="form-label">Email:</label>
         <input type="name" id="email" class="form-control" />
@@ -49,35 +53,4 @@
 ></script>
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-{{!-- <script src="../../public/scripts/realU.js"></script> --}}
-<script>
-    const socket = io(); 
-
-socket.on('realUsers', data=>{
-  let template = ``;
-  template = data.map(element=> ` 
-  <div class="card mb-2" style="width: 18rem;"> 
-    <img src=${element.photo} class="card-img-top" alt=${element.id}> 
-    <div class="card-body"> <h5 class="card-title">${element.id}</h5>
-     <p class="card-text">${element.email}</p> 
-     <a href="/users/details/${element.id}" class="btn btn-outline-secondary">Details</a>
-<button class="btn btn-outline-secondary" onclick="destroyUser('${element.id}')" type="button"><i class="fa-regular fa-trash-can"></i></button>
- </div>
-</div>`).join('')
-document.querySelector('#realUsers').innerHTML = template
-})
-
-function destroyUser(id)
-{ socket.emit('destroyUser', id) }; 
-
-function runUser()
-{
-const id = document.querySelector('#idUser').value; 
-const photo = document.querySelector('#photoUser').value; 
-const email = document.querySelector('#email').value; 
-const password= document.querySelector('#password').value; 
-const role= document.querySelector('#role').value ;
-socket.emit('createUser', {id:id, photo: photo, email: email, password: password, role: role})
-}
-
-</script>
+ <script src="/scripts/realU.js"></script> 

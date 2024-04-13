@@ -1,15 +1,11 @@
  {{#each products}}
     <a href="/products/{{this.id}}" class="pt-3 ps-3">{{this.title}}</a>
 {{/each}} 
-<section>
-  <article id="products"></article>
-</section>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io(); socket.on('products', data=> { let template = ``;
-  template = data.map(element=> `<div class="card" style="width: 18rem;"> <img
-  src=${element.photo} class="card-img-top" alt=${element.id}> <div
-  class="card-body"> <h5 class="card-title">${element.title}</h5> <p
-  class="card-text">$${element.price}</p> <a href="/products/details/${element.id}" class="btn btn-primary">Details</a> </div> </div>`).join('')
-  document.querySelector('#products').innerHTML = template })
-</script>
+    <article id="realProducts" class="">
+      <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </article>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+<script src="/scripts/realP.js"></script>  

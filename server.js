@@ -26,6 +26,7 @@ server.set("views", __dirname + "/src/views");
 /* middlewares */
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(express.static(__dirname + "/public")); /* <-------this linea */
 /* implementacion de morgan */
 server.use(morgan("dev"));
 server.use("/", router);

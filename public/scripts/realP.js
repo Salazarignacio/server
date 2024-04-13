@@ -1,7 +1,7 @@
 const socket = io(); 
 socket.on('products', (data)=> 
 { let template = ``; 
-template = data.map(element=> `<div class="card mb-2" style="width: 18rem;"> 
+template = data.map(element=> `<div class="card mb-2" style="width: 28rem;"> 
 <img src=${element.photo} class="card-img-top" alt=${element.id}> 
 <div class="card-body"> <h5 class="card-title">${element.title}</h5> 
 <p class="card-text">$${element.price}</p> 
@@ -20,7 +20,3 @@ function run()
    socket.emit('create', {title: title, photo: photo, category: category, price: price, stock:stock}) } 
 function destroy(id)
 { socket.emit('destroy', id) }; 
-
-
-
-

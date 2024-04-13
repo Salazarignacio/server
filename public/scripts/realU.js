@@ -3,7 +3,7 @@ const socket = io();
 socket.on('realUsers', data=>{
   let template = ``;
   template = data.map(element=> ` 
-  <div class="card mb-2" style="width: 18rem;"> 
+  <div class="card mb-2" style="width: 28rem;"> 
     <img src=${element.photo} class="card-img-top" alt=${element.id}> 
     <div class="card-body"> <h5 class="card-title">${element.id}</h5>
      <p class="card-text">${element.email}</p> 
