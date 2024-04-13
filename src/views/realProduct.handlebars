@@ -1,5 +1,4 @@
-
-<section class=" d-flex bg-light">
+<section class="d-flex bg-light">
 <div class="d-flex bg-body-secondary justify-content-evenly w-50">
   {{! Products }}
   <article id="realProducts" class="">
@@ -8,12 +7,7 @@
 </div>
   </article>
   
-  {{! Users }}
-  <article id="realUsers" class="">
-   <div class="spinner-grow" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-  </article>
+
 </div>
 
 <div class="br-2 d-flex w-50 ">
@@ -76,38 +70,29 @@
     </form>
   </article>
   </div>
-</section>
 
+</section>
 <script src="https://kit.fontawesome.com/02894371fc.js" crossorigin="anonymous"></script>
 
   
-<script src="/socket.io/socket.io.js"></script>
-{{!-- <script src="../../public/scripts/real.js"></script>  <------ por alguna extraña razon no lo carga --}}
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+{{!-- <script src="../../public/scripts/realP.js"></script>  <-----por alguna razon no puedo importarlo--}}
 
 <script>
-  const socket = io(); socket.on('products', data=> { let template = ``; template =
-data.map(element=> ` <div class="card mb-2" style="width: 18rem;"> <img
-src=${element.photo} class="card-img-top" alt=${element.id}> <div
-class="card-body"> <h5 class="card-title">${element.title}</h5> <p
-class="card-text">$${element.price}</p> <a
-href="/products/details/${element.id}" class="btn btn-outline-secondary">Details</a>
+  const socket = io(); 
+socket.on('products', (data)=> 
+{ let template = ``; 
+template = data.map(element=> `<div class="card mb-2" style="width: 18rem;"> 
+<img src=${element.photo} class="card-img-top" alt=${element.id}> 
+<div class="card-body"> <h5 class="card-title">${element.title}</h5> 
+<p class="card-text">$${element.price}</p> 
+<a href="/products/details/${element.id}" class="btn btn-outline-secondary">Details</a>
 <button class="btn btn-outline-secondary" onclick="destroy('${element.id}')"
 type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div> `).join('');
 document.querySelector('#realProducts').innerHTML = template }); 
 
-socket.on('realUsers', data=>{
-  let template = ``;
-  template = data.map(element=> ` 
-  <div class="card mb-2" style="width: 18rem;"> 
-    <img src=${element.photo} class="card-img-top" alt=${element.id}> 
-    <div class="card-body"> <h5 class="card-title">${element.id}</h5>
-     <p class="card-text">${element.email}</p> 
-     <a href="/users/details/${element.id}" class="btn btn-outline-secondary">Details</a>
-<button class="btn btn-outline-secondary" onclick="destroyUser('${element.id}')" type="button"><i class="fa-regular fa-trash-can"></i></button>
- </div>
-</div>`).join('')
-document.querySelector('#realUsers').innerHTML = template
-})
 function run()
     { const id = document.querySelector('#id').value; 
     const title = document.querySelector('#title').value; 
@@ -119,20 +104,7 @@ function run()
 function destroy(id)
 { socket.emit('destroy', id) }; 
 
-function destroyUser(id)
-{ socket.emit('destroyUser', id) }; 
-
-function runUser()
-{
-const id = document.querySelector('#idUser').value; 
-const photo = document.querySelector('#photoUser').value; 
-const email = document.querySelector('#email').value; 
-const password= document.querySelector('#password').value; 
-const role= document.querySelector('#role').value ;
-socket.emit('createUser', {id:id, photo: photo, email: email, password: password, role: role})
-}
 
 
 
 </script>
-

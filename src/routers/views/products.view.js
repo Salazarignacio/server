@@ -24,7 +24,7 @@ productsViewRouter.get("/details/:pid", async (req, res, next) => {
 
 productsViewRouter.get("/real", async (req, res, next) => {
   try {
-    return res.render("real", { title: "real" });
+    return res.render("realProduct", { title: "real" });
   } catch (error) {
     next(error);
   }
