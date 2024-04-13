@@ -1,1 +1,25 @@
-<h1>chat</h1>
+
+
+
+
+<main class="d-flex flex-column align-items-center w-100 flex-grow-1">
+
+  <section
+    class="m-2 w-50 d-flex flex-column justify-content-center align-items-center bg-secondary-subtle"
+  >
+    <span class="w-100 p-3" id="allMessages"></span>
+    <span class="w-100 p-3 d-flex justify-content-center align-items-center">
+      <span class="fw-bold pe-2" id="nickname"></span>
+      <input
+        class="w-100 ps-1"
+        type="text"
+        name="message"
+        id="message"
+        placeholder="Type and chat!"
+      />
+    </span>
+  </section>
+</main>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/scripts/chat.js"></script>  

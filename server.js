@@ -16,6 +16,7 @@ const ready = () => console.log("server ready on port " + PORT);
 const nodeServer = createServer(server)
 const socketServer = new Server(nodeServer)
 socketServer.on('connection', socketCb)
+export {socketServer}
 nodeServer.listen(PORT, ready);
 
 server.engine("handlebars", engine());
@@ -26,7 +27,7 @@ server.set("views", __dirname + "/src/views");
 /* middlewares */
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static(__dirname + "/public")); /* <-------this linea */
+server.use(express.static(__dirname + "/public")); 
 /* implementacion de morgan */
 server.use(morgan("dev"));
 server.use("/", router);
