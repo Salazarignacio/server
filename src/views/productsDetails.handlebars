@@ -1,11 +1,10 @@
 {{#if product.id}}
-    <h1>DETAILS {{product.id}}</h1>
+    
     <div class="card" style="width: 18rem;"> <img
   src={{product.photo}} class="card-img-top" alt={{product.id}}> <div
   class="card-body"> <h5 class="card-title">{{product.title}}</h5> <p
   class="card-text">${{product.price}}</p> <a href="#" class="btn btn-primary">Buy</a> </div> </div>
-    <p>{{product.text}}</p>
-    <p>{{product.category}}</p>
+    
 {{else}}
     <h1>PRODUCT NOT FOUND</h1>
 {{/if}}

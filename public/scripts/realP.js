@@ -1,5 +1,5 @@
 const socket = io(); 
-socket.on('products', (data)=> 
+socket.on('products', (data, cat)=> 
 { let template = ``; 
 template = data.map(element=> `<div class="card mb-2" style="width: 28rem;"> 
 <img src=${element.photo} class="card-img-top" alt=${element.id}> 
@@ -9,6 +9,7 @@ template = data.map(element=> `<div class="card mb-2" style="width: 28rem;">
 <button class="btn btn-outline-secondary" onclick="destroy('${element.id}')"
 type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div> `).join('');
 document.querySelector('#realProducts').innerHTML = template }); 
+
 
 function run()
     { const id = document.querySelector('#id').value; 

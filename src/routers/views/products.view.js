@@ -6,6 +6,17 @@ const productsViewRouter = Router();
 productsViewRouter.get("/", async (req, res, next) => {
   try {
     const products = await iProducts.read();
+    console.log("products")
+    return res.render("products", { products });
+  } catch (error) {
+    return next(error);
+  }
+});
+productsViewRouter.get("/category/:cat", async (req, res, next) => {
+  try {
+    const {cat} = req.params
+    const products = await iProducts.read(cat);
+    
     return res.render("products", { products });
   } catch (error) {
     return next(error);

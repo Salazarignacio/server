@@ -1,11 +1,11 @@
  {{#each products}}
-    <a href="/products/{{this.id}}" class="pt-3 ps-3">{{this.title}}</a>
-{{/each}} 
-    <article id="realProducts" class="">
-      <div class="spinner-grow" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <div class="card mb-2" style="width: 28rem;"> 
+<img src={{this.photo}} class="card-img-top" alt={{this.id}}> 
+<div class="card-body"> <h5 class="card-title">{{this.title}}</h5> 
+<p class="card-text">${{this.price}}</p> 
+
+<a href="/products/details/{{this.id}}" class="btn btn-outline-secondary">Details</a>
+ </div> </div>
+{{/each}}     
       </div>
     </article>
-    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-
-<script src="/scripts/realP.js"></script>  
