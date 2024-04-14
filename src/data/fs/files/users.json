@@ -7,16 +7,23 @@
     "role": "admin"
   },
   {
+    "id": "11",
+    "email": "angelito@gmail.com",
+    "photo": "https://rosariolaciudad.com.ar/assets/Central-pone-en-marcha-el-operativo-retorno-de-Di-Maria-.webp",
+    "password": "11111",
+    "role": "admin"
+  },
+  {
     "id": "347aace2a43dd57eda511ce5",
     "email": "carlosquintana@gmail.com",
-    "photo": "https://www.cadena3.com/admin/playerswf/fotos/ARCHI_1043733.jpg",
+    "photo": "https://rosariocentral.com/wp-content/uploads/2023/02/QUINTANA_CARLOS.png",
     "password": "123",
     "role": "www"
   },
   {
     "id": "10",
     "email": "nachomalcorra@gmail.com",
-    "photo": "https://resizer.glanacion.com/resizer/v2/la-plegaria-de-ignacio-malcorra-luego-de-anotar-EED2CA36IJBDNAG5APQNBH4T4U.jpg?auth=c925b3c11cb359cbf9b980765a13508f0b36617408311e4f49eef05dce408504&width=880&height=586&quality=70&smart=true",
+    "photo": "https://imagecache.365scores.com/image/upload/f_png,w_250,h_250,c_limit,q_auto:eco,d_Athletes:default.png,r_max,c_thumb,g_face,z_0.65/Athletes/13641",
     "password": "123",
     "role": "enganche"
   },
@@ -26,5 +33,12 @@
     "photo": "https://media.lmneuquen.com/p/ca4f819231aa63f49c9dc7a995e0e6bd/adjuntos/195/imagenes/007/694/0007694301/770x0/smart/imagepng.png",
     "password": "papadeniul",
     "role": "admin"
+  },
+  {
+    "id": "8",
+    "email": "germanchacho@gmail.com",
+    "photo": "https://i0.wp.com/newspack-elsol.s3.amazonaws.com/wp-content/uploads/2014/12/000559574-coudet.jpg?fit=1024%2C768&ssl=1",
+    "password": "4a0",
+    "role": "DT"
   }
 ]

@@ -3,13 +3,21 @@ const socket = io();
 socket.on('realUsers', data=>{
   let template = ``;
   template = data.map(element=> ` 
-  <div class="card mb-2" style="width: 28rem;"> 
-    <img src=${element.photo} class="card-img-top" alt=${element.id}> 
-    <div class="card-body"> <h5 class="card-title">${element.id}</h5>
-     <p class="card-text">${element.email}</p> 
-     <a href="/users/details/${element.id}" class="btn btn-outline-secondary">Details</a>
-<button class="btn btn-outline-secondary" onclick="destroyUser('${element.id}')" type="button"><i class="fa-regular fa-trash-can"></i></button>
- </div>
+
+  <div class="card mb-3" style="max-width: 740px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${element.photo}" class="img-fluid rounded-start" alt="${element.id}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${element.email}</h5>
+        <p class="card-text">Role: ${element.role}</p>
+        <p class="card-text">ID: ${element.id}</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
 </div>`).join('')
 document.querySelector('#realUsers').innerHTML = template
 })
