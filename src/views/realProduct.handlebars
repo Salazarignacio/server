@@ -1,41 +1,37 @@
-<section class="d-flex bg-light">
-<div class="d-flex bg-body-secondary justify-content-evenly w-50">
+<section class="container-fluid d-flex bg-light">
+
   {{! Products }}
-  <article id="realProducts" class="">
+  <article id="realProducts" class="bg-body-secondary d-flex flex-wrap justify-content-center">
  <div class="spinner-grow" role="status">
-  <span class=" visually-hidden">Loading...</span>
+  <span class="visually-hidden">Loading...</span>
 </div>
   </article>
   
 
-</div>
 
-<div class="br-2 d-flex w-50 ">
+
+<div class="d-flex  ">
   {{! Products form }}
-  <article class="border-start w-75 p-4">
+  <article class="border-start  p-3">
     <form class="mb-3">
       <div class="d-flex flex-row-reverse">
   <div class="p-2"><h3 class="d-flex gap-2">Products  <i class="fa-solid fa-shirt"></i> </h3></div>
 
 </div>
-      
-      <label for="id">ID:</label>
-      <input class="form-control" type="name" id="id" />
-
-      <label for="title">Title:</label>
+      <label for="title">Title</label>
       <input type="name" class="form-control" id="title" />
 
-      <label for="photo">Photo:</label>
-      <input type="name" id="photo" class="form-control"/>
+      <label for="photo">Photo</label>
+      <input type="name" id="photo" class="form-control "/>
 
-      <label for="category">Category:</label>
-      <input type="name" id="category" class="form-control"/>
+      <label for="category">Category</label>
+      <input type="name" id="category" class="form-control "/>
 
-      <label for="price">Price:</label>
-      <input type="name" id="price" class="form-control"/>
+      <label for="price">Price</label>
+      <input type="name" id="price" class="form-control "/>
 
       <label for="stock">Stock</label>
-      <input type="name" id="stock" class="form-control mb-3"/>
+      <input type="name" id="stock" class="form-control mb-3 "/>
       <button
         class="btn btn-primary"
         id="form"

@@ -4,7 +4,7 @@ socket.on('realUsers', data=>{
   let template = ``;
   template = data.map(element=> ` 
 
-  <div class="card mb-3" style="max-width: 940px;">
+  <div class="card mb-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="max-width: 940px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="${element.photo}" class="img-fluid rounded-start" alt="${element.id}">
@@ -28,7 +28,7 @@ function destroyUser(id)
 
 function runUser()
 {
-const id = document.querySelector('#idUser').value; 
+
 const photo = document.querySelector('#photoUser').value; 
 const email = document.querySelector('#email').value; 
 const password= document.querySelector('#password').value; 

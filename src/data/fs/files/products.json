@@ -3,7 +3,7 @@
     "id": "e33e8cf00de70f2d149c5ade",
     "title": "remera",
     "photo": "https://puraimagendigital.com.ar/2473-thickbox_default/remera-adulto-unisex-blanca-sublimable.jpg",
-    "category": "t-shirt",
+    "category": "shirt",
     "price": 10,
     "stock": 2000
   },
@@ -11,7 +11,7 @@
     "id": "4ff5cb4d68cf0d4a1695633e",
     "title": "bermuda",
     "photo": "https://vcp.com.ar/cdn/shop/files/ScratchedBlack1_20067a59-94ef-46a0-9a9c-9fb873f4223c.jpg?v=1703173411&width=2500",
-    "category": "shorts",
+    "category": "pants",
     "price": 30,
     "stock": 1500
   },
@@ -27,7 +27,7 @@
     "id": "00eed056947d19e0da274262",
     "title": "jeans",
     "photo": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/bd2ec1fd-b63e-4670-a582-8f567b3f5eaf_1648731536.jpeg?itok=Xg0UuvBr",
-    "category": "jeans",
+    "category": "pants",
     "price": 65,
     "stock": 1000
   },
@@ -58,23 +58,23 @@
   {
     "id": "ed9d2ae74796724d3fae57e2",
     "title": "zapatilla asics",
-    "photo": "asics.jpg",
+    "photo": "https://asics.vteximg.com.br/arquivos/ids/192684_2",
     "category": "shoes",
     "price": 165,
     "stock": 2000
   },
   {
     "id": "928a067f37974a8fdaf6295d",
-    "title": "campera nieve roja",
-    "photo": "jacket.jpg",
-    "category": "jackets",
+    "title": "campera nieve",
+    "photo": "https://m.media-amazon.com/images/I/81R0hKzj53L._AC_UY1000_.jpg",
+    "category": "shirt",
     "price": 165,
     "stock": 1000
   },
   {
     "id": "507ddf7ca67fa405deed0c44",
     "title": "boots adidas",
-    "photo": "adidas.jpg",
+    "photo": "https://images-na.ssl-images-amazon.com/images/I/716RmuXroHL._AC_SR462,693_.jpg",
     "category": "shoes",
     "price": 185,
     "stock": 3000
@@ -82,7 +82,7 @@
   {
     "id": "730f79482f4d2e0f4ed48f32",
     "title": "boots nike",
-    "photo": "nike.jpg",
+    "photo": "https://www.tradeinn.com/f/13812/138126194/nike-botas-futbol-phantom-gt2-academy-dynamic-fit-fg-mg.jpg",
     "category": "shoes",
     "price": 185,
     "stock": 3000
@@ -90,7 +90,7 @@
   {
     "id": "2c00d16311e45ecc86166904",
     "title": "boots puma",
-    "photo": "puma.jpg",
+    "photo": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_480,h_480/global/107429/03/sv01/fnd/ARG/fmt/png",
     "category": "shoes",
     "price": 185,
     "stock": 3000
@@ -98,7 +98,7 @@
   {
     "id": "3c1b38d558be8ed3e8ed9e3c",
     "title": "boots asics",
-    "photo": "asics.jpg",
+    "photo": "https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$",
     "category": "shoes",
     "price": 185,
     "stock": 3000
@@ -106,14 +106,14 @@
   {
     "id": "d5c701bb0ebbf1952b68eb0f",
     "title": "boots umbro",
-    "photo": "umbro.jpg",
+    "photo": "data:image/jpeg;base64,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",
     "category": "shoes",
     "price": 125,
     "stock": 3000
   },
   {
     "id": "2642be82dafe216c9d8d60f8",
-    "title": "boots misuno",
+    "title": "boots mizuno",
     "photo": "https://http2.mlstatic.com/D_NQ_NP_911935-MLA31095466006_062019-O.webp",
     "category": "shoes",
     "price": 135,
@@ -122,7 +122,7 @@
   {
     "id": "55aab75657de7aad8f2dad77",
     "title": "boots topper",
-    "photo": "misuno.jpg",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ71yEOwGxkppyOsmX2yOvfD3sJiLHY4px5WA&usqp=CAU",
     "category": "shoes",
     "price": 115,
     "stock": 3000
@@ -130,7 +130,7 @@
   {
     "id": "1146ee1d04ba69a9ba6f8690",
     "title": "boots new balance",
-    "photo": "new-balance.jpg",
+    "photo": "https://lovellcdn.b-cdn.net/products/1960189.jpg",
     "category": "shoes",
     "price": 195,
     "stock": 3000
@@ -203,7 +203,7 @@
     "id": "86f59a5e084a260cc0856ca9",
     "title": "Timberland 6-Inch Premium Waterproof Boots",
     "photo": "timberlandboots01.jpg",
-    "category": "boots",
+    "category": "shoes",
     "price": 150,
     "stock": 500
   },
@@ -211,7 +211,7 @@
     "id": "5b5e25d72ee456d19de9a99d",
     "title": "Dr. Martens 1460",
     "photo": "drmartens1460.jpg",
-    "category": "boots",
+    "category": "shoes",
     "price": 130,
     "stock": 600
   },
@@ -219,7 +219,7 @@
     "id": "09447d13c80b5b5d0eb5ee23",
     "title": "UGG Classic Short II",
     "photo": "uggclassicshortii.jpg",
-    "category": "boots",
+    "category": "shoes",
     "price": 160,
     "stock": 450
   },
@@ -227,7 +227,7 @@
     "id": "2712cfc4a9f788a02e0d6ed7",
     "title": "Caterpillar Second Shift Steel Toe Work Boot",
     "photo": "caterpillarworkboot.jpg",
-    "category": "boots",
+    "category": "shoes",
     "price": 110,
     "stock": 550
   },
@@ -235,7 +235,7 @@
     "id": "406bccc26791c3568d756ce5",
     "title": "Skechers Workshire Steel Toe Work Boot",
     "photo": "skechersworkboot.jpg",
-    "category": "boots",
+    "category": "shoes",
     "price": 90,
     "stock": 700
   },
@@ -310,5 +310,13 @@
     "category": "shoes",
     "price": "168",
     "stock": "30"
+  },
+  {
+    "id": "8382aa71fe604c34777bf9af",
+    "title": "fafa",
+    "photo": "data:image/jpeg;base64,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",
+    "category": "shoes",
+    "price": "150",
+    "stock": "15"
   }
 ]
