@@ -1,44 +1,30 @@
 [
   {
-    "id": 2,
-    "email": "rubenmarco@gmail.com",
-    "photo": "https://pbs.twimg.com/profile_images/574633842151063552/hRVGICQA_400x400.png",
-    "password": "9deoro",
-    "role": "admin"
-  },
-  {
-    "id": "11",
-    "email": "angelito@gmail.com",
-    "photo": "https://rosariolaciudad.com.ar/assets/Central-pone-en-marcha-el-operativo-retorno-de-Di-Maria-.webp",
+    "id": "110",
+    "email": "jayjayokocha@gmail.com",
+    "photo": "https://pbs.twimg.com/media/Fli_3wrXEAAPCvs.jpg",
     "password": "11111",
     "role": "admin"
   },
   {
     "id": "347aace2a43dd57eda511ce5",
-    "email": "carlosquintana@gmail.com",
-    "photo": "https://rosariocentral.com/wp-content/uploads/2023/02/QUINTANA_CARLOS.png",
+    "email": "denis@gmail.com",
+    "photo": "https://i0.wp.com/fichadeportiva.com/wp-content/uploads/2021/06/Dennis-Bergkamp.png?resize=420%2C523&ssl=1",
     "password": "123",
     "role": "www"
   },
   {
-    "id": "10",
-    "email": "nachomalcorra@gmail.com",
-    "photo": "https://imagecache.365scores.com/image/upload/f_png,w_250,h_250,c_limit,q_auto:eco,d_Athletes:default.png,r_max,c_thumb,g_face,z_0.65/Athletes/13641",
-    "password": "123",
-    "role": "enganche"
-  },
-  {
     "id": "1234",
-    "email": "miguelo@gmail.com",
-    "photo": "https://media.lmneuquen.com/p/ca4f819231aa63f49c9dc7a995e0e6bd/adjuntos/195/imagenes/007/694/0007694301/770x0/smart/imagepng.png",
+    "email": "magicogonzalez@gmail.com",
+    "photo": "https://www.footballdatabase.eu/images/photos/players/a_48/48571.jpg",
     "password": "papadeniul",
     "role": "admin"
   },
   {
-    "id": "8",
-    "email": "germanchacho@gmail.com",
-    "photo": "https://i0.wp.com/newspack-elsol.s3.amazonaws.com/wp-content/uploads/2014/12/000559574-coudet.jpg?fit=1024%2C768&ssl=1",
-    "password": "4a0",
-    "role": "DT"
+    "id": "280898509bba877e9b1eced0",
+    "email": "georgeweah@gmail.com",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/8542-1570439638.jpg?lm=1",
+    "password": "123456",
+    "role": "striker"
   }
 ]

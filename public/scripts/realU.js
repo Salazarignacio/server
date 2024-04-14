@@ -4,7 +4,7 @@ socket.on('realUsers', data=>{
   let template = ``;
   template = data.map(element=> ` 
 
-  <div class="card mb-3" style="max-width: 740px;">
+  <div class="card mb-3" style="max-width: 940px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="${element.photo}" class="img-fluid rounded-start" alt="${element.id}">
@@ -14,7 +14,8 @@ socket.on('realUsers', data=>{
         <h5 class="card-title">${element.email}</h5>
         <p class="card-text">Role: ${element.role}</p>
         <p class="card-text">ID: ${element.id}</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+         <a href="/users/details/${element.id}" class="btn btn-outline-secondary">Details</a>
+        <button class="btn btn-outline-secondary" onclick="destroyUser('${element.id}')" type="button"><i class="fa-regular fa-trash-can"></i></button>
       </div>
     </div>
   </div>
