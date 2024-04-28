@@ -1,5 +1,6 @@
 import { Router } from "express";
-import iUsers from "../../data/fs/UserManager.js";
+/*  import UsersManager from "../../data/fs/UserManager.js";  */
+import UsersManager from "../../data/mongo/UsersManager.js";
 
 const usersRouter = Router();
 
@@ -12,7 +13,7 @@ usersRouter.delete("/:uid", destroy);
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const create = await iUsers.create(data);
+    const create = await UsersManager.create(data);
     return res.json({
       statusCode: 201,
       message: "CREATED ID " + create.id,
@@ -23,8 +24,7 @@ async function create(req, res, next) {
 }
 async function read(req, res) {
   try {
-    const read = await iUsers.read();
-    
+    const read = await UsersManager.read();
     if (read.length > 0) {
       return res.json({
         statusCode: 200,
@@ -42,7 +42,7 @@ async function read(req, res) {
 async function readOne(req, res, next) {
   try {
     const { uid } = req.params;
-    const readOne = await iUsers.readOne(uid);
+    const readOne = await UsersManager.readOne(uid);
     if (readOne) {
       return res.json({
         statusCode: 200,
@@ -61,7 +61,7 @@ async function readOne(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { uid } = req.params;
-    const destroy = await iUsers.destroy(uid);
+    const destroy = await UsersManager.destroy(uid);
     return res.json({
       statusCode: 200,
       response: destroy,
@@ -75,7 +75,7 @@ async function update(req, res, next) {
   try {
     const { uid } = req.params;
     const data = req.body;
-    const update = await iUsers.update(uid, data);
+    const update = await UsersManager.update(uid, data);
     return res.json({
       statusCode: 200,
       response: update,

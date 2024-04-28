@@ -1,5 +1,6 @@
 import { Router } from "express";
-import iProducts from '../../data/fs/ProductManager.js'
+/* import ProductManagerMongo from '../../data/fs/ProductManager.js' */
+import ProductsManagerMongo from "../../data/mongo/ProductsManager.js";
 
 const productsRouter = Router();
 
@@ -12,7 +13,7 @@ productsRouter.put("/:pid", update);
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const create = await iProducts.create(data);
+    const create = await ProductsManagerMongo.create(data);
     return res.json({
       statusCode: 201,
       message: "CREATED ID: " + create.id,
@@ -21,9 +22,9 @@ async function create(req, res, next) {
     return next(error);
   }
 }
-async function read(req, res) {
+async function read(req, res, next) {
   try {
-    const read = await iProducts.read();
+    const read = await ProductsManagerMongo.read();
 
     if (read.length > 0) {
       return res.json({
@@ -43,7 +44,7 @@ async function read(req, res) {
 async function readOne(req, res, next) {
   try {
     const { pid } = req.params;
-    const readOne = await iProducts.readOne(pid);
+    const readOne = await ProductsManagerMongo.readOne(pid);
     if (readOne) {
       return res.json({
         statusCode: 200,
@@ -62,7 +63,7 @@ async function readOne(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { pid } = req.params;
-    const destroy = await iProducts.destroy(pid);
+    const destroy = await ProductsManagerMongo.destroy(pid);
     return res.json({
       statusCode: 200,
       response: destroy,
@@ -75,7 +76,7 @@ async function update(req, res, next) {
   try {
     const { pid } = req.params;
     const data = req.body;
-    const update = await iProducts.update(pid, data);
+    const update = await ProductsManagerMongo.update(pid, data);
     return res.json({
         statusCode: 200,
         response: update });

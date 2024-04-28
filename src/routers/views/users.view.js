@@ -22,7 +22,7 @@ usersRouter.get("/details/:uid", async (req, res, next) => {
   }
 });
 
- usersRouter.get('/real', async (req,res,next)=>{
+ usersRouter.get('/register', async (req,res,next)=>{
   try {
     return res.render('realUsers', {title: "real"})
   } catch (error) {
