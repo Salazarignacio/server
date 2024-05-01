@@ -18,6 +18,14 @@ class Manager {
         throw error
     }
   }
+  async paginate(filter, sortAndPaginate){
+    try {
+      const paginate = await this.model.paginate(filter, sortAndPaginate)
+      return paginate
+    } catch (error) {
+      throw error
+    }
+  }
   async readOne(id){
     try {
         const readOneFile = await this.model.findById(id)

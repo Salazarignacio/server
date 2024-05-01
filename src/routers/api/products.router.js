@@ -5,11 +5,24 @@ import ProductsManagerMongo from "../../data/mongo/ProductsManager.js";
 const productsRouter = Router();
 
 productsRouter.get("/", read);
+productsRouter.get("/paginate", paginate);
 productsRouter.get("/:pid", readOne);
 productsRouter.post("/", create);
 productsRouter.delete("/:pid", destroy);
 productsRouter.put("/:pid", update);
 
+
+async function paginate(req, res, next) {
+  try {
+    const paginate = await ProductsManagerMongo.paginate();
+    return res.json({
+      statusCode: 200,
+      req: paginate,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 async function create(req, res, next) {
   try {
     const data = req.body;
@@ -78,8 +91,9 @@ async function update(req, res, next) {
     const data = req.body;
     const update = await ProductsManagerMongo.update(pid, data);
     return res.json({
-        statusCode: 200,
-        response: update });
+      statusCode: 200,
+      response: update,
+    });
   } catch (error) {
     return next(error);
   }
