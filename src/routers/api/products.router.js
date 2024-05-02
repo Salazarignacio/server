@@ -24,11 +24,11 @@ async function paginate(req, res, next) {
     if (req.query._id) {
       filter._id = req.query._id;
     }
+    if (req.query.category) {
+      filter.category = req.query.category;
+    }
 
     const all = await ProductsManagerMongo.paginate({filter, opts});
-    console.log(filter);
-    console.log(opts.limit);
-    console.log(all.limit);
     return res.json({
       statusCode: 200,
       response: all.docs,
