@@ -11,13 +11,32 @@ productsRouter.post("/", create);
 productsRouter.delete("/:pid", destroy);
 productsRouter.put("/:pid", update);
 
-
 async function paginate(req, res, next) {
   try {
-    const paginate = await ProductsManagerMongo.paginate();
+    const filter = {};
+    const opts = {};
+    if (req.query.limit) {
+      opts.limit = req.query.limit;
+    }
+    if (req.query.page) {
+      opts.page = req.query.page;
+    }
+    if (req.query._id) {
+      filter._id = req.query._id;
+    }
+
+    const all = await ProductsManagerMongo.paginate({filter, opts});
+    console.log(filter);
+    console.log(opts.limit);
+    console.log(all.limit);
     return res.json({
       statusCode: 200,
-      req: paginate,
+      response: all.docs,
+      info: {
+        limit: all.limit,
+        page: opts.page,
+        _id: filter._id,
+      },
     });
   } catch (error) {
     next(error);

@@ -18,9 +18,9 @@ class Manager {
         throw error
     }
   }
-  async paginate(filter, sortAndPaginate){
+  async paginate({filter, opts}){
     try {
-      const paginate = await this.model.paginate(filter, sortAndPaginate)
+      const paginate = await this.model.paginate(filter, opts)
       return paginate
     } catch (error) {
       throw error
