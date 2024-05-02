@@ -1,11 +1,15 @@
 <h1>User details</h1>
 {{#if user.id}}
-    
-    <div class="card" style="width: 18rem;"> <img
-  src={{user.photo}} class="card-img-top" alt={{user.id}}> <div
-  class="card-body"> <h5 class="card-title">{{user.title}}</h5> <p
-  class="card-text">{{user.email}}</p> <a href="#" class="btn btn-primary">Buy</a> </div> </div>
-    
+
+  <div class="card" style="width: 18rem;">
+    <img src={{user.photo}} class="card-img-top" alt={{user.id}} />
+    <div class="card-body">
+      <h5 class="card-title">{{user.title}}</h5>
+      <p class="card-text">{{user.email}}</p>
+      {{!-- <a href="#" class="btn btn-primary">Buy</a> --}}
+    </div>
+  </div>
+
 {{else}}
-    <h1>PRODUCT NOT FOUND</h1>
+  <h1>PRODUCT NOT FOUND</h1>
 {{/if}}
