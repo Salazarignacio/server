@@ -12,7 +12,7 @@ import socketCb from "./src/routers/index.socket.js";
 import dbConnect from "./src/utils/dbConect.util.js";
 
 const server = express();
-console.log(process.env.MONGO_URI);
+
 
 const PORT = process.env.PORT || 9000;
 const ready = async () => {

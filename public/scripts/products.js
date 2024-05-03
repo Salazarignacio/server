@@ -1,11 +1,11 @@
-fetch("http://localhost:8080/api/products/6632d0069984c35bb08075d6")
+fetch("http://localhost:8080/api/products/")
 .then((response) => {
   return response.json();
 })
 .then((data) => {
   
-  console.log(data.message);
-  let template = `<div class="card m-1 " style="width: 25rem;"> 
+  console.log(data);
+  /* let template = `<div class="card m-1 " style="width: 25rem;"> 
   <img src=${data.message.photo} class="card-img-top" alt=${data.message.id}> 
   <div class="card-body"> <h5 class="card-title">${data.message.title}</h5> 
   <p class="card-text">$${data.message.price}</p> 
@@ -14,4 +14,4 @@ fetch("http://localhost:8080/api/products/6632d0069984c35bb08075d6")
   type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`
   const container = document.getElementById("container");
   container.innerHTML = template; 
-  });
+   */});

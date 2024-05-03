@@ -1,6 +1,6 @@
 {{#if product.id}}
     
-    <div class="card" style="width: 18rem;"> <img
+    <div class="card" id="#card" style="width: 18rem;"> <img
   src={{product.photo}} class="card-img-top" alt={{product.id}}> <div
   class="card-body"> <h5 class="card-title">{{product.title}}</h5> <p
   class="card-text">${{product.price}}</p> <a href="#" class="btn btn-primary">Add to Cart</a> </div> </div>
@@ -8,4 +8,6 @@
 {{else}}
     <h1>PRODUCT NOT FOUND</h1>
 {{/if}}
+<div id="container"></div>
+
 <script src="/scripts/product.details.js"></script>
