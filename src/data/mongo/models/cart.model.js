@@ -14,7 +14,10 @@ const schema = new Schema(
 );
 
 schema.pre("find", function () {
-  this.populate("user_id", "email");
+  this.populate("user_id", "email photo");
+});
+schema.pre("find", function () {
+  this.populate("product_id", "title price quantity photo");
 });
 
 schema.plugin(mongoosePaginate)

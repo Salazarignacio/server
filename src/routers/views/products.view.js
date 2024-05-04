@@ -6,7 +6,7 @@ const productsViewRouter = Router();
 
 productsViewRouter.get("/", async (req, res, next) => {
   try {
-    const products = await iProducts.read();
+    const products = await ProductsManagerMongo.read();
     console.log(products);
     return res.render("home", { products });
   } catch (error) {
@@ -16,7 +16,7 @@ productsViewRouter.get("/", async (req, res, next) => {
 productsViewRouter.get("/category/:cat", async (req, res, next) => {
   try {
     const { cat } = req.params;
-    const products = await iProducts.read(cat);
+    const products = await ProductsManagerMongo.read(cat);
 
     return res.render("products", { products });
   } catch (error) {
@@ -27,7 +27,7 @@ productsViewRouter.get("/category/:cat", async (req, res, next) => {
 productsViewRouter.get("/details/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const readOne = await iProducts.readOne(pid);
+    const readOne = await ProductsManagerMongo.readOne(pid);
     return res.render("productsDetails", { product: readOne });
   } catch (error) {
     next(error);

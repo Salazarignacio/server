@@ -1,14 +1,4 @@
- {{#each products}}
- 
-    <div class="card mb-2" style="width: 28rem;"> 
-<img src={{this.photo}} class="card-img-top" alt={{this.id}}> 
-<div class="card-body"> <h5 class="card-title">{{this.title}}</h5> 
-<p class="card-text">${{this.price}}</p> 
 
-<a href="/products/details/{{this.id}}" class="btn btn-outline-secondary">Details</a>
- </div> </div>
-{{/each}}     
-      </div>
-    <div id="container"></div>
+    <div id="products"></div>
 
 <script src="/scripts/products.js"></script>

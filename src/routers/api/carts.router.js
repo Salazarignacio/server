@@ -6,6 +6,8 @@ const cartRouter = Router();
 
 cartRouter.get("/", read);
 cartRouter.post("/", create);
+cartRouter.post("/:oid", destroy);
+cartRouter.post("/:oid", readOne);
 cartRouter.get("/paginate", paginate);
 
 async function paginate(req, res, next) {
@@ -45,6 +47,30 @@ async function create(req, res, next) {
       statusCode: 201,
       message: "created succesfully",
       req: create,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+async function readOne(req, res, next) {
+  try {
+    const { oid } = req.params;
+    const readOne = await CartsManagerMongo.readOne(oid);
+    return res.json({
+      statusCode: 200,
+      req: readOne,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+async function destroy(req, res, next) {
+  try {
+    const { oid } = req.params;
+    const destroy = await CartsManagerMongo.destroy(oid);
+    return res.json({
+      statusCode: 200,
+      req: destroy,
     });
   } catch (error) {
     next(error);
