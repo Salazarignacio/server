@@ -4,6 +4,7 @@ import TicketsManager from "../../data/mongo/Tickets.Manager.js";
 const ticketsRouter = Router();
 
 ticketsRouter.get("/", read);
+ticketsRouter.get("/tid", readOne);
 ticketsRouter.get("/paginate", paginate);
 ticketsRouter.post("/", create);
 
@@ -44,6 +45,25 @@ async function create(req, res, next) {
       statusCode: 201,
       response: create,
     });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function readOne(req, res, next) {
+  try {
+    const { tid } = req.params;
+    const readOne = await TicketsManager.readOne(tid);
+    if (readOne) {
+      return res.json({
+        statusCode: 200,
+        message: readOne,
+      });
+    } else {
+      const error = new Error("ID NOT FOUND IN FILE");
+      error.statusCode = 404;
+      throw error;
+    }
   } catch (error) {
     next(error);
   }

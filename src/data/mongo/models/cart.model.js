@@ -13,9 +13,9 @@ const schema = new Schema(
   { timestamps: true }
 );
 
-schema.pre("find", function () {
+ schema.pre("find", function () {
   this.populate("user_id", "email photo");
-});
+}); 
 schema.pre("find", function () {
   this.populate("product_id", "title price quantity photo");
 });

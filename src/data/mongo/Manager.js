@@ -29,6 +29,7 @@ class Manager {
   async readOne(id){
     try {
         const readOneFile = await this.model.findById(id)
+        console.log('dake');
         return readOneFile
     } catch (error) {
         throw error
@@ -36,7 +37,7 @@ class Manager {
   }
   async update(id, data){
     try {
-        const update = await this.model.findByIdandUpdate(id, data, {new: true})
+        const update = await this.model.findByIdAndUpdate(id, data, {new: true})
         return update
     } catch (error) {
         throw error
@@ -44,7 +45,7 @@ class Manager {
   }
   async destroy(id){
     try {
-        const destroy = await this.model.findByIdandDelete(id)        
+        const destroy = await this.model.findByIdAndDelete(id)        
         return destroy
     } catch (error) {
         throw error

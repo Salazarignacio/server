@@ -1,13 +1,13 @@
-import { Router, response } from "express";
+import { Router } from "express";
 /* import iCarts from "../../data/fs/CartsManager.js"; */
 import CartsManagerMongo from "../../data/mongo/CartsManager.js";
 
 const cartRouter = Router();
 
-cartRouter.get("/", read);
 cartRouter.post("/", create);
-cartRouter.post("/:oid", destroy);
-cartRouter.post("/:oid", readOne);
+cartRouter.get("/", read);
+cartRouter.delete("/:oid", destroy);
+cartRouter.get("/category/:oid", readOne);
 cartRouter.get("/paginate", paginate);
 
 async function paginate(req, res, next) {
@@ -16,6 +16,9 @@ async function paginate(req, res, next) {
     const filter = {};
     if (req.query.state) {
       filter.state = req.query.state;
+    }
+    if (req.query.user_id) {
+      filter.user_id = req.query.user_id;
     }
     const all = await CartsManagerMongo.paginate({ filter, opts });
     res.json({
@@ -52,21 +55,29 @@ async function create(req, res, next) {
     next(error);
   }
 }
+
 async function readOne(req, res, next) {
   try {
     const { oid } = req.params;
     const readOne = await CartsManagerMongo.readOne(oid);
-    return res.json({
-      statusCode: 200,
-      req: readOne,
-    });
+    if (readOne) {
+      return res.json({
+        statusCode: 200,
+        message: readOne,
+      });
+    } else {
+      const error = new Error("ID NOT FOUND IN FILE");
+      error.statusCode = 404;
+      throw error;
+    }
   } catch (error) {
-    next(error);
+    return next(error);
   }
 }
 async function destroy(req, res, next) {
   try {
     const { oid } = req.params;
+    console.log(oid);
     const destroy = await CartsManagerMongo.destroy(oid);
     return res.json({
       statusCode: 200,

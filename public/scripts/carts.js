@@ -3,11 +3,10 @@ fetch(
 )
   .then((res) => res.json())
   .then((res) => {
-    console.log(res.response);
     let template = ``;
     template = res.response.map((element) => {
       return `<div class="card m-1 " style="width: 25rem;"> 
-        
+        <p>${element._id}</p>
       <img src=${element.user_id.photo} " style="width: 3rem;"class="card-img-top" alt=${element.id}> 
       <div class="input-group mb-3">
       
@@ -27,19 +26,18 @@ fetch(
   })
   .catch((err) => console.log(err));
 
-  async function destroy(oid){
-    try {
- 
-        const url = '/api/carts/'+oid; 
-        const opts = {
-            method: 'DELETE',
-            headers : {'Content-Type': 'application/json'}
-        }
-        let response = await fetch(url, opts)
-        response = await response.json()
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
+async function destroy(oid) {
+  try {
+    console.log(oid);
+    const url = "/api/carts/" + oid;
+    const opts = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+    let response = await fetch(url, opts);
+    response = await response.json();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
   }
-
+}

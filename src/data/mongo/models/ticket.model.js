@@ -20,6 +20,9 @@ agregar un botón para cancelar la compra y borrar todos los productos del carri
 schema.pre('find', function (){
     this.populate('user_id', 'email')
 })
+schema.pre('find', function (){
+    this.populate('product_id', 'title')
+})
 
 schema.plugin(mongoosePaginate)
 const Ticket = model(collection, schema)
