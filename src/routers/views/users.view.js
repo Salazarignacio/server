@@ -1,21 +1,23 @@
-import { Router } from "express";
-import iUsers from "../../data/fs/UserManager.js";
+import { Router } from "express";/* 
+import iUsers from "../../data/fs/UserManager.js"; */
+import UsersManager from "../../data/mongo/UsersManager.js";
 
 const usersRouter = Router();
 
 usersRouter.get("/", async (req, res, next) => {
   try {
-    const users = await iUsers.read();
+    const users = await UsersManager.read();
+    console.log('hola');
     return res.render("users", { users });
   } catch (error) {
     return next(error);
   }
 });
 
-usersRouter.get("/details/:uid", async (req, res, next) => {
+usersRouter.get("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
-    const readOne = await iUsers.readOne(uid);
+    const readOne = await UsersManager.readOne(uid);
     return res.render("usersDetails", { user: readOne });
   } catch (error) {
     next(error);

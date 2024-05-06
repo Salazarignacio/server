@@ -5,10 +5,11 @@ import CartsManagerMongo from "../../data/mongo/CartsManager.js";
 const cartRouter = Router();
 
 cartRouter.post("/", create);
-cartRouter.get("/", read);
+cartRouter.get("/", paginate);
 cartRouter.delete("/:oid", destroy);
-cartRouter.get("/category/:oid", readOne);
+cartRouter.get("/readone/:oid", readOne);
 cartRouter.get("/paginate", paginate);
+
 
 async function paginate(req, res, next) {
   try {

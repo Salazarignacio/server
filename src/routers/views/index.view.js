@@ -15,5 +15,14 @@ viewsRouter.get('/', (req,res,next)=>{
         next(error)
     }
 })
+/* por ahora declaro el endpoint aca */
+viewsRouter.get('/login', async (req,res,next)=>{
+    try {
+      const text = 'Login'
+      return res.render('login', {text})
+    } catch (error) {
+      next(error)
+    }
+  })
 
 export default viewsRouter

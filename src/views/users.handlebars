@@ -1,11 +1,4 @@
-<h1>Sign In</h1>
- {{#each users}}
-    <a href="/users/{{this.id}}" class="pt-3 ps-3">{{this.email}}</a>
-{{/each}} 
-    <article id="realUsers" class="">
-      <div class="spinner-grow" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </article>
-<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
- <script src="/scripts/realU.js"></script> 
+  <div id="users">Users</div>
+
+
+<script src="/scripts/users.js"></script>
