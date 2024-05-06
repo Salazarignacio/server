@@ -4,7 +4,7 @@ fetch(
   .then((res) => res.json())
   .then((res) => {
     let template = ``;
-    
+
     template = res.response.map((element) => {
       return `<div class="card m-1 " style="width: 25rem;"> 
         <p>${element._id}</p>
@@ -23,13 +23,21 @@ fetch(
         <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
     });
-    document.querySelector("#carts").innerHTML = template;
+    const buttonAcept = `<button id="acceptButton">Finalize purchase</button>`;
+    const buttonCancel = `<button id="canceltButton">Cancel purchase</button>`;
+    document.querySelector("#carts").innerHTML = template + buttonAcept + buttonCancel;
+
+    document.getElementById("acceptButton").addEventListener("click", () => {
+      aceptOrCancelPurchase(res, true);
+    });
+    document.getElementById("canceltButton").addEventListener("click", () => {
+      aceptPurchase(res, false);
+    });
   })
   .catch((err) => console.log(err));
 
 async function destroy(oid) {
   try {
-    console.log(oid);
     const url = "/api/carts/" + oid;
     const opts = {
       method: "DELETE",
@@ -37,8 +45,13 @@ async function destroy(oid) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
-    console.log(response);
   } catch (error) {
     console.log(error);
   }
+}
+
+
+async function aceptOrCancelPurchase(res, bool) {
+  bool?console.log('Purchase done succesfully'):console.log('Purchace was cancelled');;
+  res.response.map((element) => destroy(element._id));
 }
