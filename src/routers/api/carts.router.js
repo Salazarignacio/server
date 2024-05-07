@@ -9,6 +9,7 @@ cartRouter.get("/", paginate);
 cartRouter.delete("/:oid", destroy);
 cartRouter.get("/readone/:oid", readOne);
 cartRouter.get("/paginate", paginate);
+cartRouter.put("/:oid", update);
 
 
 async function paginate(req, res, next) {
@@ -86,6 +87,20 @@ async function destroy(req, res, next) {
     });
   } catch (error) {
     next(error);
+  }
+}
+
+async function update(req, res, next) {
+  try {
+    const { oid } = req.params;
+    const data = req.body;
+    const update = await CartsManagerMongo.update(uid, data);
+    return res.json({
+      statusCode: 200,
+      response: update,
+    });
+  } catch (error) {
+    return next(error);
   }
 }
 
