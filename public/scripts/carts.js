@@ -18,7 +18,7 @@ fetch(
       <img src=${element.product_id.photo} " style="width: 8rem;"class="card-img-top" alt=${element.id}> 
       <p class="card-text">$${element.product_id.price}</p> 
       <label for="quantity">Cantidad:</label>
-<input type="number" class="form-control" id="quantity" value="1" min="1">
+<input type="number" class="form-control" id="quantity" value=${element.quantity} min="1">
         
         <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
