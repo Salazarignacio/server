@@ -34,8 +34,9 @@ async function paginate(req, res, next) {
       response: all.docs,
       info: {
         limit: all.limit,
-        page: opts.page,
+        page: all.page,
         _id: filter._id,
+        
       },
     });
   } catch (error) {

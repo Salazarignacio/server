@@ -22,6 +22,7 @@ async function paginate(req, res, next) {
     if (req.query.user_id) {
       filter.user_id = req.query.user_id;
     }
+    
     const all = await CartsManagerMongo.paginate({ filter, opts });
     res.json({
       statusCode: 200,
