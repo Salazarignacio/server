@@ -13,44 +13,54 @@ class Manager {
   async read() {
     try {
       const readFile = await this.model.find();
-      return readFile
+      return readFile;
     } catch (error) {
-        throw error
+      throw error;
     }
   }
-  async paginate({filter, opts}){
+  async paginate({ filter, opts }) {
     try {
-      const paginate = await this.model.paginate(filter, opts)
-      return paginate
+      const paginate = await this.model.paginate(filter, opts);
+      return paginate;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
-  async readOne(id){
+  async readOne(id) {
     try {
-        const readOneFile = await this.model.findById(id)
-        console.log('dake');
-        return readOneFile
+      const readOneFile = await this.model.findById(id);
+      console.log("dake");
+      return readOneFile;
     } catch (error) {
-        throw error
+      throw error;
     }
   }
-  async update(id, data){
+  async update(id, data) {
     try {
-        const update = await this.model.findByIdAndUpdate(id, data, {new: true})
-        return update
+      const update = await this.model.findByIdAndUpdate(id, data, {
+        new: true,
+      });
+      return update;
     } catch (error) {
-        throw error
+      throw error;
     }
   }
-  async destroy(id){
+  async destroy(id) {
     try {
-        const destroy = await this.model.findByIdAndDelete(id)        
-        return destroy
+      const destroy = await this.model.findByIdAndDelete(id);
+      return destroy;
     } catch (error) {
-        throw error
+      throw error;
+    }
+  }
+  async aggregate(uid) {
+    try {
+      const result = await this.model.aggregate(uid);
+      return result;
+    } catch (error) {
+      throw error;
     }
   }
 }
 
-export default Manager
+export default Manager;

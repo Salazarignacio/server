@@ -1,72 +1,49 @@
 import { Router, response } from "express";
-import TicketsManager from "../../data/mongo/Tickets.Manager.js";
+import CartsManager from "../../data/mongo/CartsManager.js";
+import { Types } from "mongoose";
 
 const ticketsRouter = Router();
 
-ticketsRouter.get("/", read);
-ticketsRouter.get("/tid", readOne);
-ticketsRouter.get("/paginate", paginate);
-ticketsRouter.post("/", create);
-
-async function paginate(req, res, next) {
+ticketsRouter.get("/:uid", async (req, res, next) => {
   try {
-    const opts = {};
-    const filter = {};
-    if (req.query.user) {
-      filter.user = req.query.user;
-    }
-    const all = await TicketsManager.paginate({ filter, opts });
-    res.json({
-      statusCode: 200,
-      response: all.docs,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
-
-async function read(req, res, next) {
-  try {
-    const read = await TicketsManager.read();
+    const { uid } = req.params;
+    const ticket = await CartsManager.aggregate([
+      {
+        $match: { user_id: new Types.ObjectId(uid) },
+      },
+      {
+        $lookup: {
+          foreignField: "_id",
+          from: "products",
+          localField: "product_id",
+          as: "product_id",
+        },
+      },
+      {
+        $replaceRoot: {
+          newRoot: {
+            $mergeObjects: [{ $arrayElemAt: ["$product_id", 0] }, "$$ROOT"],
+          },
+        },
+      },
+      { $set: { subTotal: { $multiply: ["$quantity", "$price"] } } },
+      { $group: { _id: "$user_id", total: { $sum: "$subTotal" } } },
+      {
+        $project: {
+          _id: 0,
+          user_id: "$_id",
+          total: "$total",
+          date: new Date(),
+        },
+      },
+      { $merge: { into: "tickets" } },
+    ]);
     return res.json({
       statusCode: 200,
-      response: read,
+      response: ticket,
     });
   } catch (error) {
     next(error);
   }
-}
-
-async function create(req, res, next) {
-  try {
-    const data = req.body;
-    const create = await TicketsManager.create(data);
-    return res.json({
-      statusCode: 201,
-      response: create,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
-
-async function readOne(req, res, next) {
-  try {
-    const { tid } = req.params;
-    const readOne = await TicketsManager.readOne(tid);
-    if (readOne) {
-      return res.json({
-        statusCode: 200,
-        message: readOne,
-      });
-    } else {
-      const error = new Error("ID NOT FOUND IN FILE");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    next(error);
-  }
-}
-
+});
 export default ticketsRouter;
