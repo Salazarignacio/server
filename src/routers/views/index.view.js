@@ -25,4 +25,13 @@ viewsRouter.get('/login', async (req,res,next)=>{
     }
   })
 
+  viewsRouter.get('/register', async (req,res,next)=>{
+    try {
+      return res.render('signIn', {title: "real"})
+    } catch (error) {
+      next(error)
+    }
+  }) 
+  
+
 export default viewsRouter

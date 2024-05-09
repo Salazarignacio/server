@@ -24,12 +24,5 @@ usersRouter.get("/:uid", async (req, res, next) => {
   }
 });
 
- usersRouter.get('/register', async (req,res,next)=>{
-  try {
-    return res.render('realUsers', {title: "real"})
-  } catch (error) {
-    next(error)
-  }
-}) 
 
 export default usersRouter;
