@@ -10,6 +10,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
 import dbConnect from "./src/utils/dbConect.util.js";
+import cookieParser from "cookie-parser";
 
 const server = express();
 
@@ -40,3 +41,4 @@ server.use("/", router);
 
 server.use(errorHandler);
 server.use(pathHandler);
+server.use(cookieParser());

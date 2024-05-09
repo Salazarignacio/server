@@ -46,4 +46,5 @@ ticketsRouter.get("/:uid", async (req, res, next) => {
     next(error);
   }
 });
+
 export default ticketsRouter;

@@ -28,7 +28,7 @@ async function paginate(req, res, next) {
       filter.category = req.query.category;
     }
 
-    const all = await ProductsManagerMongo.paginate({filter, opts});
+    const all = await ProductsManagerMongo.paginate({ filter, opts });
     return res.json({
       statusCode: 200,
       response: all.docs,
@@ -36,7 +36,6 @@ async function paginate(req, res, next) {
         limit: all.limit,
         page: all.page,
         _id: filter._id,
-        
       },
     });
   } catch (error) {
