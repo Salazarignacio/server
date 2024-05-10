@@ -13,6 +13,7 @@ productsRouter.put("/:pid", update);
 
 async function paginate(req, res, next) {
   try {
+    const cookieGuardada = req.cookies;
     const filter = {};
     const opts = {};
     if (req.query.limit) {
@@ -29,13 +30,16 @@ async function paginate(req, res, next) {
     }
 
     const all = await ProductsManagerMongo.paginate({ filter, opts });
+
     return res.json({
       statusCode: 200,
       response: all.docs,
+      cookies: req.cookies,
       info: {
         limit: all.limit,
         page: all.page,
         _id: filter._id,
+
       },
     });
   } catch (error) {

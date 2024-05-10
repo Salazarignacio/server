@@ -11,7 +11,8 @@ import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
 import dbConnect from "./src/utils/dbConect.util.js";
 import cookieParser from "cookie-parser";
-import expressSession from 'express-session'
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
 const server = express();
 
@@ -38,7 +39,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
 server.use(cookieParser('secret'));
-server.use(expressSession({
+server.use(session({
   secret: 'process.env.SECRET_SESSION',
   resave: true,
   saveUninitialized: true,

@@ -3,18 +3,15 @@ import { Router, response } from "express";
 const cookiesRouter = Router();
 
 cookiesRouter.get("/set", async (req, res, next) => {
-  let nacho = "";
+  let query = "";
   try {
     if (req.query.nombre) {
-      nacho = req.query;
+      query = req.query;
       
     }
     return res
       .cookie("clave", "valor", { maxAge: 10000})
-      .cookie("modo", "diablo", { maxAge: 10000 })
-      .cookie("nombre", nacho, { maxAge: 10000 })
-
-      .json({ message: nacho });
+      .json({ message: query });
   } catch (error) {
     return next(error);
   }
@@ -22,7 +19,7 @@ cookiesRouter.get("/set", async (req, res, next) => {
 
 cookiesRouter.get("/get", async (req, res, next) => {
   try {
-    const cookieGuardada = req.signedCookies;
+    const cookieGuardada = req.cookies;
     return res.json({ cookieGuardada });
   } catch (error) {
     return next(error);

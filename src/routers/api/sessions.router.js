@@ -7,6 +7,7 @@ sessionsRouter.post("/login", async (req, res, next) => {
     const { password, email } = req.body;
     if (password == 1234) {
       req.session.email = email;
+      console.log(email);
       return res.cookie("email", email, { maxAge: 10000})
       .json({ statuCode: 200, session: req.session, message: "Loggeado" })
     } else {
