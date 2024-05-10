@@ -4,6 +4,7 @@ import usersRouter from "./user.router.js";
 import cartRouter from "./carts.router.js";
 import ticketsRouter from "./tickets.router.js";
 import cookiesRouter from "./cookies.router.js";
+import sessionsRouter from "./sessions.router.js";
 
 const apiRouter = Router();
 
@@ -12,5 +13,6 @@ apiRouter.use('/users', usersRouter)
 apiRouter.use('/carts', cartRouter)
 apiRouter.use('/tickets', ticketsRouter)
 apiRouter.use('/cookies', cookiesRouter)
+apiRouter.use('/sessions', sessionsRouter)
 
 export default apiRouter

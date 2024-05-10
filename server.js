@@ -11,6 +11,7 @@ import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
 import dbConnect from "./src/utils/dbConect.util.js";
 import cookieParser from "cookie-parser";
+import expressSession from 'express-session'
 
 const server = express();
 
@@ -35,10 +36,15 @@ server.set("views", __dirname + "/src/views");
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
-/* implementacion de morgan */
 server.use(morgan("dev"));
+server.use(cookieParser('secret'));
+server.use(expressSession({
+  secret: 'process.env.SECRET_SESSION',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {maxAge: 6000000}
+}));
 server.use("/", router);
 
 server.use(errorHandler);
 server.use(pathHandler);
-server.use(cookieParser());
