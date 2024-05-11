@@ -29,13 +29,12 @@ class Manager {
   async readOne(id) {
     try {
       const readOneFile = await this.model.findOne({ _id: id });
-      console.log("dake");
       return readOneFile;
     } catch (error) {
       throw error;
     }
   }
-  async readbyEmail(email) {
+  async readByEmail(email) {
     try {
       const readbyEmail = await this.model.findOne({ email });
       return readbyEmail;

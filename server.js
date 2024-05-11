@@ -43,7 +43,7 @@ server.use(session({
   secret: 'process.env.SECRET_SESSION',
   resave: true,
   saveUninitialized: true,
-  cookie: {maxAge: 6000000}
+  store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttlo: 60 * 60})
 }));
 server.use("/", router);
 

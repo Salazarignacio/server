@@ -9,6 +9,7 @@ usersRouter.get("/:uid", readOne);
 usersRouter.post("/", create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
+usersRouter.get("/email/:email", readByEmail);
 
 async function create(req, res, next) {
   try {
@@ -55,6 +56,25 @@ async function readOne(req, res, next) {
     }
   } catch (error) {
     next(error);
+  }
+}
+
+async function readByEmail(req, res, next) {
+  try {
+    const { email } = req.params;
+    const readMail = await UsersManager.readByEmail(email);
+    if (readMail) {
+      res.json({
+        statusCode: 200,
+        message: readMail,
+      });
+    } else {
+      const error = new Error("EMAIL NOT FOUND");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    return next(error);
   }
 }
 
