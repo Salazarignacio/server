@@ -24,12 +24,12 @@ sessionsRouter.post(
   }
 );
 
-sessionsRouter.get("/login",isValidUser, isValidPass, async (req, res, next) => {
+sessionsRouter.post("/login",isValidUser, isValidPass, async (req, res, next) => {
   try {
-    const { email } = req.body;
-    const readEmail = UsersManager.readByEmail(email);
+    const { email, password } = req.body;
+    const readEmail = await UsersManager.readByEmail(email);
     req.session.email = email;
-    req.session.role = readEmail.role;
+    
     return res.json({
       statusCode: 200,
       message: 'Logged'

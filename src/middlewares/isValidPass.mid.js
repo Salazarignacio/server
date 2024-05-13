@@ -4,11 +4,12 @@ async function isValidPass(req, res, next) {
   try {
     const { password, email } = req.body;
     const one = await UsersManager.readByEmail(email);
+
     const mongoPassword = one.password;
     if (mongoPassword == password) {
       return next();
     } else {
-      const error = new Error(" Invalid credentials" );
+      const error = new Error(" Invalid credentials");
       error.statusCode = 401;
       throw error;
     }

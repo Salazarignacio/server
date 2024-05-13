@@ -15,11 +15,14 @@ submitButton.addEventListener("click", async (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
+  console.log(data);
   let response = await fetch("/api/sessions/login", opts);
 
   response = await response.json();
 
-  if (response.statuCode == 200) {
+  if (response.statusCode == 200) {
     location.replace("/");
-  } else console.log("no");
+  } else {
+    console.log(response);
+  }
 });
