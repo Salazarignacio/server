@@ -2,8 +2,9 @@ import UsersManager from "../data/mongo/UsersManager.js";
 
 async function isValidUser(req, res, next) {
   try {
-    const { email } = req.params;
-    const one = UsersManager.readByEmail(email);
+    const { email } = req.body;
+    console.log(email);
+    const one = await UsersManager.readByEmail(email);
     if (one) {
       return next();
     } else {
