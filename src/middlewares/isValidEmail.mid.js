@@ -2,8 +2,8 @@ import UsersManager from "../data/mongo/UsersManager.js";
 
 async function isValidEmail(req, res, next) {
   try {
-    const { email } = req.params;
-    const one = UsersManager.readByEmail(email);
+    const { email } = req.body;
+    const one =await UsersManager.readByEmail(email);
     if (one) {
       const error = new Error("error!");
       error.statusCode = 400;
