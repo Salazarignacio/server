@@ -16,11 +16,10 @@ import MongoStore from "connect-mongo";
 
 const server = express();
 
-
 const PORT = process.env.PORT || 9000;
 const ready = async () => {
   console.log("server ready on port " + PORT);
-  await dbConnect(PORT, ready)
+  await dbConnect(PORT, ready);
 };
 
 const nodeServer = createServer(server);
@@ -38,13 +37,16 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
-server.use(cookieParser('secret'));
-server.use(session({
-  secret: 'process.env.SECRET_SESSION',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttlo: 60 * 60})
-}));
+server.use(cookieParser("secret"));
+
+server.use(
+  session({
+    secret: "process.env.SECRET_SESSION",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttlo: 60 * 60 }),
+  })
+);
 server.use("/", router);
 
 server.use(errorHandler);

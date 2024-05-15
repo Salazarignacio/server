@@ -12,7 +12,7 @@ function fetchProducts(page) {
     })
     .then((data) => {
       let template = ``;
-      console.log(data);
+    
       template = data.response
         .map(
           (element) => `<div class="card m-1 " style="width: 25rem;"> 

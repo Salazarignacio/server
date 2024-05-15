@@ -1,12 +1,16 @@
-fetch(
-  "http://localhost:8080/api/carts/paginate?user_id=6632d2fe9984c35bb08075fe"
-)
-  .then((res) => res.json())
-  .then((res) => {
-    let template = ``;
+let objeto = "";
+fetch("http://localhost:8080/api/sessions/online")
+  .then((online) => online.json())
+  .then((online) => {
+    user_id = online.user_id;
 
-    template = res.response.map((element) => {
-      return `<div class="card m-1 " style="width: 25rem;"> 
+    fetch(`http://localhost:8080/api/carts/paginate?user_id=${user_id}`)
+      .then((res) => res.json())
+      .then((res) => {
+        let template = ``;
+
+        template = res.response.map((element) => {
+          return `<div class="card m-1 " style="width: 25rem;"> 
         <p>${element._id}</p>
       <img src=${element.user_id.photo} " style="width: 3rem;"class="card-img-top" alt=${element.id}> 
       <div class="input-group mb-3">
@@ -22,19 +26,25 @@ fetch(
         
         <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
-    });
-    const buttonAcept = `<button id="acceptButton">Finalize purchase</button>`;
-    const buttonCancel = `<button id="canceltButton">Cancel purchase</button>`;
-    document.querySelector("#carts").innerHTML = template + buttonAcept + buttonCancel;
+        });
+        const buttonAcept = `<button id="acceptButton">Finalize purchase</button>`;
+        const buttonCancel = `<button id="canceltButton">Cancel purchase</button>`;
+        document.querySelector("#carts").innerHTML =
+          template + buttonAcept + buttonCancel;
 
-    document.getElementById("acceptButton").addEventListener("click", () => {
-      aceptOrCancelPurchase(res, true);
-    });
-    document.getElementById("canceltButton").addEventListener("click", () => {
-      aceptPurchase(res, false);
-    });
-  })
-  .catch((err) => console.log(err));
+        document
+          .getElementById("acceptButton")
+          .addEventListener("click", () => {
+            aceptOrCancelPurchase(res, true);
+          });
+        document
+          .getElementById("canceltButton")
+          .addEventListener("click", () => {
+            aceptPurchase(res, false);
+          });
+      })
+      .catch((err) => console.log(err));
+  });
 
 async function destroy(oid) {
   try {
@@ -50,8 +60,9 @@ async function destroy(oid) {
   }
 }
 
-
 async function aceptOrCancelPurchase(res, bool) {
-  bool?console.log('Purchase done succesfully'):console.log('Purchace was cancelled');;
+  bool
+    ? console.log("Purchase done succesfully")
+    : console.log("Purchace was cancelled");
   res.response.map((element) => destroy(element._id));
 }

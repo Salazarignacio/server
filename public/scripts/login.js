@@ -15,7 +15,7 @@ submitButton.addEventListener("click", async (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
-  console.log(data);
+
   let response = await fetch("/api/sessions/login", opts);
 
   response = await response.json();

@@ -24,19 +24,55 @@ sessionsRouter.post(
   }
 );
 
-sessionsRouter.post("/login",isValidUser, isValidPass, async (req, res, next) => {
+sessionsRouter.post(
+  "/login",
+  isValidUser,
+  isValidPass,
+  async (req, res, next) => {
+    try {
+      const { email } = req.body;
+      const one = await UsersManager.readByEmail(email);
+      req.session.email = email;
+      (req.session.online = true), (req.session._id = one._id);
+      // role
+      return res.json({
+        statusCode: 200,
+        message: "Logged",
+        online: true,
+        email: email,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  }
+);
+
+sessionsRouter.get("/online", async (req, res, next) => {
   try {
-    const { email, password } = req.body;
-    const readEmail = await UsersManager.readByEmail(email);
-    req.session.email = email;
-    
-    return res.json({
-      statusCode: 200,
-      message: 'Logged'
-    })
+    if (req.session.online) {
+      return res.json({
+        statusCode: 200,
+        message: "is Online",
+        user_id: req.session._id,
+        email: req.session.email,
+      });
+    } else {
+      return res.json({
+        statusCode: 400,
+        message: "Sign In",
+      });
+    }
   } catch (error) {
     return next(error);
   }
 });
 
+sessionsRouter.get('/signOut', async (req, res, next) => {
+  try {
+    req.session.destroy();
+    return res.json({ statusCode: 200, message: "Signed out!" });
+  } catch (error) {
+    return next(error)
+  }
+})
 export default sessionsRouter;

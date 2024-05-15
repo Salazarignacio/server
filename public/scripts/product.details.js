@@ -1,8 +1,7 @@
 const queries = new URL(location.href);
 let split = queries.pathname.split("/");
 split = split[split.length - 1];
-console.log(split);
-fetch(`http://localhost:8080/api/products/${split}`) /* un invento mio */
+fetch(`http://localhost:8080/api/products/${split}`)
   .then((response) => {
     return response.json();
   })
@@ -18,23 +17,26 @@ fetch(`http://localhost:8080/api/products/${split}`) /* un invento mio */
     container.innerHTML = template;
   });
 
-  async function addToCart(id){
-    try {
-        const data = {
-            user_id : '6632d2fe9984c35bb08075fe',
-            product_id: id,
-            quantity: 1
-        }
-        const url = '/api/carts'; 
-        const opts = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers : {'Content-Type': 'application/json'}
-        }
-        let response = await fetch(url, opts)
-        response = await response.json()
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
+async function addToCart(id) {
+  try {
+    let fetch_id = await fetch("http://localhost:8080/api/sessions/online");
+    fetch_id = await fetch_id.json();
+    let user_id = fetch_id.user_id;
+
+    const data = {
+      user_id: user_id,
+      product_id: id,
+      quantity: 1,
+    };
+    const url = "/api/carts";
+    const opts = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    };
+    let response = await fetch(url, opts);
+    response = await response.json();
+  } catch (error) {
+    console.log(error);
   }
+}
