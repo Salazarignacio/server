@@ -15,6 +15,7 @@ async function print() {
     loginHTML = `<a class="nav-link active" id="signOut" aria-current="page">Sign Out</a>`;
     document.querySelector("#miDiv").innerHTML = template;
     document.querySelector("#login").innerHTML = loginHTML;
+    document.querySelector('#userLogged').innerHTML = online.email
 
     document.querySelector("#signOut").addEventListener("click", () => {
       outline();
