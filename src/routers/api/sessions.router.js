@@ -33,7 +33,8 @@ sessionsRouter.post(
       const { email } = req.body;
       const one = await UsersManager.readByEmail(email);
       req.session.email = email;
-      (req.session.online = true), (req.session._id = one._id);
+      req.session.online = true;
+      req.session._id = one._id;
       // role
       return res.json({
         statusCode: 200,
@@ -67,12 +68,12 @@ sessionsRouter.get("/online", async (req, res, next) => {
   }
 });
 
-sessionsRouter.get('/signOut', async (req, res, next) => {
+sessionsRouter.get("/signOut", async (req, res, next) => {
   try {
     req.session.destroy();
-    return res.json({ statusCode: 200, message: "Signed out!" });
+    return res.json({ statusCode: 200, message: "Signed out!", online: false });
   } catch (error) {
-    return next(error)
+    return next(error);
   }
-})
+});
 export default sessionsRouter;

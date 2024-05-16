@@ -41,7 +41,7 @@ server.use(cookieParser("secret"));
 
 server.use(
   session({
-    secret: "process.env.SECRET_SESSION",
+    secret: process.env.SECRET_SESSION,
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttlo: 60 * 60 }),
