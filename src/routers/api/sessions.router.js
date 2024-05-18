@@ -5,21 +5,15 @@ import isValidEmail from "../../middlewares/isValidEmail.mid.js";
 import isValidPass from "../../middlewares/isValidPass.mid.js";
 import isValidUser from "../../middlewares/isValidUser.mid.js";
 import createHashPassword from "../../middlewares/createHash.mid.js";
+import passport from "../../middlewares/passport.mid.js";
 const sessionsRouter = Router();
 
 sessionsRouter.post(
   "/register",
-  isValidData,
-  isValidEmail,
-  createHashPassword,
+  passport.authenticate("register", { session: false }),
   async (req, res, next) => {
     try {
-      const data = req.body;
-      await UsersManager.create(data);
-      return res.json({
-        statusCode: 201,
-        message: "Registered",
-      });
+      return res.json({ statusCode: 201, message: "Registered!" });
     } catch (error) {
       return next(error);
     }
