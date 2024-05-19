@@ -1,10 +1,4 @@
 import { Router } from "express";
-import UsersManager from "../../data/mongo/UsersManager.js";
-import isValidData from "../../middlewares/isValidData.mid.js";
-import isValidEmail from "../../middlewares/isValidEmail.mid.js";
-import isValidPass from "../../middlewares/isValidPass.mid.js";
-import isValidUser from "../../middlewares/isValidUser.mid.js";
-import createHashPassword from "../../middlewares/createHash.mid.js";
 import passport from "../../middlewares/passport.mid.js";
 const sessionsRouter = Router();
 
@@ -21,9 +15,24 @@ sessionsRouter.post(
 );
 
 sessionsRouter.post(
+  "/",
+  passport.authenticate("session-check", { session: false }), // Middleware de Passport
+  async (req, res, next) => {
+    try {
+      return res.json({
+        statusCode: 200,
+        email: req.session.email,
+        online: req.session.online,
+        role: req.session.role,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  }
+);
+
+sessionsRouter.post(
   "/login",
-  //  isValidUser,
-  //  isValidPass,
   passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {

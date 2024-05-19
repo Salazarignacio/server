@@ -3,6 +3,9 @@ import { Strategy as LocalStrategy } from "passport-local";
 import UsersManager from "../data/mongo/UsersManager.js";
 import { createHash, verifyHash } from "../../utils/hash.util.js";
 
+import { Strategy as CustomStrategy } from "passport-custom";
+
+
 passport.use(
   "register",
   new LocalStrategy(
@@ -69,6 +72,19 @@ passport.use(
       }
     }
   )
+);
+
+passport.use(
+  "session-check",
+  new CustomStrategy((req, done) => {
+    if (req.session.online) {
+      return done(null, req.session);
+    } else {
+      const error = new Error("Unauthorized: You need to log in");
+      error.statusCode = 401;
+      return done(error);
+    }
+  })
 );
 
 export default passport;
