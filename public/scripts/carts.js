@@ -8,7 +8,6 @@ fetch("http://localhost:8080/api/sessions/online")
       .then((res) => res.json())
       .then((res) => {
         let template = ``;
-
         template = res.response.map((element) => {
           return `<div class="card m-1 " style="width: 25rem;"> 
         <p>${element._id}</p>

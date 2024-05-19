@@ -22,22 +22,12 @@ sessionsRouter.post(
 
 sessionsRouter.post(
   "/login",
-  isValidUser,
-  isValidPass,
+  //  isValidUser,
+  //  isValidPass,
+  passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {
-      const { email } = req.body;
-      const one = await UsersManager.readByEmail(email);
-      req.session.email = email;
-      req.session.online = true;
-      req.session._id = one._id;
-      // role
-      return res.json({
-        statusCode: 200,
-        message: "Logged",
-        online: true,
-        email: email,
-      });
+      return res.json({ statusCode: 200, message: "Logged in!" });
     } catch (error) {
       return next(error);
     }
@@ -50,7 +40,7 @@ sessionsRouter.get("/online", async (req, res, next) => {
       return res.json({
         statusCode: 200,
         message: "is Online",
-        user_id: req.session._id,
+        user_id: req.session.user_id,
         email: req.session.email,
       });
     } else {
