@@ -16,7 +16,7 @@ sessionsRouter.post(
 
 sessionsRouter.post(
   "/",
-  passport.authenticate("session-check", { session: false }), 
+  passport.authenticate("session-check", { session: false }),
   async (req, res, next) => {
     try {
       return res.json({
@@ -71,4 +71,23 @@ sessionsRouter.get("/signOut", async (req, res, next) => {
     return next(error);
   }
 });
+
+sessionsRouter.get(
+  "/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
+sessionsRouter.get(
+  "/google/callback",
+  passport.authenticate("google", { session: false }),
+  async (req, res, next) => {
+    try {
+      return res.json({
+        statusCode: 200,
+        message: "Logged whith google",
+      });
+    } catch (error) {
+      return next(error);
+    }
+  }
+);
 export default sessionsRouter;

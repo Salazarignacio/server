@@ -2,9 +2,8 @@ import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import UsersManager from "../data/mongo/UsersManager.js";
 import { createHash, verifyHash } from "../../utils/hash.util.js";
-
+import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as CustomStrategy } from "passport-custom";
-
 
 passport.use(
   "register",
@@ -87,4 +86,37 @@ passport.use(
   })
 );
 
+passport.use(
+  "google",
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://localhost:8080/api/sessions/google/callback",
+      passReqToCallback: true,
+    },
+    async (req, accesToken, refreshToke, profile, done) => {
+      try {
+        const { id, picture } = profile;
+        let user = await UsersManager.readByEmail(id);
+        if (!user) {
+          user = {
+            email: id,
+            password: createHash(id),
+            photo : picture
+          };
+          user = await UsersManager.create(user);
+          req.session.email = user.email;
+          req.session.online = true;
+          req.session.role = user.role;
+          req.session.photo = user.photo;
+          req.session.user_id = user._id;
+          return done(null, user);
+        }
+      } catch (error) {
+        return done(error);
+      }
+    }
+  )
+);
 export default passport;
