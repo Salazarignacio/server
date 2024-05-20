@@ -16,7 +16,7 @@ sessionsRouter.post(
 
 sessionsRouter.post(
   "/",
-  passport.authenticate("session-check", { session: false }), // Middleware de Passport
+  passport.authenticate("session-check", { session: false }), 
   async (req, res, next) => {
     try {
       return res.json({

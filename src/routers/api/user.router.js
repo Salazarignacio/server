@@ -4,8 +4,8 @@ import UsersManager from "../../data/mongo/UsersManager.js";
 
 const usersRouter = Router();
 
-usersRouter.get("/", read);
- usersRouter.get("/caca", readOne); 
+/* usersRouter.get("/", read); */
+ usersRouter.get("/", readOne); 
 usersRouter.post("/", create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
@@ -23,7 +23,7 @@ async function create(req, res, next) {
     next(error);
   }
 }
-async function read(req, res) {
+async function read(req, res, next) {
   try {
     const read = await UsersManager.readOne('66475c982437f88f1434d822');
     if (read.length > 0) {
@@ -48,9 +48,7 @@ async function readOne(req, res, next) {
     if (readOne) {
       return res.json({
         statusCode: 200,
-        /* message: readOne, */
-        req: req.session
-
+        message: readOne, 
       });
     } else {
       const error = new Error("ID NOT FOUND IN FILE");
