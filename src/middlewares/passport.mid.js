@@ -4,6 +4,7 @@ import UsersManager from "../data/mongo/UsersManager.js";
 import { createHash, verifyHash } from "../../utils/hash.util.js";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as CustomStrategy } from "passport-custom";
+import { createToken } from "../../utils/token.utils.js";
 
 passport.use(
   "register",
@@ -56,11 +57,14 @@ passport.use(
         }
         const verify = verifyHash(password, one.password);
         if (verify) {
-          req.session.email = email;
+/*           req.session.email = email;
           req.session.online = true;
           req.session.role = one.role;
           req.session.photo = one.photo;
-          req.session.user_id = one._id;
+          req.session.user_id = one._id; */
+          const data = {email, role: one.role, photo: one.photo, _id: one._id, online: true}
+          const token = createToken(data)
+          one.token = token
           return done(null, one);
         }
         const error = new Error("Invalid credentials");
@@ -103,7 +107,7 @@ passport.use(
           user = {
             email: id,
             password: createHash(id),
-            photo : picture
+            photo: picture,
           };
           user = await UsersManager.create(user);
           req.session.email = user.email;
