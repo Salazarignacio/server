@@ -1,5 +1,5 @@
 async function outline() {
-  let outline = await fetch("http://localhost:8080/api/sessions/signOut");
+  let outline = await fetch("http://localhost:8080/api/sessions/signout");
   outline = await outline.json();
   location.replace('/')
 }

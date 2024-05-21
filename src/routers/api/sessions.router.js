@@ -36,7 +36,11 @@ sessionsRouter.post(
   passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {
-      return res.json({ statusCode: 200, message: "Logged in!", token: req.user.token });
+      return res.json({
+        statusCode: 200,
+        message: "Logged in!",
+        token: req.user.token,
+      });
     } catch (error) {
       return next(error);
     }
@@ -83,7 +87,7 @@ sessionsRouter.get(
     try {
       return res.json({
         statusCode: 200,
-        message: "Logged whith google",
+        message: "Logged with google",
       });
     } catch (error) {
       return next(error);
