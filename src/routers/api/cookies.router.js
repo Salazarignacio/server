@@ -7,10 +7,9 @@ cookiesRouter.get("/set", async (req, res, next) => {
   try {
     if (req.query.nombre) {
       query = req.query;
-      
     }
     return res
-      .cookie("clave", "valor", { maxAge: 10000})
+      .cookie("clave", "valor", { maxAge: 10000 })
       .json({ message: query });
   } catch (error) {
     return next(error);

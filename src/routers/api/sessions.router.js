@@ -1,5 +1,6 @@
 import { Router } from "express";
 import passport from "../../middlewares/passport.mid.js";
+import isAuth from "../../middlewares/isAuth.mid.js";
 const sessionsRouter = Router();
 
 sessionsRouter.post(
@@ -36,7 +37,7 @@ sessionsRouter.post(
   passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {
-      return res.json({
+      return res.cookie("token", req.user.token, { signedCookie: true }).json({
         statusCode: 200,
         message: "Logged in!",
         token: req.user.token,
@@ -47,19 +48,19 @@ sessionsRouter.post(
   }
 );
 
-sessionsRouter.get("/online", async (req, res, next) => {
+sessionsRouter.get("/online", isAuth, async (req, res, next) => {
   try {
-    if (req.session.online) {
+    if (req.user.online) {
       return res.json({
         statusCode: 200,
         message: "is Online",
-        user_id: req.session.user_id,
-        email: req.session.email,
+        user_id: req.user._id,
+        email: req.user.email,
       });
     } else {
       return res.json({
-        statusCode: 400,
-        message: "Sign In",
+        statusCode: 403,
+        message: "Bad bad",
       });
     }
   } catch (error) {

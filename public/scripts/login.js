@@ -1,4 +1,4 @@
-let template = `<button id="submitButton">Submita</button>`;
+let template = `<button id="submitButton">Log In</button>`;
 const submit = document.querySelector("#submit");
 submit.innerHTML = template;
 
@@ -21,8 +21,8 @@ submitButton.addEventListener("click", async (e) => {
   response = await response.json();
 
   if (response.statusCode == 200) {
-    /* location.replace("/"); */
-    console.log(response);
+
+     location.replace("/"); 
   } else {
     console.log(response);
   }

@@ -1,12 +1,13 @@
 async function outline() {
   let outline = await fetch("http://localhost:8080/api/sessions/signout");
   outline = await outline.json();
-  location.replace('/')
+  location.replace("/");
 }
 
 async function print() {
   let online = await fetch("http://localhost:8080/api/sessions/online");
   online = await online.json();
+  console.log(online);
 
   let template = "";
   let loginHTML = "";
@@ -15,7 +16,7 @@ async function print() {
     loginHTML = `<a class="nav-link active" id="signOut" aria-current="page">Sign Out</a>`;
     document.querySelector("#miDiv").innerHTML = template;
     document.querySelector("#login").innerHTML = loginHTML;
-    document.querySelector('#userLogged').innerHTML = online.email
+    document.querySelector("#userLogged").innerHTML = online.email;
 
     document.querySelector("#signOut").addEventListener("click", () => {
       outline();
