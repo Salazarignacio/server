@@ -4,6 +4,7 @@ import UsersManager from "../data/mongo/UsersManager.js";
 import { createHash, verifyHash } from "../../utils/hash.util.js";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as CustomStrategy } from "passport-custom";
+import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { createToken } from "../../utils/token.utils.js";
 
 passport.use(
@@ -57,11 +58,6 @@ passport.use(
         }
         const verify = verifyHash(password, one.password);
         if (verify) {
-          /*           req.session.email = email;
-          req.session.online = true;
-          req.session.role = one.role;
-          req.session.photo = one.photo;
-          req.session.user_id = one._id; */
           const user = {
             email,
             role: one.role,
@@ -122,6 +118,32 @@ passport.use(
           req.session.photo = user.photo;
           req.session.user_id = user._id;
           return done(null, user);
+        }
+      } catch (error) {
+        return done(error);
+      }
+    }
+  )
+);
+
+passport.use(
+  "jwt",
+  new JwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        (req) => req?.cookies["token"],
+      ]),
+      secretOrKey: process.env.SECRET_JWT,
+    },
+    (data, done) => {
+      try {
+        console.log(data);
+        if (data) {
+          return done(null, data);
+        } else {
+          const error = new Error("Bad auth from JWT");
+          error.statusCode = 403;
+          return done(error);
         }
       } catch (error) {
         return done(error);

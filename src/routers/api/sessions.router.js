@@ -1,11 +1,13 @@
 import { Router } from "express";
 import passport from "../../middlewares/passport.mid.js";
 import isAuth from "../../middlewares/isAuth.mid.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
 const sessionsRouter = Router();
 
 sessionsRouter.post(
   "/register",
-  passport.authenticate("register", { session: false }),
+  /*   passport.authenticate("register", { session: false }), */
+  passportCb("register"),
   async (req, res, next) => {
     try {
       return res.json({ statusCode: 201, message: "Registered!" });
@@ -17,7 +19,8 @@ sessionsRouter.post(
 
 sessionsRouter.post(
   "/",
-  passport.authenticate("session-check", { session: false }),
+  /* passport.authenticate("session-check", { session: false }), */
+  passportCb("sesseion-check"),
   async (req, res, next) => {
     try {
       return res.json({
@@ -34,7 +37,8 @@ sessionsRouter.post(
 
 sessionsRouter.post(
   "/login",
-  passport.authenticate("login", { session: false }),
+  /* passport.authenticate("login", { session: false }), */
+  passportCb("login"),
   async (req, res, next) => {
     try {
       return res.cookie("token", req.user.token, { signedCookie: true }).json({
@@ -48,32 +52,38 @@ sessionsRouter.post(
   }
 );
 
-sessionsRouter.get("/online", isAuth, async (req, res, next) => {
-  try {
-    if (req.user.online) {
-      return res.json({
-        statusCode: 200,
-        message: "is Online",
-        user_id: req.user._id,
-        email: req.user.email,
-      });
-    } else {
-      return res.json({
-        statusCode: 403,
-        message: "Bad bad",
-      });
+sessionsRouter.get(
+  "/online",
+  /* passport.authenticate("jwt", { session: false }), 
+  passportCb("jwt"),
+ /*  isAuth, */
+  async (req, res, next) => {
+    try {
+      if (req.user.online) {
+        return res.json({
+          statusCode: 200,
+          message: "is Online",
+          user_id: req.user.user_id,
+          email: req.user.email,
+        });
+      } else {
+        return res.json({
+          statusCode: 403,
+          message: "Bad bad",
+        });
+      }
+    } catch (error) {
+      return next(error);
     }
-  } catch (error) {
-    return next(error);
   }
-});
+);
 
 sessionsRouter.get("/signOut", async (req, res, next) => {
   try {
     req.session.destroy();
     return res
-    .clearCookie("token")
-    .json({ statusCode: 200, message: "Signed out!", online: false });
+      .clearCookie("token")
+      .json({ statusCode: 200, message: "Signed out!", online: false });
   } catch (error) {
     return next(error);
   }
