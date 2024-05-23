@@ -9,7 +9,6 @@ class UserManager {
   }
   init() {
     if (fs.existsSync(this.path)) {
-      console.log("EXISTING USER");
     } else {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }
@@ -109,35 +108,33 @@ async function run() {
     email: "nachomalcorra@gmail.com",
     photo:
       "https://www.elciudadanoweb.com/wp-content/uploads/2023/10/malcorra-clasico-1-1024x683.jpg",
-    password: 'malcorrazo',
-    role: 'admin'
+    password: "malcorrazo",
+    role: "admin",
   });
   await iUsers.create({
     id: 2,
     email: "rubenmarco@gmail.com",
     photo:
       "https://pbs.twimg.com/profile_images/574633842151063552/hRVGICQA_400x400.png",
-    password: '9deoro',
-    role: 'admin'
+    password: "9deoro",
+    role: "admin",
   });
   await iUsers.create({
     id: 3,
     email: "miguelo@gmail.com",
     photo:
       "https://media.lmneuquen.com/p/ca4f819231aa63f49c9dc7a995e0e6bd/adjuntos/195/imagenes/007/694/0007694301/770x0/smart/imagepng.png",
-    password: 'estoescentral',
-    role: 'admin'
+    password: "estoescentral",
+    role: "admin",
   });
   await iUsers.create({
     id: 3,
     email: "quintana@gmail.com",
-    photo:
-      "https://www.cadena3.com/admin/playerswf/fotos/ARCHI_1043733.jpg",
-    password: 'kingtana',
-    role: 'user'
+    photo: "https://www.cadena3.com/admin/playerswf/fotos/ARCHI_1043733.jpg",
+    password: "kingtana",
+    role: "user",
   });
 }
- /* run()  */
+/* run()  */
 
-
-export default iUsers
+export default iUsers;

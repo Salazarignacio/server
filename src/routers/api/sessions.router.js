@@ -71,7 +71,9 @@ sessionsRouter.get("/online", isAuth, async (req, res, next) => {
 sessionsRouter.get("/signOut", async (req, res, next) => {
   try {
     req.session.destroy();
-    return res.json({ statusCode: 200, message: "Signed out!", online: false });
+    return res
+    .clearCookie("token")
+    .json({ statusCode: 200, message: "Signed out!", online: false });
   } catch (error) {
     return next(error);
   }

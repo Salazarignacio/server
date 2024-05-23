@@ -9,7 +9,6 @@ class CartManager {
   }
   init() {
     if (fs.existsSync(this.path)) {
-      console.log("EXISTING FILE");
     } else {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }

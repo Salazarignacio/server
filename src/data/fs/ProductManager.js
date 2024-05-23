@@ -9,7 +9,6 @@ class ProductManager {
   }
   init() {
     if (fs.existsSync(this.path)) {
-      console.log("EXISTING PRODUCT");
     } else {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }
@@ -53,9 +52,9 @@ class ProductManager {
       if (readFile) {
         /* parseo el archivo */
         readFile = JSON.parse(readFile);
-      if(category){
-        readFile = readFile.filter((element)=> element.category == category)
-      }
+        if (category) {
+          readFile = readFile.filter((element) => element.category == category);
+        }
         return readFile;
       } else {
         throw new Error("CAN NOT READ PRODUCT");
