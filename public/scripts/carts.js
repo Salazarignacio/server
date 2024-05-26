@@ -3,12 +3,14 @@ fetch("http://localhost:8080/api/sessions/online")
   .then((online) => online.json())
   .then((online) => {
     user_id = online.user_id;
+    console.log(online.user_id);
 
     fetch(`http://localhost:8080/api/carts/paginate?user_id=${user_id}`)
       .then((res) => res.json())
       .then((res) => {
         let template = ``;
-        template = res.response.map((element) => {
+         console.log(res); 
+         template = res.response.map((element) => {
           return `<div class="card m-1 " style="width: 25rem;"> 
         <p>${element._id}</p>
       <img src=${element.user_id.photo} " style="width: 3rem;"class="card-img-top" alt=${element.id}> 
@@ -25,7 +27,7 @@ fetch("http://localhost:8080/api/sessions/online")
         
         <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
-        });
+        }); 
         const buttonAcept = `<button id="acceptButton">Finalize purchase</button>`;
         const buttonCancel = `<button id="canceltButton">Cancel purchase</button>`;
         document.querySelector("#carts").innerHTML =

@@ -63,7 +63,7 @@ sessionsRouter.get(
         return res.json({
           statusCode: 200,
           message: "is Online",
-          user_id: req.user.user_id,
+          user_id: req.user._id,
           email: req.user.email,
         });
       } else {
