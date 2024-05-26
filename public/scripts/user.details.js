@@ -7,6 +7,7 @@ fetch(`http://localhost:8080/api/users/`)
     return response.json();
   })
   .then((data) => {
+    console.log(data);
      let template = `<div class="card m-1 " style="width: 25rem;"> 
   <img src=${data.message.photo} class="card-img-top" alt=${data.message.id}> 
   <div class="card-body"> <h5 class="card-title">${data.message.email}</h5> 

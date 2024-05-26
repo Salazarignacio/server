@@ -1,11 +1,12 @@
 import { Router } from "express";
 /*  import UsersManager from "../../data/fs/UserManager.js";  */
 import UsersManager from "../../data/mongo/UsersManager.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
 
 const usersRouter = Router();
 
 /* usersRouter.get("/", read); */
- usersRouter.get("/", readOne); 
+usersRouter.get("/",passportCb("jwt"), readOne);
 usersRouter.post("/", create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
@@ -25,12 +26,12 @@ async function create(req, res, next) {
 }
 async function read(req, res, next) {
   try {
-    const read = await UsersManager.readOne('66475c982437f88f1434d822');
+    const read = await UsersManager.readOne("66475c982437f88f1434d822");
     if (read.length > 0) {
       return res.json({
         statusCode: 200,
         /* message: read, */
-        req: req.session
+        req: req.session,
       });
     } else {
       const error = new Error("FILE NOT FOUND");
@@ -44,11 +45,13 @@ async function read(req, res, next) {
 async function readOne(req, res, next) {
   try {
     /* const { uid } = req.params; */
-    const readOne = await UsersManager.readOne(req.session.user_id);
+    
+    const readOne = await UsersManager.readOne(req.user._id);
     if (readOne) {
       return res.json({
         statusCode: 200,
-        message: readOne, 
+        message: readOne,
+        us: req.user,
       });
     } else {
       const error = new Error("ID NOT FOUND IN FILE");
