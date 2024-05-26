@@ -55,8 +55,8 @@ sessionsRouter.post(
 sessionsRouter.get(
   "/online",
   /* passport.authenticate("jwt", { session: false }), 
-  passportCb("jwt"),
  /*  isAuth, */
+  passportCb("jwt"),
   async (req, res, next) => {
     try {
       if (req.user.online) {
