@@ -22,6 +22,8 @@ class CustomRouter {
   response = (req, res, next) => {
     res.response200 = (response) => res.json({ statusCode: 200, response });
     res.response201 = (response) => res.json({ statusCode: 201, response });
+    res.paginate = (response, info) =>
+      res.json({ statusCode: 200, response, info });
     res.error400 = (error) => res.json({ statusCode: 400, error });
     res.error404 = (error) => res.json({ statusCode: 404, error });
     return next();
@@ -42,6 +44,29 @@ class CustomRouter {
   use(path, ...callbacks) {
     this.router.use(path, this.response, this.applyCbs(callbacks));
   }
+
+  /* policies */
+
+  policies = (policies) => async (req, res, next) => {
+    if (policies.includes("PUBLIC")) return next();
+    else {
+      let token = req.cookies["token"];
+      if (!token) return res.send401();
+      else {
+        try {
+          const { role, email } = jwt.verify(token, process.env.SECRET);
+          if ((policies.includes("USER") && role === 0) || (policies.includes("ADMIN") && role === 1)) {
+            const user = await users.readByEmail(email);
+            req.user = user;
+            return next();
+          } else return res.send403();
+        } catch (error) {
+          return res.send401();
+        }
+      }
+    }
+  };
+ 
 }
 
 export default CustomRouter;

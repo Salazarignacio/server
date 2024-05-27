@@ -30,8 +30,16 @@ class ProductsRouter extends CustomRouter {
         }
 
         const all = await ProductsManagerMongo.paginate({ filter, opts });
+        const info = {
+          totalDocs: all.totalDocs,
+          page: all.page,
+          totalPages: all.totalPages,
+          limit: all.limit,
+          prevPage: all.prevPage,
+          nextPage: all.nextPage,
+        };
 
-        return res.response200(all.docs);
+        return res.paginate(all.docs, info);
       } catch (error) {
         next(error);
       }
