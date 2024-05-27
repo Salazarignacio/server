@@ -11,6 +11,7 @@ function fetchProducts(page) {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       let template = ``;
     
       template = data.response

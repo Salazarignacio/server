@@ -26,7 +26,7 @@ async function create(req, res, next) {
 }
 async function read(req, res, next) {
   try {
-    const read = await UsersManager.readOne("66475c982437f88f1434d822");
+    const read = await UsersManager.readOne(req.user._id);
     if (read.length > 0) {
       return res.json({
         statusCode: 200,

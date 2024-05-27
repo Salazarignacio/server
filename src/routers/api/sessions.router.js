@@ -35,7 +35,7 @@ class SessionsRouter extends CustomRouter {
       }
     );
 
-    this.read(
+    this.create(
       "/login",
       /* passport.authenticate("login", { session: false }), */
       passportCb("login"),
