@@ -1,15 +1,16 @@
-import { Router } from "express";
+import CustomRouter from "./CustomRouter.js";
 /* import ProductManagerMongo from '../../data/fs/ProductManager.js' */
 import ProductsManagerMongo from "../../data/mongo/ProductsManager.js";
 
-const productsRouter = Router();
+class ProductsRouter extends CustomRouter {
+  init() {
+    this.read("/", read);
+    this.read("/paginate", paginate);
+    this.read("/:pid", readOne);
+    this.create("/", create);
+    this.destroy("/:pid", destroy);
+    this.update("/:pid", update);
 
-productsRouter.get("/", read);
-productsRouter.get("/paginate", paginate);
-productsRouter.get("/:pid", readOne);
-productsRouter.post("/", create);
-productsRouter.delete("/:pid", destroy);
-productsRouter.put("/:pid", update);
 
 async function paginate(req, res, next) {
   try {
@@ -31,17 +32,7 @@ async function paginate(req, res, next) {
 
     const all = await ProductsManagerMongo.paginate({ filter, opts });
 
-    return res.json({
-      statusCode: 200,
-      response: all.docs,
-      cookies: req.cookies,
-      info: {
-        limit: all.limit,
-        page: all.page,
-        _id: filter._id,
-
-      },
-    });
+    return res.response200(all);
   } catch (error) {
     next(error);
   }
@@ -121,5 +112,8 @@ async function update(req, res, next) {
     return next(error);
   }
 }
+}
+}
 
-export default productsRouter;
+const productsRouter = new ProductsRouter();
+export default productsRouter.getRouter();

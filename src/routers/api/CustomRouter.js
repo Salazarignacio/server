@@ -2,11 +2,11 @@ import { Router } from "express";
 
 class CustomRouter {
   constructor() {
-    this.Router();
+    this.router = Router();
     this.init();
   }
   getRouter() {
-    this.router();
+    return this.router;
   }
   init() {}
   applyCbs(callbacks) {
@@ -18,21 +18,29 @@ class CustomRouter {
       }
     });
   }
+  /* responses */
+  response = (req, res, next) => {
+    res.response200 = (response) => res.json({ statusCode: 200, response });
+    res.response201 = (response) => res.json({ statusCode: 201, response });
+    res.error400 = (error) => res.json({ statusCode: 400, error });
+    res.error404 = (error) => res.json({ statusCode: 404, error });
+    return next();
+  };
   /* metodos */
   create(path, ...callbacks) {
-    this.router.post(path, this.applyCbs(callbacks));
+    this.router.post(path, this.response, this.applyCbs(callbacks));
   }
   read(path, ...callbacks) {
-    this.router.get(path, this.applyCbs(callbacks));
+    this.router.get(path, this.response, this.applyCbs(callbacks));
   }
   update(path, ...callbacks) {
-    this.router.put(path, this.applyCbs(callbacks));
+    this.router.put(path, this.response, this.applyCbs(callbacks));
   }
   destroy(path, ...callbacks) {
-    this.router.delete(path, this.applyCbs(callbacks));
+    this.router.delete(path, this.response, this.applyCbs(callbacks));
   }
   use(path, ...callbacks) {
-    this.router.use(path, this.applyCbs(callbacks));
+    this.router.use(path, this.response, this.applyCbs(callbacks));
   }
 }
 

@@ -1,16 +1,16 @@
-import { Router } from "express";
-/*  import UsersManager from "../../data/fs/UserManager.js";  */
+import CustomRouter from "./CustomRouter.js";
 import UsersManager from "../../data/mongo/UsersManager.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
 
-const usersRouter = Router();
-
-/* usersRouter.get("/", read); */
-usersRouter.get("/", passportCb("jwt"), readOne);
-usersRouter.post("/", create);
-usersRouter.put("/:uid", update);
-usersRouter.delete("/:uid", destroy);
-usersRouter.get("/email/:email", readByEmail);
+class UsersRouter extends CustomRouter {
+  init() {
+    this.read("/", passportCb("jwt"), readOne);
+    this.create("/", create);
+    this.update("/:uid", update);
+    this.destroy("/:uid", destroy);
+    this.read("/email/:email", readByEmail);
+  }
+}
 
 async function create(req, res, next) {
   try {
@@ -106,4 +106,5 @@ async function update(req, res, next) {
   }
 }
 
-export default usersRouter;
+const usersRouter = new UsersRouter();
+export default usersRouter.getRouter();

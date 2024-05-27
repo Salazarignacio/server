@@ -1,16 +1,18 @@
-import { Router } from "express";
-/* import iCarts from "../../data/fs/CartsManager.js"; */
+import CustomRouter from "./CustomRouter.js";
 import CartsManagerMongo from "../../data/mongo/CartsManager.js";
 
-const cartRouter = Router();
 
-cartRouter.post("/", create);
-cartRouter.get("/", paginate);
-cartRouter.delete("/:oid", destroy);
-cartRouter.get("/readone/:oid", readOne);
-cartRouter.get("/paginate", paginate);
-cartRouter.put("/:oid", update);
 
+class CartRouter extends CustomRouter {
+  init() {
+    this.create("/", create);
+    this.read("/", paginate);
+    this.destroy("/:oid", destroy);
+    this.read("/readone/:oid", readOne);
+    this.read("/paginate", paginate);
+    this.update("/:oid", update);
+  }
+}
 
 async function paginate(req, res, next) {
   try {
@@ -22,7 +24,7 @@ async function paginate(req, res, next) {
     if (req.query.user_id) {
       filter.user_id = req.query.user_id;
     }
-    
+
     const all = await CartsManagerMongo.paginate({ filter, opts });
     res.json({
       statusCode: 200,
@@ -105,4 +107,5 @@ async function update(req, res, next) {
   }
 }
 
-export default cartRouter;
+const cartRouter = new CartRouter();
+export default cartRouter.getRouter();
