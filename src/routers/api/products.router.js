@@ -13,7 +13,6 @@ class ProductsRouter extends CustomRouter {
 
     async function paginate(req, res, next) {
       try {
-        const cookieGuardada = req.cookies;
         const filter = {};
         const opts = {};
         if (req.query.limit) {
@@ -48,10 +47,7 @@ class ProductsRouter extends CustomRouter {
       try {
         const data = req.body;
         const create = await ProductsManagerMongo.create(data);
-        return res.json({
-          statusCode: 201,
-          message: "CREATED ID: " + create.id,
-        });
+        return res.response201("created succesfully");
       } catch (error) {
         return next(error);
       }
@@ -61,14 +57,9 @@ class ProductsRouter extends CustomRouter {
         const read = await ProductsManagerMongo.read();
 
         if (read.length > 0) {
-          return res.json({
-            statusCode: 200,
-            message: read,
-          });
+          return res.response200(read);
         } else {
-          const error = new Error("FILE NOT FOUND");
-          error.statusCode = 404;
-          throw error;
+          return res.error404("FILE NOT FOUND");
         }
       } catch (error) {
         return next(error);
@@ -80,14 +71,9 @@ class ProductsRouter extends CustomRouter {
         const { pid } = req.params;
         const readOne = await ProductsManagerMongo.readOne(pid);
         if (readOne) {
-          return res.json({
-            statusCode: 200,
-            message: readOne,
-          });
+          return res.response200(readOne);
         } else {
-          const error = new Error("ID NOT FOUND IN FILE");
-          error.statusCode = 404;
-          throw error;
+          return res.error404("FILE NOT FOUND");
         }
       } catch (error) {
         return next(error);
@@ -98,10 +84,7 @@ class ProductsRouter extends CustomRouter {
       try {
         const { pid } = req.params;
         const destroy = await ProductsManagerMongo.destroy(pid);
-        return res.json({
-          statusCode: 200,
-          response: destroy,
-        });
+        return res.response200(destroy);
       } catch (error) {
         return next(error);
       }
@@ -111,10 +94,7 @@ class ProductsRouter extends CustomRouter {
         const { pid } = req.params;
         const data = req.body;
         const update = await ProductsManagerMongo.update(pid, data);
-        return res.json({
-          statusCode: 200,
-          response: update,
-        });
+        return res.response200(update);
       } catch (error) {
         return next(error);
       }

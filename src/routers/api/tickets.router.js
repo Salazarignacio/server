@@ -39,10 +39,7 @@ class TicketsRouter extends CustomRouter {
           },
           { $merge: { into: "tickets" } },
         ]);
-        return res.json({
-          statusCode: 200,
-          response: ticket,
-        });
+        return res.response200(ticket)
       } catch (error) {
         next(error);
       }

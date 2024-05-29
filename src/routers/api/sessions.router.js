@@ -10,7 +10,7 @@ class SessionsRouter extends CustomRouter {
       passportCb("register"),
       async (req, res, next) => {
         try {
-          return res.json({ statusCode: 201, message: "Registered!" });
+          return res.response201("registered");
         } catch (error) {
           return next(error);
         }
@@ -23,12 +23,7 @@ class SessionsRouter extends CustomRouter {
       passportCb("sesseion-check"),
       async (req, res, next) => {
         try {
-          return res.json({
-            statusCode: 200,
-            email: req.session.email,
-            online: req.session.online,
-            role: req.session.role,
-          });
+          return res.response200();
         } catch (error) {
           return next(error);
         }
@@ -43,42 +38,29 @@ class SessionsRouter extends CustomRouter {
         try {
           return res
             .cookie("token", req.user.token, { signedCookie: true })
-            .json({
-              statusCode: 200,
-              message: "Logged in!",
-              token: req.user.token,
-            });
+            .response200("Logged In");
         } catch (error) {
           return next(error);
         }
       }
     );
 
-    this.read(
-      "/online",
-      /* passport.authenticate("jwt", { session: false }), 
- /*  isAuth, */
-      passportCb("jwt"),
-      async (req, res, next) => {
-        try {
-          if (req.user.online) {
-            return res.json({
-              statusCode: 200,
-              message: "is Online",
-              user_id: req.user._id,
-              email: req.user.email,
-            });
-          } else {
-            return res.json({
-              statusCode: 403,
-              message: "Bad bad",
-            });
-          }
-        } catch (error) {
-          return next(error);
+    this.read("/online", passportCb("jwt"), async (req, res, next) => {
+      try {
+        if (req.user.online) {
+          return res.json({
+            statusCode: 200,
+            message: "is Online",
+            user_id: req.user._id,
+            email: req.user.email,
+          });
+        } else {
+          return res.error400('Bad bad')
         }
+      } catch (error) {
+        return next(error);
       }
-    );
+    });
 
     this.read("/signOut", async (req, res, next) => {
       try {
