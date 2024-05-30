@@ -4,12 +4,12 @@ import ProductsManagerMongo from "../../data/mongo/ProductsManager.js";
 
 class ProductsRouter extends CustomRouter {
   init() {
-    this.read("/", read);
-    this.read("/paginate", paginate);
-    this.read("/:pid", readOne);
-    this.create("/", create);
-    this.destroy("/:pid", destroy);
-    this.update("/:pid", update);
+    this.read("/", ["PUBLIC"], read);
+    this.read("/paginate", ["PUBLIC"], paginate);
+    this.read("/:pid", ["PUBLIC"], readOne);
+    this.create("/", ["ADMIN"], create);
+    this.destroy("/:pid", ["ADMIN"], destroy);
+    this.update("/:pid", ["ADMIN"], update);
 
     async function paginate(req, res, next) {
       try {

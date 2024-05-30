@@ -2,15 +2,18 @@ import CustomRouter from "./CustomRouter.js";
 import { Router, response } from "express";
 import CartsManager from "../../data/mongo/CartsManager.js";
 import { Types } from "mongoose";
+import passportCb from "../../middlewares/passportCb.mid.js";
+import TicketsManagerMongo from "../../data/mongo/TicketsManager.js";
 
 class TicketsRouter extends CustomRouter {
   init() {
-    this.create("/:uid", async (req, res, next) => {
+    this.create("/",['PUBLIC'], passportCb("jwt"),async (req, res, next) => {
+      /* POST ******* */
       try {
-        const { uid } = req.params;
+        const user = req.user._id;
         const ticket = await CartsManager.aggregate([
           {
-            $match: { user_id: new Types.ObjectId(uid) },
+            $match: { user_id: new Types.ObjectId(user) },
           },
           {
             $lookup: {
@@ -39,9 +42,24 @@ class TicketsRouter extends CustomRouter {
           },
           { $merge: { into: "tickets" } },
         ]);
-        return res.response200(ticket)
+        return res.json({
+          statusCode: 200,
+          response: ticket,
+          user: user,
+        });
       } catch (error) {
         next(error);
+      }
+    });
+    this.read("/",['PUBLIC'], passportCb("jwt"),  async (req, res, next) => {
+      try {
+        const read = await TicketsManagerMongo.read()
+        return res.json({
+          statusCode: 200,
+          response: read
+        })
+      } catch (error) {
+        return next(error);
       }
     });
   }

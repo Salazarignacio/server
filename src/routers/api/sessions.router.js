@@ -6,7 +6,7 @@ class SessionsRouter extends CustomRouter {
   init() {
     this.create(
       "/register",
-      /*   passport.authenticate("register", { session: false }), */
+      ["PUBLIC"],
       passportCb("register"),
       async (req, res, next) => {
         try {
@@ -17,9 +17,9 @@ class SessionsRouter extends CustomRouter {
       }
     );
 
-    this.create(
+    /*     this.create(
       "/",
-      /* passport.authenticate("session-check", { session: false }), */
+      
       passportCb("sesseion-check"),
       async (req, res, next) => {
         try {
@@ -28,11 +28,11 @@ class SessionsRouter extends CustomRouter {
           return next(error);
         }
       }
-    );
+    ); */
 
     this.create(
       "/login",
-      /* passport.authenticate("login", { session: false }), */
+      ["PUBLIC"],
       passportCb("login"),
       async (req, res, next) => {
         try {
@@ -45,24 +45,31 @@ class SessionsRouter extends CustomRouter {
       }
     );
 
-    this.read("/online", passportCb("jwt"), async (req, res, next) => {
-      try {
-        if (req.user.online) {
-          return res.json({
-            statusCode: 200,
-            message: "is Online",
-            user_id: req.user._id,
-            email: req.user.email,
-          });
-        } else {
-          return res.error400('Bad bad')
+    this.read(
+      "/online",
+      ["USER", "ADMIN"],
+      passportCb("jwt"),
+      async (req, res, next) => {
+        try {
+          if (req.user.online) {
+            return res.json({
+              statusCode: 200,
+              message: "is Online",
+              user_id: req.user._id,
+              email: req.user.email,
+            });
+          } else {
+            return res.error400("Bad bad");
+          }
+        } catch (error) {
+          return next(error);
         }
-      } catch (error) {
-        return next(error);
       }
-    });
+    );
 
-    this.read("/signOut", async (req, res, next) => {
+    this.read("/signOut",
+    ['USER', 'ADMIN'],
+    async (req, res, next) => {
       try {
         req.session.destroy();
         return res
@@ -75,10 +82,12 @@ class SessionsRouter extends CustomRouter {
 
     this.read(
       "/google",
+      ['PUBLIC'],
       passport.authenticate("google", { scope: ["email", "profile"] })
     );
     this.read(
       "/google/callback",
+      ['PUBLIC'],
       passport.authenticate("google", { session: false }),
       async (req, res, next) => {
         try {
