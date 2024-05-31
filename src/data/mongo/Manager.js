@@ -63,6 +63,7 @@ class Manager {
   async aggregate(uid) {
     try {
       const result = await this.model.aggregate(uid);
+      /* const read = await this.readOne(uid) */
       return result;
     } catch (error) {
       throw error;
