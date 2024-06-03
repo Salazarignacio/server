@@ -7,7 +7,7 @@ import TicketsManagerMongo from "../../data/mongo/TicketsManager.js";
 
 class TicketsRouter extends CustomRouter {
   init() {
-    this.read("/", ["PUBLIC"], passportCb("jwt"), async (req, res, next) => {
+    this.read("/", ["USER", "ADMIN"], passportCb("jwt"), async (req, res, next) => {
       try {
         const user = req.user._id;
         const ticket = await CartsManager.aggregate([
@@ -52,7 +52,7 @@ class TicketsRouter extends CustomRouter {
     });
     this.read(
       "/read",
-      ["PUBLIC"],
+      ["USER", "ADMIN"],
       passportCb("jwt"),
       async (req, res, next) => {
         try {
