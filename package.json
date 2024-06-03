@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "node ./server.js -p 8080",
     "dev": "nodemon ./server.js"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "commander": "^12.1.0",
     "connect-mongo": "^5.1.0",
     "cookie-parse": "^0.4.0",
     "cookie-parser": "^1.4.6",

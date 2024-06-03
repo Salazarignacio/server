@@ -13,14 +13,23 @@ import dbConnect from "./src/utils/dbConect.util.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import args from "./utils/args.utils.js";
+import dotenv from 'dotenv'
 
 const server = express();
 
-const PORT = process.env.PORT || 9000;
+const enviroment = args.mode;
+const path = enviroment == "dev" ? "./.env.dev" : "./.env.prod";
+dotenv.config({path})
+
+
+const PORT = args.p || process.env.PORT;
 const ready = async () => {
   console.log("server ready on port " + PORT);
   await dbConnect(PORT, ready);
 };
+
+console.log(args);
 
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
@@ -51,3 +60,10 @@ server.use("/", router);
 
 server.use(errorHandler);
 server.use(pathHandler);
+
+/* export {
+    DB_LINK: process.env.DB_LINK,
+    SECRET: process.env.SECRET,
+    SECRET_KEY: process.env.SECRET_KEY,
+};
+ */
