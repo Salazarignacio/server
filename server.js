@@ -23,8 +23,6 @@ const ready = async () => {
   await dbConnect(PORT, ready);
 };
 
-console.log(environment);
-
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 socketServer.on("connection", socketCb);
@@ -44,7 +42,7 @@ server.use(cookieParser("secret"));
 
 server.use(
   session({
-    secret: environment.SECRET_SESSION,
+    secret: process.env.SECRET_SESSION,
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongoUrl: environment.MONGO_URI, ttlo: 60 * 60 }),
@@ -54,7 +52,3 @@ server.use("/", router);
 
 server.use(errorHandler);
 server.use(pathHandler);
-process.on("exit", (code) => {
-  console.log("antes de cerrarse");
-  console.log(code);
-});
