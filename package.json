@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./server.js -p 8080",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js --env dev",
+    "argv": "nodemon ./server.js -p 8080 --env=prod"
   },
   "keywords": [],
   "author": "",

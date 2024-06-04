@@ -1,4 +1,4 @@
-import "dotenv/config.js";
+import environment from "./utils/env.util.js";
 import express from "express";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
@@ -14,22 +14,16 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import args from "./utils/args.utils.js";
-import dotenv from 'dotenv'
 
 const server = express();
 
-const enviroment = args.mode;
-const path = enviroment == "dev" ? "./.env.dev" : "./.env.prod";
-dotenv.config({path})
-
-
-const PORT = args.p || process.env.PORT;
+const PORT = environment.PORT || args.p;
 const ready = async () => {
   console.log("server ready on port " + PORT);
   await dbConnect(PORT, ready);
 };
 
-console.log(args);
+console.log(environment);
 
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
@@ -50,10 +44,10 @@ server.use(cookieParser("secret"));
 
 server.use(
   session({
-    secret: process.env.SECRET_SESSION,
+    secret: environment.SECRET_SESSION,
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttlo: 60 * 60 }),
+    store: new MongoStore({ mongoUrl: environment.MONGO_URI, ttlo: 60 * 60 }),
   })
 );
 server.use("/", router);
@@ -61,9 +55,3 @@ server.use("/", router);
 server.use(errorHandler);
 server.use(pathHandler);
 
-/* export {
-    DB_LINK: process.env.DB_LINK,
-    SECRET: process.env.SECRET,
-    SECRET_KEY: process.env.SECRET_KEY,
-};
- */
