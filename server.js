@@ -54,4 +54,7 @@ server.use("/", router);
 
 server.use(errorHandler);
 server.use(pathHandler);
-
+process.on("exit", (code) => {
+  console.log("antes de cerrarse");
+  console.log(code);
+});

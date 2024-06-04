@@ -1,25 +1,21 @@
-/* import { Router } from "express";
-import apiRouter from "./api/index.api.js";
-import viewsRouter from "./views/index.view.js";
-
-const router = Router();
-
-router.use("/api", apiRouter);
-router.use("/", viewsRouter);
-router.use("/chat", async (req, res, next) => {
-  return res.render("chat", { title: "chat" });
-});
-
-export default router;
-*/
 import CustomRouter from "./api/CustomRouter.js";
 import apiRouter from "./api/index.api.js";
 import viewsRouter from "./views/index.view.js";
+import fork from 'child_process'
 
 class IndexRouter extends CustomRouter {
   init() {
     this.use("/api", apiRouter);
     this.use("/", viewsRouter);
+    this.use("/fork", (req, res, next) => {
+      let result = 0;
+     const childProcess = fork('./src/utils.js/test.utils.js')
+      childProcess.sed('start')
+      childProcess.on('message', result=>{
+        return res.json({result})
+      })
+      return res.json({ result });
+    });
   }
 }
 
