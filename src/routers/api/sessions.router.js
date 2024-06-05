@@ -1,104 +1,34 @@
 import CustomRouter from "./CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
+import {
+  register,
+  google,
+  login,
+  online,
+  signOut,
+} from "../../controllers/sessions.controller.js";
 
 class SessionsRouter extends CustomRouter {
   init() {
-    this.create(
-      "/register",
-      ["PUBLIC"],
-      passportCb("register"),
-      async (req, res, next) => {
-        try {
-          return res.response201("registered");
-        } catch (error) {
-          return next(error);
-        }
-      }
-    );
+    this.create("/register", ["PUBLIC"], passportCb("register"), register);
 
-    /*     this.create(
-      "/",
-      
-      passportCb("sesseion-check"),
-      async (req, res, next) => {
-        try {
-          return res.response200();
-        } catch (error) {
-          return next(error);
-        }
-      }
-    ); */
+    this.create("/login", ["PUBLIC"], passportCb("login"), login);
 
-    this.create(
-      "/login",
-      ["PUBLIC"],
-      passportCb("login"),
-      async (req, res, next) => {
-        try {
-          return res
-            .cookie("token", req.user.token, { signedCookie: true })
-            .response200("Logged In");
-        } catch (error) {
-          return next(error);
-        }
-      }
-    );
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), online);
 
-    this.read(
-      "/online",
-      ["USER", "ADMIN"],
-      passportCb("jwt"),
-      async (req, res, next) => {
-        try {
-          if (req.user.online) {
-            return res.json({
-              statusCode: 200,
-              message: "is Online",
-              user_id: req.user._id,
-              email: req.user.email,
-            });
-          } else {
-            return res.error400("Bad bad");
-          }
-        } catch (error) {
-          return next(error);
-        }
-      }
-    );
-
-    this.read("/signOut",
-    ['USER', 'ADMIN'],
-    async (req, res, next) => {
-      try {
-        req.session.destroy();
-        return res
-          .clearCookie("token")
-          .json({ statusCode: 200, message: "Signed out!", online: false });
-      } catch (error) {
-        return next(error);
-      }
-    });
+    this.read("/signOut", ["USER", "ADMIN"], signOut);
 
     this.read(
       "/google",
-      ['PUBLIC'],
+      ["PUBLIC"],
       passport.authenticate("google", { scope: ["email", "profile"] })
     );
     this.read(
       "/google/callback",
-      ['PUBLIC'],
+      ["PUBLIC"],
       passport.authenticate("google", { session: false }),
-      async (req, res, next) => {
-        try {
-          return res.json({
-            statusCode: 200,
-            message: "Logged with google",
-          });
-        } catch (error) {
-          return next(error);
-        }
-      }
+      google
     );
   }
 }
