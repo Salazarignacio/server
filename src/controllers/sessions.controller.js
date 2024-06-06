@@ -1,6 +1,3 @@
-import passportCb from "../middlewares/passportCb.mid.js";
-import passport from "../middlewares/passport.mid.js";
-
 class SessionsController {
   async register(req, res, next) {
     try {
@@ -59,6 +56,6 @@ class SessionsController {
     }
   }
 }
-const sessionsController = new SessionsController()
-const {register, login, online, signOut, google} = sessionsController
+const sessionsController = new SessionsController();
+const { register, login, online, signOut, google } = sessionsController;
 export { register, login, online, signOut, google };

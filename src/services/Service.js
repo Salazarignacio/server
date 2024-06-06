@@ -1,5 +1,3 @@
-import UsersManager from "../data/mongo/UsersManager.js";
-
 class Service {
   constructor(manager) {
     this.model = manager;
@@ -7,6 +5,10 @@ class Service {
   createService = async (data) => {
     const create = await this.model.create(data);
     return create;
+  };
+  readService = async () => {
+    const read = await this.model.read();
+    return read;
   };
   readOneService = async (id) => {
     const readOne = await this.model.readOne(id);
@@ -18,11 +20,15 @@ class Service {
   };
   destroyService = async (id) => {
     const destroy = await this.model.destroy(id);
-    return "user deleted ID: " + destroy._id;
+    return "File deleted ID: " + destroy._id;
   };
   updateService = async (id, data) => {
     const update = await this.model.update(id, data);
     return update;
+  };
+  paginateService = async ({ filter, opts }) => {
+    const paginate = await this.model.paginate({ filter, opts });
+    return paginate;
   };
 }
 

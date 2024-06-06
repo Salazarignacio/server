@@ -1,4 +1,12 @@
 import ProductsManagerMongo from "../data/mongo/ProductsManager.js";
+import {
+  paginateService,
+  createService,
+  readService,
+  readOneService,
+  destroyService,
+  updateService,
+} from "../services/products.services.js";
 
 async function paginate(req, res, next) {
   try {
@@ -17,7 +25,7 @@ async function paginate(req, res, next) {
       filter.category = req.query.category;
     }
 
-    const all = await ProductsManagerMongo.paginate({ filter, opts });
+    const all = await paginateService({ filter, opts });
     const info = {
       totalDocs: all.totalDocs,
       page: all.page,
@@ -35,7 +43,7 @@ async function paginate(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const create = await ProductsManagerMongo.create(data);
+    const create = await createService(data);
     return res.response201("created succesfully");
   } catch (error) {
     return next(error);
@@ -43,7 +51,7 @@ async function create(req, res, next) {
 }
 async function read(req, res, next) {
   try {
-    const read = await ProductsManagerMongo.read();
+    const read = await readService();
 
     if (read.length > 0) {
       return res.response200(read);
@@ -58,7 +66,7 @@ async function read(req, res, next) {
 async function readOne(req, res, next) {
   try {
     const { pid } = req.params;
-    const readOne = await ProductsManagerMongo.readOne(pid);
+    const readOne = await readOneService(pid);
     if (readOne) {
       return res.response200(readOne);
     } else {
@@ -72,7 +80,7 @@ async function readOne(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { pid } = req.params;
-    const destroy = await ProductsManagerMongo.destroy(pid);
+    const destroy = await destroyService(pid);
     return res.response200(destroy);
   } catch (error) {
     return next(error);
@@ -82,11 +90,11 @@ async function update(req, res, next) {
   try {
     const { pid } = req.params;
     const data = req.body;
-    const update = await ProductsManagerMongo.update(pid, data);
+    const update = await updateService(pid, data);
     return res.response200(update);
   } catch (error) {
     return next(error);
   }
 }
 
-export {paginate, create, read, readOne, destroy, update}
+export { paginate, create, read, readOne, destroy, update };

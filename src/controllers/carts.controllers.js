@@ -1,4 +1,10 @@
-import CartsManagerMongo from "../data/mongo/CartsManager.js";
+import {
+  createService,
+  readOneService,
+  destroyService,
+  updateService,
+  paginateService,
+} from "../services/carts.services.js";
 
 async function paginate(req, res, next) {
   try {
@@ -11,7 +17,7 @@ async function paginate(req, res, next) {
       filter.user_id = req.query.user_id;
     }
 
-    const all = await CartsManagerMongo.paginate({ filter, opts });
+    const all = await paginateService({ filter, opts });
     res.response200(all.docs);
   } catch (error) {
     next(error);
@@ -20,7 +26,7 @@ async function paginate(req, res, next) {
 
 async function read(req, res, next) {
   try {
-    const cart = await CartsManagerMongo.read();
+    const cart = await readOneService();
     return res.response200(cart);
   } catch (error) {
     next(error);
@@ -29,7 +35,7 @@ async function read(req, res, next) {
 
 async function create(req, res, next) {
   try {
-    const create = await CartsManagerMongo.create(req.body);
+    const create = await createService(req.body);
     return res.response201("created succesfully");
   } catch (error) {
     next(error);
@@ -39,7 +45,7 @@ async function create(req, res, next) {
 async function readOne(req, res, next) {
   try {
     const { oid } = req.params;
-    const readOne = await CartsManagerMongo.readOne(oid);
+    const readOne = await readOneService(oid);
     if (readOne) {
       return res.response200(readOne);
     } else {
@@ -53,7 +59,7 @@ async function destroy(req, res, next) {
   try {
     const { oid } = req.params;
     console.log(oid);
-    const destroy = await CartsManagerMongo.destroy(oid);
+    const destroy = await destroyService(oid);
     return res.response(destroy);
   } catch (error) {
     next(error);
@@ -64,7 +70,7 @@ async function update(req, res, next) {
   try {
     const { oid } = req.params;
     const data = req.body;
-    const update = await CartsManagerMongo.update(oid, data);
+    const update = await updateService(oid, data);
     return res.response200(update);
   } catch (error) {
     return next(error);
