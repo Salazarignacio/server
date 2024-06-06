@@ -1,9 +1,16 @@
 import UsersManager from "../data/mongo/UsersManager.js";
+import {
+  createService,
+  readOneService,
+  readByEmailService,
+  updateService,
+  destroyService,
+} from "../services/users.services.js";
 
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const create = await UsersManager.create(data);
+    createService(data);
     return res.response201("Created " + create.id);
   } catch (error) {
     next(error);
@@ -23,7 +30,7 @@ async function read(req, res, next) {
 }
 async function readOne(req, res, next) {
   try {
-    const readOne = await UsersManager.readOne(req.user._id);
+    const readOne = await readOneService(req.user._id);
     if (readOne) {
       return res.response200(readOne);
     } else {
@@ -37,7 +44,7 @@ async function readOne(req, res, next) {
 async function readByEmail(req, res, next) {
   try {
     const { email } = req.params;
-    const readMail = await UsersManager.readByEmail(email);
+    const readMail = await readByEmailService(email);
     if (readMail) {
       res.response200(readMail);
     } else {
@@ -51,7 +58,7 @@ async function readByEmail(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { uid } = req.params;
-    const destroy = await UsersManager.destroy(uid);
+    const destroy = await destroyService(uid);
     return res.response200(destroy);
   } catch (error) {
     return next(error);
@@ -62,7 +69,7 @@ async function update(req, res, next) {
   try {
     const { uid } = req.params;
     const data = req.body;
-    const update = await UsersManager.update(uid, data);
+    const update = await updateService(uid, data);
     return res.response200(update);
   } catch (error) {
     return next(error);
