@@ -14,6 +14,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import args from "./utils/args.utils.js";
+import cors from "cors";
 
 const server = express();
 
@@ -34,6 +35,7 @@ server.set("view engine", "handlebars");
 server.set("views", __dirname + "/src/views");
 
 /* middlewares */
+server.use(cors({ origin: true, credentials: true }));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
