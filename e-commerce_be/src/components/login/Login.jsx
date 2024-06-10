@@ -4,11 +4,28 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario
-    console.log("Email:", email);
-    console.log("Password:", password);
+    const data = {
+      password: password,
+      email: email,
+    };
+    const opts = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+    console.log(data);
+
+    let response = await fetch("http://localhost:8080/api/sessions/login", opts);
+
+    response = await response.json();
+
+    if (response.statusCode == 200) {
+      location.replace("/");
+    } else {
+      console.log(response);
+    }
   };
 
   return (

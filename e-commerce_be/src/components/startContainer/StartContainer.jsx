@@ -24,8 +24,8 @@ function StartContainer() {
   return (
     <>
       {products.map((product) => (
-
         <Start
+          key={product.id}
           title={product.title}
           photo={product.photo}
           price={product.price}

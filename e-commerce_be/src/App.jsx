@@ -1,8 +1,9 @@
 import "./App.css";
-import Navbar from "./navBar/NavBar";
-import StartContainer from "./startContainer/StartContainer";
+import Navbar from './components/navBar/NavBar'
+import StartContainer from './components/startContainer/StartContainer'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./login/Login";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<StartContainer />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>
