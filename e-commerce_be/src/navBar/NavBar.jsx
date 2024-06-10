@@ -7,8 +7,8 @@ const Navbar = () => {
           </div>
           <div className="space-x-4">
             <a href="/" className="text-white hover:text-gray-200">Home</a>
-            <a href="/about" className="text-white hover:text-gray-200">About</a>
-            <a href="/services" className="text-white hover:text-gray-200">Services</a>
+            <a href="/login" className="text-white hover:text-gray-200">Log In</a>
+            <a href="/services" className="text-white hover:text-gray-200">Register</a>
             <a href="/contact" className="text-white hover:text-gray-200">Contact</a>
           </div>
         </div>
