@@ -15,14 +15,17 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    console.log(data);
 
-    let response = await fetch("http://localhost:8080/api/sessions/login", opts);
+    let response = await fetch(
+      "http://localhost:8080/api/sessions/login",
+      opts
+    );
 
     response = await response.json();
 
     if (response.statusCode == 200) {
-      location.replace("/");
+       /* location.replace("/");  */
+      
     } else {
       console.log(response);
     }

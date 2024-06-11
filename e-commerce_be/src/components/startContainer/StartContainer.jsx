@@ -20,7 +20,6 @@ function StartContainer() {
         setProducts(data.response);
       });
   }, [page]);
-  console.log(products);
   return (
     <>
       {products.map((product) => (
