@@ -3,13 +3,13 @@ import { Router, response } from "express";
 const cookiesRouter = Router();
 
 cookiesRouter.get("/set", async (req, res, next) => {
-  let query = "";
+  let query = "holaa";
   try {
     if (req.query.nombre) {
       query = req.query;
     }
     return res
-      .cookie("clave", "valor", { maxAge: 10000 })
+      .cookie("clave", "valor")
       .json({ message: query });
   } catch (error) {
     return next(error);
@@ -32,5 +32,12 @@ cookiesRouter.get("/clear", async (req, res, next) => {
     return next(error);
   }
 });
+cookiesRouter.get('/testing', async (req, res, next)=>{
+  try {
+    return res.json('hola nacho')
+  } catch (error) {
+    return next(error)
+  }
+})
 
 export default cookiesRouter;

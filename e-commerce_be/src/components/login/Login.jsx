@@ -1,36 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      password: password,
-      email: email,
-    };
-    const opts = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-
-    let response = await fetch(
-      "http://localhost:8080/api/sessions/login",
-      opts
-    );
-
-    response = await response.json();
-
-    if (response.statusCode == 200) {
-       /* location.replace("/");  */
-      
-    } else {
-      console.log(response);
-    }
-  };
-
+const Login = ({ email, setEmail, password, setPassword, handleSubmit }) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
