@@ -8,9 +8,11 @@ import {
   online,
   signOut,
 } from "../../controllers/sessions.controller.js";
+import cookiesRouter from "./cookies.router.js";
 
 class SessionsRouter extends CustomRouter {
   init() {
+    this.read('/cookies', ['PUBLIC'], cookiesRouter)
     this.create("/register", ["PUBLIC"], passportCb("register"), register);
 
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
