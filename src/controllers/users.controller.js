@@ -18,7 +18,7 @@ async function create(req, res, next) {
 }
 async function read(req, res, next) {
   try {
-    const read = await UsersManager.readOne(req.user._id);
+    const read = await readOneService(req.user._id);
     if (read.length > 0) {
       return res.reponse200(read);
     } else {

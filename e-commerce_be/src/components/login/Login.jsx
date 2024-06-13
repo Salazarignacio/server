@@ -24,8 +24,8 @@ const Login = () => {
     response = await response.json();
 
     if (response.statusCode == 200) {
-       /* location.replace("/");  */
-      
+      /* location.replace("/"); */
+      console.log(response);
     } else {
       console.log(response);
     }
