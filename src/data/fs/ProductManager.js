@@ -106,6 +106,6 @@ class ProductManager {
   }
 }
 
-const iProducts = new ProductManager();
+const productsManagerFs = new ProductManager();
 
-export default iProducts;
+export default productsManagerFs;
