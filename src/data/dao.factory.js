@@ -1,6 +1,6 @@
 import args from "../../utils/args.utils.js"; /* dudo si esta bien importado */
 import dbConnect from "../utils/dbConect.util.js";
-
+import CartsManagerMongo from "./mongo/CartsManager.js";
 
 const persistence = args.persistence;
 let dao = {};
@@ -11,7 +11,8 @@ switch (persistence) {
     const { default: productsManagerMem } = await import(
       "./memory/ProductManager.memory.js"
     );
-    dao = { products: productsManagerMem };
+
+    dao = { products: productsManagerMem, carts: "" };
     break;
   case "fs":
     console.log("connected to Fs");
@@ -26,7 +27,10 @@ switch (persistence) {
     const { default: ProductsManagerMongo } = await import(
       "./mongo/ProductsManager.js"
     );
-    dao = { products: ProductsManagerMongo };
+    const { default: CartsManagerMongo } = await import(
+      "./mongo/CartsManager.js"
+    );
+    dao = { products: ProductsManagerMongo, carts: CartsManagerMongo };
     break;
 }
 
