@@ -23,4 +23,4 @@ usuarios.create({
   email: "HouseCoder@hotmail.com",
 });
 
-console.log(usuarios.read());
+export default usuarios

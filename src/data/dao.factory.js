@@ -1,6 +1,5 @@
-import args from "../../utils/args.utils.js"; /* dudo si esta bien importado */
+import args from "../../utils/args.utils.js"; 
 import dbConnect from "../utils/dbConect.util.js";
-import CartsManagerMongo from "./mongo/CartsManager.js";
 
 const persistence = args.persistence;
 let dao = {};
@@ -11,26 +10,49 @@ switch (persistence) {
     const { default: productsManagerMem } = await import(
       "./memory/ProductManager.memory.js"
     );
+    const { default: usersManagerMem } = await import(
+      "./memory/UserManager.memory.js"
+    );
+    const { default: cartsManagerMem } = await import(
+      "./memory/UserManager.memory.js"
+    );
 
-    dao = { products: productsManagerMem, carts: "" };
+    dao = {
+      products: productsManagerMem,
+      carts: cartsManagerMem,
+      users: usersManagerMem,
+    };
     break;
   case "fs":
     console.log("connected to Fs");
     const { default: productsManagerFs } = await import(
       "./fs/ProductManager.js"
     );
-    dao = { products: productsManagerFs };
+    const { default: usersManagerFs } = await import("./fs/UserManager.js");
+    const { default: cartsManagerFs } = await import("./fs/CartsManager.js");
+    dao = {
+      products: productsManagerFs,
+      carts: cartsManagerFs,
+      users: usersManagerFs,
+    };
     break;
   default:
     console.log("connected to mongo");
     dbConnect();
-    const { default: ProductsManagerMongo } = await import(
+    const { default: productsManagerMongo } = await import(
       "./mongo/ProductsManager.js"
     );
-    const { default: CartsManagerMongo } = await import(
+    const { default: cartsManagerMongo } = await import(
       "./mongo/CartsManager.js"
     );
-    dao = { products: ProductsManagerMongo, carts: CartsManagerMongo };
+    const { default: usersManagerMongo } = await import(
+      "./mongo/UsersManager.js"
+    );
+    dao = {
+      products: productsManagerMongo,
+      carts: cartsManagerMongo,
+      users: usersManagerMongo,
+    };
     break;
 }
 

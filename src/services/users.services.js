@@ -1,8 +1,7 @@
 import Service from "./Service.js";
-import UsersManager from "../data/mongo/UsersManager.js";
-import iUsers from "../data/fs/UserManager.js";
+import usersRepository from "../repositories/users.rep.js";
 
-const userService = new Service(UsersManager);
+const userService = new Service(usersRepository);
 export const {
   createService,
   readOneService,

@@ -61,13 +61,11 @@ class Cartmanager {
   }
   destroy(id) {
     try {
-      const filter = Cartmanager.#cart.filter(
-        (element) => element.id != id
-      );
-      if(filter.length != Cartmanager.#cart){
-        filter = Cartmanager.#cart
-      }else {
-        throw new Error('file can not be deleted. ID not found')
+      const filter = Cartmanager.#cart.filter((element) => element.id != id);
+      if (filter.length != Cartmanager.#cart) {
+        filter = Cartmanager.#cart;
+      } else {
+        throw new Error("file can not be deleted. ID not found");
       }
     } catch (error) {
       throw error;
@@ -76,21 +74,5 @@ class Cartmanager {
 }
 
 const cart = new Cartmanager();
-try {
-  cart.read();
-} catch (error) {
-  console.log(error);
-}
-cart.create({
-  id: 1,
-  user_id: 2,
-  product_id: 2,
-  quantity: 1,
-  state: "reserved",
-});
-cart.create({ user_id: 1, product_id: 4, quantity: 1, state: "paid" });
-console.log(cart.read());
-console.log(cart.readOne(1));
-console.log(cart.update(1, { quantity: 7, state: "paid" }));
-console.log("separador");
-console.log(cart.destroy(1));
+
+export default cart;

@@ -1,4 +1,4 @@
-import args from "../../utils/args.utils";
+import args from "../../utils/args.utils.js";
 import crypto from "crypto";
 import { createHash } from "../../utils/hash.util.js";
 
