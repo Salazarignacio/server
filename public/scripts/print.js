@@ -7,7 +7,6 @@ async function outline() {
 async function print() {
   let online = await fetch("http://localhost:8080/api/sessions/online");
   online = await online.json();
-  console.log(online);
 
   let template = "";
   let loginHTML = "";

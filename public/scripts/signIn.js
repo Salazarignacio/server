@@ -13,7 +13,7 @@ async function signIn() {
       role: role,
       photo: photo,
     };
-    
+
     const url = "http://localhost:8080/api/sessions/register";
     const opts = {
       method: "POST",

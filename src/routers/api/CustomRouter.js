@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { verifyToken } from "../../../utils/token.utils.js";
-import UsersManager from '../../data/mongo/UsersManager.js';
+import UsersManager from "../../data/mongo/UsersManager.js";
+import usersRepository from "../../repositories/users.rep.js";
+import { createHash } from "../../../utils/hash.util.js";
 
 class CustomRouter {
   constructor() {
@@ -28,29 +30,52 @@ class CustomRouter {
   response = (req, res, next) => {
     res.response200 = (response) => res.json({ statusCode: 200, response });
     res.response201 = (response) => res.json({ statusCode: 201, response });
-    res.paginate = (response, info) => res.json({ statusCode: 200, response, info });
+    res.paginate = (response, info) =>
+      res.json({ statusCode: 200, response, info });
     res.error400 = (error) => res.json({ statusCode: 400, error });
     res.error404 = (error) => res.json({ statusCode: 404, error });
-    res.send403 = () => res.status(403).json({ statusCode: 403, error: 'Forbidden' });
-    res.send401 = () => res.status(401).json({ statusCode: 401, error: 'Unauthorized' });
+    res.send403 = () =>
+      res.status(403).json({ statusCode: 403, error: "Forbidden" });
+    res.send401 = () =>
+      res.status(401).json({ statusCode: 401, error: "Unauthorized" });
     return next();
   };
 
   /* methods */
   create(path, arryOfPolicies, ...callbacks) {
-    this.router.post(path, this.response, this.policies(arryOfPolicies), this.applyCbs(callbacks));
+    this.router.post(
+      path,
+      this.response,
+      this.policies(arryOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
 
   read(path, arryOfPolicies, ...callbacks) {
-    this.router.get(path, this.response, this.policies(arryOfPolicies), this.applyCbs(callbacks));
+    this.router.get(
+      path,
+      this.response,
+      this.policies(arryOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
 
   update(path, arryOfPolicies, ...callbacks) {
-    this.router.put(path, this.response, this.policies(arryOfPolicies), this.applyCbs(callbacks));
+    this.router.put(
+      path,
+      this.response,
+      this.policies(arryOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
 
   destroy(path, arryOfPolicies, ...callbacks) {
-    this.router.delete(path, this.response, this.policies(arryOfPolicies), this.applyCbs(callbacks));
+    this.router.delete(
+      path,
+      this.response,
+      this.policies(arryOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
 
   use(path, ...callbacks) {
@@ -62,14 +87,17 @@ class CustomRouter {
     if (policies.includes("PUBLIC")) return next();
     else {
       let token = req.cookies["token"];
-      if (!token) return res.error400('No token provided');
+      if (!token) return res.error400("No token provided");
       else {
         try {
           token = verifyToken(token);
           const { role, email } = token;
           console.log(token.role);
-          if ((policies.includes("USER") && role == 0) || (policies.includes("ADMIN") && role == 1)) {
-            const user = await UsersManager.readByEmail(email);
+          if (
+            (policies.includes("USER") && role == 0) ||
+            (policies.includes("ADMIN") && role == 1)
+          ) {
+            const user = await usersRepository.readByEmailRepository(email);
             req.user = user;
             return next();
           } else return res.send403();
