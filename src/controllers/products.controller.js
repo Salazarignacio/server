@@ -8,7 +8,7 @@ import {
   updateService,
 } from "../services/products.services.js";
 
-async function paginate(req, res, next) {
+ async function paginate(req, res, next) {
   try {
     const filter = {};
     const opts = {};
@@ -34,12 +34,12 @@ async function paginate(req, res, next) {
       prevPage: all.prevPage,
       nextPage: all.nextPage,
     };
-
     return res.paginate(all.docs, info);
   } catch (error) {
     next(error);
   }
 }
+
 async function create(req, res, next) {
   try {
     const data = req.body;

@@ -1,10 +1,10 @@
 import Service from "./Service.js";
-import ProductsManagerMongo from "../data/mongo/ProductsManager.js";
-import dao from "../data/dao.factory.js";
+/* import dao from "../data/dao.factory.js"; */
+/* importar el productsRepositoy, instancia de repository */
+/* const { products } = dao; */
+import productsRepository from "../repositories/products.rep.js";
 
-const { products } = dao;
-
-const productService = new Service(products);
+const productsService = new Service(productsRepository);
 export const {
   paginateService,
   createService,
@@ -12,4 +12,4 @@ export const {
   readOneService,
   destroyService,
   updateService,
-} = productService;
+} = productsService;

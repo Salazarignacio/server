@@ -1,33 +1,33 @@
 class Service {
-  constructor(manager) {
-    this.model = manager;
+  constructor(repository) {
+    this.repository = repository;
   }
   createService = async (data) => {
-    const create = await this.model.create(data);
+    const create = await this.repository.createRepository(data);
     return create;
   };
   readService = async () => {
-    const read = await this.model.read();
+    const read = await this.repository.readRepository();
     return read;
   };
   readOneService = async (id) => {
-    const readOne = await this.model.readOne(id);
+    const readOne = await this.repository.readOneRepository(id);
     return readOne;
   };
   readByEmailService = async (email) => {
-    const readEmail = await this.model.readByEmail(email);
+    const readEmail = await this.repository.readByEmailRepository(email);
     return readEmail;
   };
   destroyService = async (id) => {
-    const destroy = await this.model.destroy(id);
+    const destroy = await this.repository.destroyRespository(id);
     return "File deleted ID: " + destroy._id;
   };
   updateService = async (id, data) => {
-    const update = await this.model.update(id, data);
+    const update = await this.repository.updateRespository(id, data);
     return update;
   };
   paginateService = async ({ filter, opts }) => {
-    const paginate = await this.model.paginate({ filter, opts });
+    const paginate = await this.repository.paginateRepository({ filter, opts });
     return paginate;
   };
 }

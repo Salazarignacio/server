@@ -1,8 +1,6 @@
 import args from "../../utils/args.utils.js"; /* dudo si esta bien importado */
 import dbConnect from "../utils/dbConect.util.js";
-import productsManagerFs from "./fs/ProductManager.js";
-import ProductsManagerMongo from "./mongo/ProductsManager.js";
-import productsManagerMem from "./memory/ProductManager.memory.js";
+
 
 const persistence = args.persistence;
 let dao = {};
