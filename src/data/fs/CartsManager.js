@@ -1,25 +1,22 @@
 import fs from "fs";
 import crypto from "crypto";
 
-/* se crea la clase ProductManager */
 class CartManager {
   constructor() {
     this.path = "./src/data/fs/files/carts.json";
     this.init();
   }
+
   init() {
-    if (fs.existsSync(this.path)) {
-    } else {
+    if (!fs.existsSync(this.path)) {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }
   }
-  /* metodo create */
+
   async create(data) {
     try {
-      /* propiedades de cada producto */
       if (data.user_id && data.product_id) {
         const cart = {
-          /* se agrega la opcion de pasar un ID por parametro para poder testear los metodos que buscan el producto por ID */
           id: data.id || crypto.randomBytes(12).toString("hex"),
           user_id: data.user_id,
           product_id: data.product_id,
@@ -41,13 +38,12 @@ class CartManager {
       throw err;
     }
   }
-  /* metodo que retorna los productos cargados */
+
   async read() {
     try {
       let readFile = await fs.promises.readFile(this.path, "utf-8");
 
       if (readFile) {
-        /* parseo el archivo */
         readFile = JSON.parse(readFile);
         return readFile;
       } else {
@@ -57,6 +53,7 @@ class CartManager {
       throw err;
     }
   }
+
   async readOne(id) {
     let readFile = await fs.promises.readFile(this.path, "utf-8");
     try {
@@ -71,6 +68,7 @@ class CartManager {
       throw err;
     }
   }
+
   async update(id, obj) {
     let read = await this.read();
     let filter = read.find((element) => element.id == id);
@@ -81,6 +79,7 @@ class CartManager {
     await fs.promises.writeFile(this.path, read);
     return this.readOne(id);
   }
+
   async destroy(id) {
     let readFile = await fs.promises.readFile(this.path, "utf-8");
     try {
