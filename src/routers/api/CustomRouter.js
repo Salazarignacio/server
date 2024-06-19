@@ -1,8 +1,6 @@
 import { Router } from "express";
 import { verifyToken } from "../../../utils/token.utils.js";
-import UsersManager from "../../data/mongo/UsersManager.js";
 import usersRepository from "../../repositories/users.rep.js";
-import { createHash } from "../../../utils/hash.util.js";
 
 class CustomRouter {
   constructor() {

@@ -13,6 +13,7 @@ class ProductManager {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }
   }
+
   /* metodo create */
   async create(data) {
     try {
