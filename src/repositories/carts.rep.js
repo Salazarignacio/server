@@ -13,7 +13,7 @@ class CartsRepository {
     return create;
   };
   readRepository = async (role) => {
-    const read = await this.model.readRepository(role);
+    const read = await this.model.read(role);
     return read;
   };
   readOneRepository = async (uid) => {
