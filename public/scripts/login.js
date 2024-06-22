@@ -21,9 +21,15 @@ submitButton.addEventListener("click", async (e) => {
   response = await response.json();
 
   if (response.statusCode == 200) {
-
+    
      location.replace("/"); 
   } else {
+    Swal.fire({
+      title: 'Error!',
+      text: response.message,
+      icon: 'error',
+      confirmButtonText: 'Cool'
+    })
     console.log(response);
   }
 });

@@ -3,6 +3,7 @@ let split = queries.pathname.split("/");
 split = split[split.length - 1];
 let actualPage = 1;
 
+
 function fetchProducts(page) {
   fetch(
     `http://localhost:8080/api/products/paginate/?category=${split}&page=${page}`
@@ -12,7 +13,6 @@ function fetchProducts(page) {
     })
     .then((data) => {
       let template = ``;
-console.log(data);
       template = data.response
         .map(
           (element) => `<div class="card m-1 " style="width: 25rem;"> 

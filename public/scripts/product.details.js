@@ -22,7 +22,15 @@ async function addToCart(id) {
     let fetch_id = await fetch("http://localhost:8080/api/sessions/online");
     fetch_id = await fetch_id.json();
     let user_id = fetch_id.user_id;
-
+console.log(user_id);
+if(!user_id){
+  Swal.fire({
+    title: 'User not logged',
+    text: 'Please sign in',
+    icon: 'error',
+    confirmButtonText: 'Cool'
+  })
+} 
     const data = {
       user_id: user_id,
       product_id: id,

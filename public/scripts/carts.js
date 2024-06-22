@@ -41,7 +41,7 @@ fetch("http://localhost:8080/api/sessions/online")
         document
           .getElementById("canceltButton")
           .addEventListener("click", () => {
-            aceptPurchase(res, false);
+            aceptOrCancelPurchase(res, false);
           });
       })
       .catch((err) => console.log(err));
@@ -56,6 +56,7 @@ async function destroy(oid) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    
   } catch (error) {
     console.log(error);
   }

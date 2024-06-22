@@ -19,7 +19,7 @@ class Service {
     return readEmail;
   };
   destroyService = async (id) => {
-    const destroy = await this.repository.destroyRespository(id);
+    const destroy = await this.repository.destroyRepository(id);
     return "File deleted ID: " + destroy._id;
   };
   updateService = async (id, data) => {

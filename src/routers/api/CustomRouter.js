@@ -90,7 +90,6 @@ class CustomRouter {
         try {
           token = verifyToken(token);
           const { role, email } = token;
-          console.log(token.role);
           if (
             (policies.includes("USER") && role == 0) ||
             (policies.includes("ADMIN") && role == 1)

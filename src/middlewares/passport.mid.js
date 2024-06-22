@@ -28,6 +28,7 @@ passport.use(
         /* isValidEmail */
         const one = await UsersManager.readByEmail(email);
         if (one) {
+          /* comprueba si el mail ya fue registrado */
           const error = new Error("error!");
           error.statusCode = 400;
           return done(error);
@@ -137,7 +138,6 @@ passport.use(
     },
     (data, done) => {
       try {
-        console.log(data);
         if (data) {
           return done(null, data);
         } else {
