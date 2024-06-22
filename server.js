@@ -10,6 +10,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
 /* import dbConnect from "./src/utils/dbConect.util.js"; */
+import "dotenv/config.js"; 
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -18,7 +19,7 @@ import cors from "cors";
 
 const server = express();
 
-const PORT = environment.PORT || args.p;
+const PORT = args.p || environment.PORT;
 const ready = async () => {
   console.log("server ready on port " + PORT);
   /* await dbConnect(PORT, ready); */

@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node ./server.js -p 8080",
     "dev": "nodemon ./server.js ",
+    "prod": "nodemon ./server.js ",
+    "test": "nodemon ./server.js -p 8081 --persistence=fs",
     "argv": "nodemon ./server.js -p 8080  --env=prod --persistence=fs",
     "memory": "nodemon ./server.js -p 8080 --env=dev --persistence=memory"
   },
@@ -31,6 +33,7 @@
     "mongoose": "^8.3.4",
     "mongoose-paginate-v2": "^1.8.0",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.14",
     "passport": "^0.7.0",
     "passport-custom": "^1.1.1",
     "passport-google-oauth2": "^0.2.0",
