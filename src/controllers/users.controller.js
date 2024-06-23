@@ -1,4 +1,3 @@
-import UsersManager from "../data/mongo/UsersManager.js";
 import {
   createService,
   readOneService,

@@ -12,6 +12,8 @@ class UsersDTO {
     this.password = createHash(data.password);
     this.role = data.role || 0;
     this.age = data.age || 12;
+    this.verify = false;
+    this.verifyCode = crypto.randomBytes(12).toString("hexa");
     this.photo =
       data.photo ||
       "https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg";

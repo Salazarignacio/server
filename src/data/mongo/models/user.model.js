@@ -11,6 +11,8 @@ const schema = new Schema(
       type: String,
       default: "https://i.postimg.cc/wTgNFWhR/profile.png",
     },
+    verify: { type: Boolean, default: false },
+    verifyCode: { type: String, required: true },
   },
   { timestamps: true }
 );

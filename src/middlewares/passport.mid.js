@@ -10,6 +10,8 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as CustomStrategy } from "passport-custom";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { createToken } from "../../utils/token.utils.js";
+import UsersDTO from "../dto/users.dto.js";
+import sendEmail from "../../utils/mailing.util.js";
 
 passport.use(
   "register",
@@ -29,8 +31,6 @@ passport.use(
           error.statusCode = 400;
           return done(error);
         }
-        /* isValidEmail */
-        /* const one = await UsersManager.readByEmail(email); */
         const one = await readByEmailService(email);
         if (one) {
           /* comprueba si el mail ya fue registrado */
@@ -39,9 +39,11 @@ passport.use(
           return done(error);
         }
         /* createHasPassword */
-        const hashPassword = createHash(password);
-        req.body.password = hashPassword;
-        const user = await createService(req.body);
+        /*       const hashPassword = createHash(password);
+        req.body.password = hashPassword; */
+        const data = new UsersDTO(req.body);
+        const user = await createService(data);
+        await sendEmail({ to: email, name: one.name, code: user.verifyCode });
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -63,7 +65,11 @@ passport.use(
           error.statusCode = 401;
           return done(error);
         }
-        const verify = verifyHash(password, one.password);
+        /*        const verify = verifyHash(password, one.password);
+        console.log(verify); */
+        const verify = one.password == password;
+        console.log(one.password);
+        console.log(password);
         if (verify) {
           const user = {
             email,
