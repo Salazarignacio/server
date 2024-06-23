@@ -22,6 +22,20 @@ async function signIn() {
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    function showSuccessAlert(bool, title, text) {
+      Swal.fire({
+        icon: bool,
+        title: title,
+        text: text,
+        confirmButtonText: "Aceptar",
+      });
+    }
+    // Llamar a la función para mostrar la alerta
+    if (response.statusCode == 201) {
+      showSuccessAlert("success", "Exito!", response.response);
+    } else {
+      showSuccessAlert("error", "Error", response.message);
+    }
   } catch (error) {
     console.log(error);
   }

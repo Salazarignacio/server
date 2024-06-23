@@ -1,6 +1,10 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import UsersManager from "../data/mongo/UsersManager.js";
+import {
+  readByEmailService,
+  createService,
+} from "../services/users.services.js";
 import { createHash, verifyHash } from "../../utils/hash.util.js";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as CustomStrategy } from "passport-custom";
@@ -26,17 +30,18 @@ passport.use(
           return done(error);
         }
         /* isValidEmail */
-        const one = await UsersManager.readByEmail(email);
+        /* const one = await UsersManager.readByEmail(email); */
+        const one = await readByEmailService(email);
         if (one) {
           /* comprueba si el mail ya fue registrado */
-          const error = new Error("error!");
+          const error = new Error("error in register");
           error.statusCode = 400;
           return done(error);
         }
         /* createHasPassword */
         const hashPassword = createHash(password);
         req.body.password = hashPassword;
-        const user = await UsersManager.create(req.body);
+        const user = await createService(req.body);
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -51,7 +56,8 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        const one = await UsersManager.readByEmail(email);
+        /* const one = await UsersManager.readByEmail(email); */
+        const one = await readByEmailService(email);
         if (!one) {
           const error = new Error("Bad auth from login");
           error.statusCode = 401;

@@ -7,13 +7,14 @@ class UsersRepository {
   constructor(manager) {
     this.model = manager;
   }
-  createRepositoty = async (data) => {
+  createRepository = async (data) => {
+    console.log(data);
     data = new UsersDTO(data);
     const create = await this.model.create(data);
     return data;
   };
   readReoisitory = async () => {
-    const read = await this.model.read;
+    const read = await this.model.read();
     return read;
   };
   readOneRepository = async (id) => {
