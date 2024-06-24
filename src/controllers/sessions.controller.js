@@ -1,3 +1,8 @@
+import {
+  readByEmailService,
+  updateService,
+} from "../services/users.services.js";
+
 class SessionsController {
   async register(req, res, next) {
     try {
@@ -34,6 +39,23 @@ class SessionsController {
     }
   }
 
+  async verifyCode(req, res, next) {
+    try {
+      const { email, code } = req.body;
+      const one = await readByEmailService(email);
+      const verify = code == one.verifyCode;
+      console.log(verify);
+      if (verify) {
+       const update =  updateService(one._id, { verify });
+        res.response200({  message: update });
+      } else {
+        return res.error400("Invalid Crecre");
+      }
+    } catch (error) {
+      return next(error);
+    }
+  }
+
   async signOut(req, res, next) {
     try {
       req.session.destroy();
@@ -57,5 +79,6 @@ class SessionsController {
   }
 }
 const sessionsController = new SessionsController();
-const { register, login, online, signOut, google } = sessionsController;
-export { register, login, online, signOut, google };
+const { register, login, online, signOut, google, verifyCode } =
+  sessionsController;
+export { register, login, online, signOut, google, verifyCode };

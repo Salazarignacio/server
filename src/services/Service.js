@@ -23,7 +23,8 @@ class Service {
     return "File deleted ID: " + destroy._id;
   };
   updateService = async (id, data) => {
-    const update = await this.repository.updateRespository(id, data);
+    const update = await this.repository.updateRepository(id, data);
+    
     return update;
   };
   paginateService = async ({ filter, opts }) => {
