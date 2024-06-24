@@ -15,8 +15,9 @@ async function sendEmail(data){
         await transport.sendMail({
             from: GOOGLE_EMAIL,
             to: data.to,
-            subject: `USER ${data.name.toUpperCase()} REGISTERED`,
-            html: `<h1>Wellcome to server</h1>`
+            subject: `USER data.name.toUpperCase() REGISTERED`,
+            html: `<h1>Wellcome to server</h1>
+            <p>VERIFY CODE: ${data.code}</p>`
         })
     } catch (error) {
         throw error

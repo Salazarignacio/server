@@ -19,7 +19,6 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        /* isValidData */
         const { email, password } = req.body;
         if (!email) {
           const error = new Error("Enter an email");
@@ -31,8 +30,8 @@ passport.use(
           error.statusCode = 400;
           return done(error);
         }
-        const one = await readByEmailService(email);
-        if (one) {
+        let user = await readByEmailService(email);
+        if (user) {
           /* comprueba si el mail ya fue registrado */
           const error = new Error("error in register");
           error.statusCode = 400;
@@ -42,8 +41,12 @@ passport.use(
         /*       const hashPassword = createHash(password);
         req.body.password = hashPassword; */
         const data = new UsersDTO(req.body);
-        const user = await createService(data);
-        await sendEmail({ to: email, name: one.name, code: user.verifyCode });
+        user = await createService(data);
+        await sendEmail({
+          to: email,
+          email: user.email,
+          code: user.verifyCode,
+        });
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -65,11 +68,8 @@ passport.use(
           error.statusCode = 401;
           return done(error);
         }
-        /*        const verify = verifyHash(password, one.password);
-        console.log(verify); */
-        const verify = one.password == password;
-        console.log(one.password);
-        console.log(password);
+        const verify = verifyHash(password, one.password);
+
         if (verify) {
           const user = {
             email,
