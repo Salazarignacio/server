@@ -46,7 +46,7 @@ async function create(req, res, next) {
     const create = await createService(data);
     return res.response201("created succesfully");
   } catch (error) {
-    return next(error);
+    return next("error");
   }
 }
 async function read(req, res, next) {

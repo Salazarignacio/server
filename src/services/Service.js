@@ -3,8 +3,12 @@ class Service {
     this.repository = repository;
   }
   createService = async (data) => {
-    const create = await this.repository.createRepository(data);
-    return create;
+    try {
+      const create = await this.repository.createRepository(data);
+      return create;
+    } catch (error) {
+      throw error;
+    }
   };
   readService = async () => {
     const read = await this.repository.readRepository();
@@ -24,7 +28,7 @@ class Service {
   };
   updateService = async (id, data) => {
     const update = await this.repository.updateRepository(id, data);
-    
+
     return update;
   };
   paginateService = async ({ filter, opts }) => {
