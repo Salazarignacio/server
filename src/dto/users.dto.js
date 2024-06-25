@@ -9,7 +9,7 @@ class UsersDTO {
     persistence != "mongo" &&
       (this._id = crypto.randomBytes(12).toString("hex"));
     this.email = data.email;
-    this.password = createHash(data.password);
+    this.password = data.password;
     this.role = data.role || 0;
     this.age = data.age || 12;
     this.verify = false;

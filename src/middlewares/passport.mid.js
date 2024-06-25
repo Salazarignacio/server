@@ -38,8 +38,8 @@ passport.use(
           return done(error);
         }
         /* createHasPassword */
-        /*       const hashPassword = createHash(password);
-        req.body.password = hashPassword; */
+               const hashPassword = createHash(password);
+        req.body.password = hashPassword; 
         const data = new UsersDTO(req.body);
         user = await createService(data);
         await sendEmail({
@@ -68,9 +68,11 @@ passport.use(
           error.statusCode = 401;
           return done(error);
         }
-        const verify = verifyHash(password, one.password);
-
-        if (verify) {
+        const verifyPass = verifyHash(password, one.password);
+        const verifyAccount = one.verify
+        console.log(verifyAccount + ' <-----account');
+        console.log(verifyPass + ' <-----pass');
+        if (verifyPass && verifyAccount) {
           const user = {
             email,
             role: one.role,
