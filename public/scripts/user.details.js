@@ -1,4 +1,4 @@
-fetch(`http://localhost:8080/api/users/`)
+fetch(`http://localhost:8080/api/users/ru`)
   .then((response) => {
     return response.json();
   })

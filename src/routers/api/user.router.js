@@ -1,6 +1,7 @@
 import CustomRouter from "./CustomRouter.js";
 import {
   create,
+  read,
   readOne,
   readByEmail,
   destroy,
@@ -10,7 +11,8 @@ import passportCb from "../../middlewares/passportCb.mid.js";
 
 class UsersRouter extends CustomRouter {
   init() {
-    this.read("/", ["PUBLIC"], passportCb("jwt"), readOne);
+    this.read("/ru", ["PUBLIC"], passportCb("jwt"), readOne);
+    this.read("/", ["PUBLIC"], read);
     this.create("/", ["ADMIN"], create);
     this.update("/:uid", ["ADMIN"], update);
     this.destroy("/:uid", ["ADMIN"], destroy);

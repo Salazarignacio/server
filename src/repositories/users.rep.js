@@ -13,7 +13,7 @@ class UsersRepository {
     const create = await this.model.create(data);
     return data;
   };
-  readReoisitory = async () => {
+  readRepository = async () => {
     const read = await this.model.read();
     return read;
   };
@@ -22,8 +22,13 @@ class UsersRepository {
     return readOne;
   };
   readByEmailRepository = async (email) => {
-    const readEmail = await this.model.readByEmail(email);
-    return readEmail;
+    try {
+      
+      const readEmail = await this.model.readByEmail(email);
+      return readEmail;
+    } catch (error) {
+      throw error
+    }
   };
   destroyRepository = async (id) => {
     const destroy = await this.model.destroy(id);

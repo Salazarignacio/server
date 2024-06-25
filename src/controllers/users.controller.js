@@ -4,6 +4,7 @@ import {
   readByEmailService,
   updateService,
   destroyService,
+  readService,
 } from "../services/users.services.js";
 
 async function create(req, res, next) {
@@ -17,9 +18,9 @@ async function create(req, res, next) {
 }
 async function read(req, res, next) {
   try {
-    const read = await readOneService(req.user._id);
+    const read = await readService();
     if (read.length > 0) {
-      return res.reponse200(read);
+      return res.response200(read);
     } else {
       return res.error400("File not found");
     }

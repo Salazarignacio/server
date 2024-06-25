@@ -8,4 +8,5 @@ export const {
   readByEmailService,
   updateService,
   destroyService,
+  readService,
 } = userService;
