@@ -3,13 +3,16 @@ fetch("http://localhost:8080/api/sessions/online")
   .then((online) => online.json())
   .then((online) => {
     user_id = online.user_id;
-    console.log(online.user_id);
+    
 
     fetch(`http://localhost:8080/api/carts/paginate?user_id=${user_id}`)
       .then((res) => res.json())
       .then((res) => {
         let template = ``;
-         console.log(res); 
+        const total = res.response.reduce((acc, element) => {
+          return acc + (element.product_id.price * element.quantity);
+        }, 0); 
+        console.log(total);
          template = res.response.map((element) => {
           return `<div class="card m-1 " style="width: 25rem;"> 
         <p>${element._id}</p>
@@ -28,11 +31,12 @@ fetch("http://localhost:8080/api/sessions/online")
         <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
         }); 
+        const totalDisplay = `<p>Total Acumulado: $${total.toFixed(2)}</p>`;
         const buttonAcept = `<button id="acceptButton">Finalize purchase</button>`;
         const buttonCancel = `<button id="canceltButton">Cancel purchase</button>`;
-        document.querySelector("#carts").innerHTML =
-          template + buttonAcept + buttonCancel;
-
+      
+        document.querySelector("#carts").innerHTML = template + totalDisplay + buttonAcept + buttonCancel;
+      
         document
           .getElementById("acceptButton")
           .addEventListener("click", () => {
