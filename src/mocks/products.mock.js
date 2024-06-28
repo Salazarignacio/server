@@ -8,11 +8,11 @@ async function createData() {
   try {
     const product = {
       title: faker.commerce.product(),
-      
-      
+      price: Math.floor(Math.random() * 101),
+      stock: 13
     };
-    await productsRepository.createRepository(product);
-    console.log(product);
+    /* await productsRepository.createRepository(product); */
+    console.log(environment.MONGO_URI);
   } catch (error) {
     console.log(error);
   }

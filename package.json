@@ -12,7 +12,8 @@
     "argv": "nodemon ./server.js -p 8080  --env=prod --persistence=fs",
     "memory": "nodemon ./server.js -p 8080 --env=dev --persistence=memory",
     "testing": "node ./test/test.js",
-    "mock": "nodemon ./src/mocks/products.mock.js"
+    "mock": "nodemon ./src/mocks/products.mock.js",
+    "uu": "node ./src/mocks/updateUsers.js"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +35,7 @@
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.4",
-    "mongoose-paginate-v2": "^1.8.0",
+    "mongoose-paginate-v2": "^1.8.2",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.14",
     "passport": "^0.7.0",
