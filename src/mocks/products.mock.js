@@ -12,7 +12,7 @@ async function createData() {
       
     };
     await productsRepository.createRepository(product);
-    console.log('done');
+    console.log(product);
   } catch (error) {
     console.log(error);
   }
