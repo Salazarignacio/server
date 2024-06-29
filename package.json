@@ -12,7 +12,8 @@
     "argv": "nodemon ./server.js -p 8080  --env=prod --persistence=fs",
     "memory": "nodemon ./server.js -p 8080 --env=dev --persistence=memory",
     "testing": "node ./test/test.js",
-    "mock": "nodemon ./src/mocks/products.mock.js",
+    "mock_products": "node ./src/mocks/products.mock.js",
+    "mock_users": "node ./src/mocks/users.mock.js",
     "uu": "node ./src/mocks/updateUsers.js"
   },
   "keywords": [],

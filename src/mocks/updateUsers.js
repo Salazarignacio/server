@@ -1,7 +1,6 @@
 import usersRepository from "../repositories/users.rep.js";
-import environment from "../../utils/env.util.js";
+import "../../utils/env.util.js";
 import dbConnect from "../utils/dbConect.util.js";
-
 
 async function updateData() {
   dbConnect();
@@ -11,7 +10,6 @@ async function updateData() {
     for (let i = 0; i < data.length; i++) {
       await usersRepository.updateRepository(data[i]._id, { verify: true });
     }
-    console.log(data);
   } catch (error) {
     throw error;
   }
