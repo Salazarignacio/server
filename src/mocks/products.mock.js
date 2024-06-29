@@ -8,14 +8,16 @@ async function createData() {
   const category = ["shoes", "shirts", "socks", "pants"];
 
   try {
-    const product = {
-      title: faker.commerce.product(),
-      category: category[Math.floor(Math.random() * 4)],
-      photo: faker.image.avatar(),
-      price: Math.floor(Math.random() * 101),
-      stock: Math.floor(Math.random() * 100001),
-    };
-    await productsRepository.createRepository(product);
+    for (let i = 0; i < 1000; i++) {
+      const product = {
+        title: faker.commerce.product(),
+        category: category[Math.floor(Math.random() * 4)],
+        photo: faker.image.avatar(),
+        price: Math.floor(Math.random() * 101),
+        stock: Math.floor(Math.random() * 100001),
+      };
+      await productsRepository.createRepository(product);
+    }
   } catch (error) {
     console.log(error);
   }

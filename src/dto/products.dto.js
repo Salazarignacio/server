@@ -9,9 +9,10 @@ class ProductsDTO {
       (this._id = crypto.randomBytes(12).toString("hex"));
     this.title = data.title;
     this.description = data.description;
+    this.photo = data.photo
     this.price = data.price || 1;
+    this.category = data.category;
     this.stock = data.stock || 10;
-    this.images = data.images || ["https://i.postimg.cc/kX8PKZpq/ipad.jpg"];
     persistence !== "mongo" && (this.createdAt = new Date());
     persistence !== "mongo" && (this.updatedAt = new Date());
   }
