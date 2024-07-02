@@ -12,7 +12,7 @@ class UsersDTO {
     this.password = data.password;
     this.role = data.role || 0;
     this.age = data.age || 12;
-    this.verify = true;
+    this.verify = false;
     this.verifyCode = crypto.randomBytes(12).toString("hex");
     this.photo =
       data.photo ||
