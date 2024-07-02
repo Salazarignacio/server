@@ -18,7 +18,6 @@ async function createData() {
       photo: faker.image.avatar(),
     };
     await usersRepository.createRepository(user);
-    console.log(environment.MONGO_URI);
   } catch (error) {
     console.log(error);
   }
