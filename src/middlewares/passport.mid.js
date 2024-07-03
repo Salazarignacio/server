@@ -12,6 +12,8 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { createToken } from "../../utils/token.utils.js";
 import UsersDTO from "../dto/users.dto.js";
 import sendEmail from "../../utils/mailing.util.js";
+import errors from "../../utils/errors.utils.js";
+import CustomError from "../../utils/CustomError.utils.js";
 
 passport.use(
   "register",
@@ -33,13 +35,13 @@ passport.use(
         let user = await readByEmailService(email);
         if (user) {
           /* comprueba si el mail ya fue registrado */
-          const error = new Error("error in register");
-          error.statusCode = 400;
+          const error = new CustomError(errors.invalid);
+
           return done(error);
         }
         /* createHasPassword */
-               const hashPassword = createHash(password);
-        req.body.password = hashPassword; 
+        const hashPassword = createHash(password);
+        req.body.password = hashPassword;
         const data = new UsersDTO(req.body);
         user = await createService(data);
         await sendEmail({
@@ -69,9 +71,8 @@ passport.use(
           return done(error);
         }
         const verifyPass = verifyHash(password, one.password);
-        const verifyAccount = one.verify
-        console.log(verifyAccount + ' <-----account');
-        console.log(verifyPass + ' <-----pass');
+        const verifyAccount = one.verify;
+
         if (verifyPass && verifyAccount) {
           const user = {
             email,
@@ -84,8 +85,8 @@ passport.use(
           user.token = token;
           return done(null, user);
         }
-        const error = new Error("Invalid credentials");
-        error.statusCode = 401;
+        const error = new CustomError(errors.invalid);
+
         return done(error);
       } catch (error) {
         return done(error);

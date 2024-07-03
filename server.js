@@ -10,12 +10,13 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
 /* import dbConnect from "./src/utils/dbConect.util.js"; */
-import "dotenv/config.js"; 
+import "dotenv/config.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import args from "./utils/args.utils.js";
 import cors from "cors";
+import compression from "express-compression";
 
 const server = express();
 
@@ -38,6 +39,11 @@ server.set("views", __dirname + "/src/views");
 
 /* middlewares */
 server.use(cors({ origin: true, credentials: true }));
+server.use(
+  compression({
+    brotli: { enabled: true, zlib: {} },
+  })
+);
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
