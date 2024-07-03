@@ -1,4 +1,6 @@
 import { verifyToken } from "../../utils/token.utils.js";
+import errors from "../../utils/errors.utils.js";
+import CustomError from "../../utils/CustomError.utils.js";
 
 function isAuth(req, res, next) {
   try {
@@ -9,8 +11,7 @@ function isAuth(req, res, next) {
       req.user = data;
       return next();
     } else {
-      const error = new Error("Forbbidense");
-      error.statusCode = 403;
+      const error = new CustomError(errors.forbidden);
       throw error;
     }
   } catch (error) {

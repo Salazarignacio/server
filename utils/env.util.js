@@ -5,6 +5,8 @@ const { env } = argsUtils;
 const path = env == "prod" ? "./.env.prod" : "./.env.dev";
 config({ path });
 
+console.log(path)
+
 const environment = {
   MONGO_URI: process.env.MONGO_URI,
   PORT: process.env.PORT,
