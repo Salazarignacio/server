@@ -1,0 +1,2 @@
+[33mERROR[39m: POST /api/sessions/register . 07:55:55 Error: Invalid credentials
+[33mERROR[39m: POST /api/sessions/login . 08:11:38 Error: Bad auth from login

@@ -3,7 +3,8 @@ import express from "express";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import router from "./src/routers/index.router.js";
-import morgan from "morgan";
+/* import morgan from "morgan"; */
+import winston from "./src/middlewares/winston.mid.js";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
 import { createServer } from "http";
@@ -47,7 +48,8 @@ server.use(
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
-server.use(morgan("dev"));
+/* server.use(morgan("dev")); */
+server.use(winston);
 server.use(cookieParser("secret"));
 
 server.use(

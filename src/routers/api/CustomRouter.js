@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { verifyToken } from "../../../utils/token.utils.js";
 import usersRepository from "../../repositories/users.rep.js";
+import winston from "../../middlewares/winston.mid.js";
 
 class CustomRouter {
   constructor() {
