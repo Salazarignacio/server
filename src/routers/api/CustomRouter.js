@@ -37,39 +37,41 @@ class CustomRouter {
       const errorMessage = `${req.method} ${
         req.url
       } 400 - ${new Date().toLocaleTimeString()} - ${message}`;
-      winston.ERROR("errorMessage");
+      /* winston.ERROR("errorMessage"); */
       return res.json({ statusCode: 400, message: message });
     };
     res.error401 = () => {
       const errorMessage = `${req.method} ${
         req.url
-      } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!}`;
-      winston.ERROR(errorMessage);
-      return res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+      } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!`;
+       /* winston.ERROR(errorMessage);  */
+      
+       console.log(winston.ERROR);
+      return res.json({ statusCode: 401, message: "Bad auth from poliecies2!" });
     };
 
     res.error403 = () => {
       const errorMessage = `${req.method} ${
         req.url
-      } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!`;
-      winston.ERROR(errorMessage);
+      } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!!!!`;
+       winston.ERROR(errorMessage); 
       return res.json({
         statusCode: 403,
-        message: "Forbidden from poliecies!",
+        message: "Forbidden from poliecies!¿",
       });
     };
     res.error404 = () => {
       const errorMessage = `${req.method} ${
         req.url
       } 404 - ${new Date().toLocaleTimeString()} - Not found docs`;
-      winston.ERROR(errorMessage);
+      /* winston.ERROR(errorMessage); */
       return res.json({ statusCode: 404, message: "Not found docs" });
     };
     return next();
   };
 
   /* methods */
-   create(path, arryOfPolicies, ...callbacks) {
+  create(path, arryOfPolicies, ...callbacks) {
     this.router.post(
       path,
       this.response,
@@ -126,9 +128,9 @@ class CustomRouter {
             const user = await usersRepository.readByEmailRepository(email);
             req.user = user;
             return next();
-          } else return res.send403();
+          } else return res.error403();
         } catch (error) {
-          return res.send401();
+          return res.error401();
         }
       }
     }

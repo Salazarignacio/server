@@ -1,0 +1,519 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.0": 20,
+      "vusers.created": 20,
+      "http.requests": 2000,
+      "http.codes.200": 2000,
+      "http.responses": 2000,
+      "http.downloaded_bytes": 28000,
+      "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 2000,
+      "vusers.failed": 0,
+      "vusers.completed": 20
+    },
+    "rates": {
+      "http.request_rate": 57
+    },
+    "firstCounterAt": 1720646868304,
+    "firstHistogramAt": 1720646868372,
+    "lastCounterAt": 1720646905728,
+    "lastHistogramAt": 1720646905728,
+    "firstMetricAt": 1720646868304,
+    "lastMetricAt": 1720646905728,
+    "period": 1720646900000,
+    "summaries": {
+      "http.response_time": {
+        "min": 2,
+        "max": 1492,
+        "count": 2000,
+        "mean": 219.9,
+        "p50": 57.4,
+        "median": 57.4,
+        "p75": 138.4,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 804.5,
+        "p999": 1249.1
+      },
+      "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+        "min": 2,
+        "max": 1492,
+        "count": 2000,
+        "mean": 219.9,
+        "p50": 57.4,
+        "median": 57.4,
+        "p75": 138.4,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 804.5,
+        "p999": 1249.1
+      },
+      "vusers.session_length": {
+        "min": 34942.7,
+        "max": 37073.9,
+        "count": 20,
+        "mean": 36107.7,
+        "p50": 35964.9,
+        "median": 35964.9,
+        "p75": 36691.5,
+        "p90": 36691.5,
+        "p95": 36691.5,
+        "p99": 36691.5,
+        "p999": 36691.5
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 2,
+        "max": 1492,
+        "count": 2000,
+        "mean": 219.9,
+        "p50": 57.4,
+        "median": 57.4,
+        "p75": 138.4,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 804.5,
+        "p999": 1249.1
+      },
+      "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+        "min": 2,
+        "max": 1492,
+        "count": 2000,
+        "mean": 219.9,
+        "p50": 57.4,
+        "median": 57.4,
+        "p75": 138.4,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 804.5,
+        "p999": 1249.1
+      },
+      "vusers.session_length": {
+        "min": 34942.7,
+        "max": 37073.9,
+        "count": 20,
+        "mean": 36107.7,
+        "p50": 35964.9,
+        "median": 35964.9,
+        "p75": 36691.5,
+        "p90": 36691.5,
+        "p95": 36691.5,
+        "p99": 36691.5,
+        "p999": 36691.5
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.0": 20,
+        "vusers.created": 20,
+        "http.requests": 100,
+        "http.codes.200": 90,
+        "http.responses": 90,
+        "http.downloaded_bytes": 1120,
+        "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 80
+      },
+      "rates": {
+        "http.request_rate": 61
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1720646868304,
+      "firstHistogramAt": 1720646868372,
+      "lastCounterAt": 1720646869999,
+      "lastHistogramAt": 1720646869999,
+      "firstMetricAt": 1720646868304,
+      "lastMetricAt": 1720646869999,
+      "period": "1720646860000",
+      "summaries": {
+        "http.response_time": {
+          "min": 2,
+          "max": 555,
+          "count": 90,
+          "mean": 104.1,
+          "p50": 113.3,
+          "median": 113.3,
+          "p75": 144,
+          "p90": 153,
+          "p95": 162.4,
+          "p99": 172.5,
+          "p999": 172.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 2,
+          "max": 555,
+          "count": 80,
+          "mean": 104.7,
+          "p50": 117.9,
+          "median": 117.9,
+          "p75": 144,
+          "p90": 156,
+          "p95": 169,
+          "p99": 172.5,
+          "p999": 172.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 2,
+          "max": 555,
+          "count": 90,
+          "mean": 104.1,
+          "p50": 113.3,
+          "median": 113.3,
+          "p75": 144,
+          "p90": 153,
+          "p95": 162.4,
+          "p99": 172.5,
+          "p999": 172.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 2,
+          "max": 555,
+          "count": 80,
+          "mean": 104.7,
+          "p50": 117.9,
+          "median": 117.9,
+          "p75": 144,
+          "p90": 156,
+          "p95": 169,
+          "p99": 172.5,
+          "p999": 172.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 534,
+        "http.responses": 534,
+        "http.downloaded_bytes": 7546,
+        "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 539,
+        "http.requests": 539
+      },
+      "rates": {
+        "http.request_rate": 55
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1720646870004,
+      "firstHistogramAt": 1720646870004,
+      "lastCounterAt": 1720646879787,
+      "lastHistogramAt": 1720646879786,
+      "firstMetricAt": 1720646870004,
+      "lastMetricAt": 1720646879787,
+      "period": "1720646870000",
+      "summaries": {
+        "http.response_time": {
+          "min": 41,
+          "max": 1492,
+          "count": 534,
+          "mean": 225.6,
+          "p50": 59.7,
+          "median": 59.7,
+          "p75": 102.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 1224.4,
+          "p999": 1249.1
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 41,
+          "max": 1492,
+          "count": 539,
+          "mean": 224.8,
+          "p50": 59.7,
+          "median": 59.7,
+          "p75": 104.6,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 1224.4,
+          "p999": 1249.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 41,
+          "max": 1492,
+          "count": 534,
+          "mean": 225.6,
+          "p50": 59.7,
+          "median": 59.7,
+          "p75": 102.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 1224.4,
+          "p999": 1249.1
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 41,
+          "max": 1492,
+          "count": 539,
+          "mean": 224.8,
+          "p50": 59.7,
+          "median": 59.7,
+          "p75": 104.6,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 1224.4,
+          "p999": 1249.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 550,
+        "http.responses": 550,
+        "http.downloaded_bytes": 7672,
+        "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 548,
+        "http.requests": 548
+      },
+      "rates": {
+        "http.request_rate": 59
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1720646880504,
+      "firstHistogramAt": 1720646880504,
+      "lastCounterAt": 1720646889780,
+      "lastHistogramAt": 1720646889779,
+      "firstMetricAt": 1720646880504,
+      "lastMetricAt": 1720646889780,
+      "period": "1720646880000",
+      "summaries": {
+        "http.response_time": {
+          "min": 40,
+          "max": 798,
+          "count": 550,
+          "mean": 222,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 125.2,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 772.9,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 40,
+          "max": 798,
+          "count": 548,
+          "mean": 222.6,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 127.8,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 772.9,
+          "p999": 788.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 40,
+          "max": 798,
+          "count": 550,
+          "mean": 222,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 125.2,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 772.9,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 40,
+          "max": 798,
+          "count": 548,
+          "mean": 222.6,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 127.8,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 772.9,
+          "p999": 788.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 549,
+        "http.responses": 549,
+        "http.downloaded_bytes": 7686,
+        "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 549,
+        "http.requests": 549
+      },
+      "rates": {
+        "http.request_rate": 59
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1720646890512,
+      "firstHistogramAt": 1720646890512,
+      "lastCounterAt": 1720646899815,
+      "lastHistogramAt": 1720646899814,
+      "firstMetricAt": 1720646890512,
+      "lastMetricAt": 1720646899815,
+      "period": "1720646890000",
+      "summaries": {
+        "http.response_time": {
+          "min": 39,
+          "max": 797,
+          "count": 549,
+          "mean": 233.3,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 596,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 39,
+          "max": 797,
+          "count": 549,
+          "mean": 233.3,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 596,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 39,
+          "max": 797,
+          "count": 549,
+          "mean": 233.3,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 596,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 39,
+          "max": 797,
+          "count": 549,
+          "mean": 233.3,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 596,
+          "p90": 757.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 277,
+        "http.responses": 277,
+        "http.downloaded_bytes": 3976,
+        "plugins.metrics-by-endpoint./api/artillery/simplex.codes.200": 284,
+        "http.requests": 264,
+        "vusers.failed": 0,
+        "vusers.completed": 20
+      },
+      "rates": {
+        "http.request_rate": 52
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1720646900517,
+      "firstHistogramAt": 1720646900517,
+      "lastCounterAt": 1720646905728,
+      "lastHistogramAt": 1720646905728,
+      "firstMetricAt": 1720646900517,
+      "lastMetricAt": 1720646905728,
+      "period": "1720646900000",
+      "summaries": {
+        "http.response_time": {
+          "min": 39,
+          "max": 792,
+          "count": 277,
+          "mean": 216.3,
+          "p50": 54.1,
+          "median": 54.1,
+          "p75": 71.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 39,
+          "max": 792,
+          "count": 284,
+          "mean": 212.3,
+          "p50": 54.1,
+          "median": 54.1,
+          "p75": 71.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "vusers.session_length": {
+          "min": 34942.7,
+          "max": 37073.9,
+          "count": 20,
+          "mean": 36107.7,
+          "p50": 35964.9,
+          "median": 35964.9,
+          "p75": 36691.5,
+          "p90": 36691.5,
+          "p95": 36691.5,
+          "p99": 36691.5,
+          "p999": 36691.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 39,
+          "max": 792,
+          "count": 277,
+          "mean": 216.3,
+          "p50": 54.1,
+          "median": 54.1,
+          "p75": 71.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "plugins.metrics-by-endpoint.response_time./api/artillery/simplex": {
+          "min": 39,
+          "max": 792,
+          "count": 284,
+          "mean": 212.3,
+          "p50": 54.1,
+          "median": 54.1,
+          "p75": 71.5,
+          "p90": 742.6,
+          "p95": 772.9,
+          "p99": 788.5,
+          "p999": 788.5
+        },
+        "vusers.session_length": {
+          "min": 34942.7,
+          "max": 37073.9,
+          "count": 20,
+          "mean": 36107.7,
+          "p50": 35964.9,
+          "median": 35964.9,
+          "p75": 36691.5,
+          "p90": 36691.5,
+          "p95": 36691.5,
+          "p99": 36691.5,
+          "p999": 36691.5
+        }
+      }
+    }
+  ]
+}

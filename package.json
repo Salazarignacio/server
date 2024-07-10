@@ -15,7 +15,8 @@
     "mock_products": "node ./src/mocks/products.mock.js",
     "mock_users": "node ./src/mocks/users.mock.js",
     "uu": "node ./src/mocks/updateUsers.js",
-    "simplex": "artillery quick --count 20 --num 100 'http://localhost:8080/api/artillery/simplex' -o ./test/artillery/simplex.json"
+    "simplex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/simplex\" -o ./test/artillery/simplex.json",
+    "complex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/complex\" -o ./test/artillery/complex.json"
   },
   "keywords": [],
   "author": "",
@@ -49,6 +50,6 @@
     "passport-local": "^1.0.0",
     "session-file-store": "^1.5.0",
     "socket.io": "^4.7.5",
-    "winston": "^3.13.0"
+    "winston": "^3.13.1"
   }
 }

@@ -3,3 +3,7 @@
 [33mERROR[39m: GET /api/artillery/simplex undefined . 12:16:47 TypeError: callback.apply is not a function
 [33mERROR[39m: GET /api/artillery/simplex undefined . 12:16:59 TypeError: callback.apply is not a function
 [33mERROR[39m: GET /api/artillery/complex undefined . 12:24:37 ReferenceError: total is not defined
+[33mERROR[39m: POST /api/sessions/login 401 . 18:47:36 Error: Bad auth from login
+[33mERROR[39m: POST /api/sessions/login 401 . 18:54:22 Error: Bad auth from login
+[33mERROR[39m: POST /api/sessions/login undefined . 19:39:26 Error: Bad auth from login
+[33mERROR[39m: POST /api/sessions/login undefined . 19:42:52 Error: Bad auth from login
