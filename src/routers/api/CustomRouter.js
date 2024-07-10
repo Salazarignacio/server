@@ -31,17 +31,45 @@ class CustomRouter {
     res.response201 = (response) => res.json({ statusCode: 201, response });
     res.paginate = (response, info) =>
       res.json({ statusCode: 200, response, info });
-    res.error400 = (error) => res.json({ statusCode: 400, error });
-    res.error404 = (error) => res.json({ statusCode: 404, error });
-    res.send403 = () =>
-      res.status(403).json({ statusCode: 403, error: "Forbidden" });
-    res.send401 = () =>
-      res.status(401).json({ statusCode: 401, error: "Unauthorized" });
+
+    /* errors */
+    res.error400 = (message) => {
+      const errorMessage = `${req.method} ${
+        req.url
+      } 400 - ${new Date().toLocaleTimeString()} - ${message}`;
+      winston.ERROR(errorMessage);
+      return res.json({ statusCode: 400, message: message });
+    };
+    res.error401 = () => {
+      const errorMessage = `${req.method} ${
+        req.url
+      } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!}`;
+      winston.ERROR(errorMessage);
+      return res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+    };
+
+    res.error403 = () => {
+      const errorMessage = `${req.method} ${
+        req.url
+      } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!`;
+      winston.ERROR(errorMessage);
+      return res.json({
+        statusCode: 403,
+        message: "Forbidden from poliecies!",
+      });
+    };
+    res.error404 = () => {
+      const errorMessage = `${req.method} ${
+        req.url
+      } 404 - ${new Date().toLocaleTimeString()} - Not found docs`;
+      winston.ERROR(errorMessage);
+      return res.json({ statusCode: 404, message: "Not found docs" });
+    };
     return next();
   };
 
   /* methods */
-  create(path, arryOfPolicies, ...callbacks) {
+   create(path, arryOfPolicies, ...callbacks) {
     this.router.post(
       path,
       this.response,

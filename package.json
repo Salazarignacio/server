@@ -14,7 +14,8 @@
     "testing": "node ./test/test.js",
     "mock_products": "node ./src/mocks/products.mock.js",
     "mock_users": "node ./src/mocks/users.mock.js",
-    "uu": "node ./src/mocks/updateUsers.js"
+    "uu": "node ./src/mocks/updateUsers.js",
+    "simplex": "artillery quick --count 20 --num 100 'http://localhost:8080/api/artillery/simplex' -o ./test/artillery/simplex.json"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "nodemon": "^3.1.0"
   },
   "dependencies": {
+    "artillery": "^2.0.17",
     "bcrypt": "^5.1.1",
     "commander": "^12.1.0",
     "connect-mongo": "^5.1.0",

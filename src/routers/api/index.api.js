@@ -6,6 +6,7 @@ import cartRouter from "./carts.router.js";
 import ticketsRouter from "./tickets.router.js";
 import cookiesRouter from "./cookies.router.js";
 import sessionsRouter from "./sessions.router.js";
+import artillery from "./artillery.js";
 
 class ApiRouter extends CustomRouter {
   init() {
@@ -15,6 +16,7 @@ class ApiRouter extends CustomRouter {
     this.use("/tickets", ticketsRouter);
     this.use("/cookies", cookiesRouter);
     this.use("/sessions", sessionsRouter);
+    this.use("/artillery", artillery);
   }
 }
 const apiRouter = new ApiRouter();

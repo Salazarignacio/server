@@ -1,2 +1,5 @@
 [33mERROR[39m: POST /api/sessions/register . 07:55:55 Error: Invalid credentials
 [33mERROR[39m: POST /api/sessions/login . 08:11:38 Error: Bad auth from login
+[33mERROR[39m: GET /api/artillery/simplex undefined . 12:16:47 TypeError: callback.apply is not a function
+[33mERROR[39m: GET /api/artillery/simplex undefined . 12:16:59 TypeError: callback.apply is not a function
+[33mERROR[39m: GET /api/artillery/complex undefined . 12:24:37 ReferenceError: total is not defined
