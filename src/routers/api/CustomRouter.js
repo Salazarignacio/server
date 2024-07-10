@@ -37,7 +37,7 @@ class CustomRouter {
       const errorMessage = `${req.method} ${
         req.url
       } 400 - ${new Date().toLocaleTimeString()} - ${message}`;
-      winston.ERROR(errorMessage);
+      winston.ERROR("errorMessage");
       return res.json({ statusCode: 400, message: message });
     };
     res.error401 = () => {
