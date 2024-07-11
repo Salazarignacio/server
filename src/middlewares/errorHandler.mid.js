@@ -1,4 +1,5 @@
-import winston from "../../winston.utils.js";
+
+import winston from "../../utils/winston.utils.js"
 
 function errorHandler(error, req, res, next) {
   const message = `${req.method} ${req.url} ${
