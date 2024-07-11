@@ -13,3 +13,7 @@
 [33mERROR[39m: POST / 403 - 15:42:42 - Forbidden from poliecies!!!!
 [33mERROR[39m: GET /online 400 - 16:13:31 - No token provided
 [33mERROR[39m: GET /api/loggers/ undefined . 16:17:57 TypeError: Converting circular structure to JSON
+FATAL: Este es un mensaje de log FATAL
+ERROR: Este es un mensaje de log ERROR
+FATAL: Este es un mensaje de log FATAL
+ERROR: Este es un mensaje de log ERROR
