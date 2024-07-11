@@ -24,6 +24,9 @@ class ArtilleryRouter extends CustomRouter {
         return next(error);
       }
     });
+    this.read("/", ["PUBLIC"], (req,res,next)=>{
+      return res.send({ response: req})
+    })
   }
 }
 const artillery = new ArtilleryRouter();
