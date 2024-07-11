@@ -1,10 +1,12 @@
 import log from "../../utils/winston.utils.js";
 import arg from "../../utils/args.utils.js";
-/* aca hay que hacer la importacion dinamica */
+import loggerProd from "../../utils/winston.prod.js";
 
 function winston(req, res, next) {
-  /* si arg.env == prod o arg.env == dev */
   req.logger = log;
+  if (arg.enve == "prod") {
+    req.logger = loggerProd;
+  }
   const message = `${req.method} ${
     req.url
   } - ${new Date().toLocaleTimeString()}`;
