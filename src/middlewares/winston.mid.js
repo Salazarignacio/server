@@ -1,4 +1,5 @@
-import log from '../../winston.utils.js'
+import log from '../../utils/winston.utils.js'
+/* aca hay que hacer la importacion dinamica */
 
 function winston(req, res, next) {
   req.logger = log;

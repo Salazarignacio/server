@@ -16,7 +16,7 @@ class ApiRouter extends CustomRouter {
     this.use("/tickets", ticketsRouter);
     this.use("/cookies", cookiesRouter);
     this.use("/sessions", sessionsRouter);
-    this.use("/artillery", artillery);
+    this.use("/loggers", artillery);
   }
 }
 const apiRouter = new ApiRouter();
