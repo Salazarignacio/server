@@ -13,7 +13,7 @@ scenarios:
           url: /sessions/login
           json: 
             email: ignaciosalazar986@gmail.com
-            password: 123
+            password: "123"
       - log: read all products
       - get: 
           url: /products
