@@ -17,3 +17,6 @@ FATAL: Este es un mensaje de log FATAL
 ERROR: Este es un mensaje de log ERROR
 FATAL: Este es un mensaje de log FATAL
 ERROR: Este es un mensaje de log ERROR
+FATAL: Este es un mensaje de log FATAL
+ERROR: Este es un mensaje de log ERROR
+ERROR: GET /online 400 - 11:01:41 - No token provided
