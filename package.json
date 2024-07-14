@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node ./server.js -p 8080",
+    "start": "node server.js",
     "dev": "nodemon ./server.js -p 8080  --env=dev ",
     "prod": "nodemon ./server.js -p 8080  --env=prod  ",
     "test": "nodemon ./server.js -p 8081 --persistence=fs",
@@ -18,7 +18,10 @@
     "simplex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/simplex\" -o ./test/artillery/simplex.json",
     "complex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/complex\" -o ./test/artillery/complex.json",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
-    "report": "artillery report ./test/artillery/flow.json"
+    "report": "artillery report ./test/artillery/flow.json",
+    "image": "docker build -t server .",
+    "container": "docker run -p 8888:8080 server"
+
   },
   "keywords": [],
   "author": "",

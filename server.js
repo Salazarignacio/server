@@ -18,13 +18,14 @@ import MongoStore from "connect-mongo";
 import args from "./utils/args.utils.js";
 import cors from "cors";
 import compression from "express-compression";
+import { cpus } from "os";
+import cluster from "cluster";
 
 const server = express();
 
 const PORT = args.p || environment.PORT;
 const ready = async () => {
   console.log("server ready on port " + PORT);
-  /* await dbConnect(PORT, ready); */
 };
 console.log(args);
 
@@ -32,7 +33,16 @@ const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 socketServer.on("connection", socketCb);
 export { socketServer };
-nodeServer.listen(PORT, ready);
+const numberOfProcess = cpus().length;
+if (cluster.isPrimary) {
+  for (let i = 1; i <= numberOfProcess; i++) {
+    cluster.fork();
+  }
+  console.log("primary");
+} else {
+  console.log("worker" + process.pid);
+  nodeServer.listen(PORT, ready);
+}
 
 server.engine("handlebars", engine());
 server.set("view engine", "handlebars");

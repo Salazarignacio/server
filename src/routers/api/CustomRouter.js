@@ -44,14 +44,13 @@ class CustomRouter {
     res.error401 = () => {
       const errorMessage = `${req.method} ${
         req.url
-      } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!}`;
+      } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!`;
 
       winston.ERROR(errorMessage);
 
-      console.log(winston.ERROR);
       return res.json({
         statusCode: 401,
-        message: "Bad auth from poliecies2!",
+        message: "Bad auth from poliecies!",
       });
     };
 
