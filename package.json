@@ -21,7 +21,6 @@
     "report": "artillery report ./test/artillery/flow.json",
     "image": "docker build -t server .",
     "container": "docker run -p 8888:8080 server"
-
   },
   "keywords": [],
   "author": "",
@@ -44,6 +43,8 @@
     "express-compression": "^1.0.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
+    "joi": "^17.13.3",
+    "joi-oid": "^1.1.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.4",
     "mongoose-paginate-v2": "^1.8.2",

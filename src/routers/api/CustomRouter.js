@@ -113,7 +113,7 @@ class CustomRouter {
 
   /* policies */
   policies = (policies) => async (req, res, next) => {
-    if (policies.includes("PUBLIC")) return next();
+    if (policies.includes("PUBLIC")) {return next()}
     else {
       let token = req.cookies["token"];
       if (!token) return res.error400("No token provided");
@@ -128,7 +128,7 @@ class CustomRouter {
             const user = await usersRepository.readByEmailRepository(email);
             req.user = user;
             return next();
-          } else return res.error403();
+          } else return res.json({ policie: policies, email: email });
         } catch (error) {
           return next(error);
         }

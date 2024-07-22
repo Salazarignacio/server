@@ -1,3 +1,4 @@
+import { createHash } from "../../utils/hash.util.js";
 import {
   createService,
   readOneService,
@@ -76,4 +77,24 @@ async function update(req, res, next) {
   }
 }
 
-export { create, read, readOne, destroy, update, readByEmail };
+async function updatePassword(req, res, next) {
+  try {
+    const verifyCode = req.body.verifyCode;
+
+    const user = await readByEmailService(req.body.email);
+    if (verifyCode == user.verifyCode) {
+      const hasPassword = createHash(req.body.password);
+
+      const updatePass = await updateService(user._id, {
+        password: hasPassword,
+      });
+      return res.json({ body: updatePass });
+    } else {
+      return res.json({ error: "Invalid credentials" });
+    }
+  } catch (error) {
+    return next(error);
+  }
+}
+
+export { create, read, readOne, destroy, update, readByEmail, updatePassword };

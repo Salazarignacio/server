@@ -34,9 +34,7 @@ passport.use(
         }
         let user = await readByEmailService(email);
         if (user) {
-          /* comprueba si el mail ya fue registrado */
-          const error = new Error('Invalid credentials');
-
+          const error = new Error("Invalid credentials");
           return done(error);
         }
         /* createHasPassword */
@@ -85,7 +83,7 @@ passport.use(
           user.token = token;
           return done(null, user);
         }
-        const error = new Error('Bad auth from login');
+        const error = new Error("Bad auth from login");
 
         return done(error);
       } catch (error) {
