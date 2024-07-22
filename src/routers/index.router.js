@@ -20,6 +20,19 @@ class IndexRouter extends CustomRouter {
         return next(error);
       }
     });
+    this.create("/api/password", ['PUBLIC'],async (req, res, next) => {
+      try {
+        const { email, name } = req.body;
+        await sendEmail({
+          to: email,
+          name,
+        });
+        return res.response200("EMAIL SENT");
+      } catch (error) {
+        return next(error);
+      }
+    });
+
     this.use("/fork", (req, res, next) => {
       const childProcess = fork("./src/utils.js/test.utils.js");
       childProcess.send("start");

@@ -40,4 +40,12 @@ viewsRouter.get("/verify", async (req, res, next) => {
   }
 });
 
+viewsRouter.get("/recovery", async(req,res,next)=>{
+  try {
+    return res.render("recovery", {title:"recovery"})
+  } catch (error) {
+    return next(error)
+  }
+})
+
 export default viewsRouter;

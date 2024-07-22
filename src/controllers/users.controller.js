@@ -79,18 +79,19 @@ async function update(req, res, next) {
 
 async function updatePassword(req, res, next) {
   try {
-    const verifyCode = req.body.verifyCode;
+     const verifyCode = req.body.verifyCode; 
 
     const user = await readByEmailService(req.body.email);
-    if (verifyCode == user.verifyCode) {
+    if (verifyCode == user.verifyCode){
       const hasPassword = createHash(req.body.password);
 
       const updatePass = await updateService(user._id, {
         password: hasPassword,
       });
-      return res.json({ body: updatePass });
+      return res.json({ body: "Changed succesfully", statusCode:200 });
     } else {
-      return res.json({ error: "Invalid credentials" });
+      const error = new Error('Invalid credentials')
+      throw error
     }
   } catch (error) {
     return next(error);
