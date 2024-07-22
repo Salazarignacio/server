@@ -90,7 +90,7 @@ async function updatePassword(req, res, next) {
       });
       return res.json({ body: "Changed succesfully", statusCode:200 });
     } else {
-      const error = new Error('Invalid credentials')
+      const error = new Error('Invalid credentials...')
       throw error
     }
   } catch (error) {
