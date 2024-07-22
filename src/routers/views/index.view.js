@@ -47,5 +47,12 @@ viewsRouter.get("/recovery", async(req,res,next)=>{
     return next(error)
   }
 })
+viewsRouter.get("/email", async(req,res,next)=>{
+  try {
+    return res.render("getEmail", {title:"Email"})
+  } catch (error) {
+    return next(error)
+  }
+})
 
 export default viewsRouter;

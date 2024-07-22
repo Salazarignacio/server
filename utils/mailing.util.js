@@ -15,7 +15,7 @@ async function sendEmail(data){
         await transport.sendMail({
             from: GOOGLE_EMAIL,
             to: data.to,
-            subject: `USER data.name.toUpperCase() REGISTERED`,
+            subject: `USER REGISTERED`,
             html: `<h1>Wellcome to server</h1>
             <p>VERIFY CODE: ${data.code}</p>
             <a href="http://localhost:8080/verify">Follow this link to verify your user</a>`

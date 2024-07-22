@@ -1,8 +1,12 @@
 import sendEmail from "../../utils/mailing.util.js";
+import recoverPass from "../../utils/recoverPass.js";
 import CustomRouter from "./api/CustomRouter.js";
 import apiRouter from "./api/index.api.js";
 import viewsRouter from "./views/index.view.js";
 import { fork } from "child_process";
+import { readByEmailService, updateService } from "../services/users.services.js";
+import crypto from 'crypto'
+
 
 class IndexRouter extends CustomRouter {
   init() {
@@ -23,8 +27,12 @@ class IndexRouter extends CustomRouter {
     this.create("/api/password", ['PUBLIC'],async (req, res, next) => {
       try {
         const { email, name } = req.body;
-        await sendEmail({
+        let user = await readByEmailService(email);
+        const updateUser = await updateService(user._id, {verifyCode: crypto.randomBytes(12).toString("hex")})
+        user = await readByEmailService(email)
+        await recoverPass({
           to: email,
+          code: user.verifyCode,
           name,
         });
         return res.response200("EMAIL SENT");

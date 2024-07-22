@@ -125,3 +125,138 @@ ERROR: GET /online 400 - 12:43:39 - No token provided
 ERROR: GET /online 400 - 12:44:08 - No token provided
 ERROR: GET /online 400 - 12:44:15 - No token provided
 ERROR: GET /online 400 - 12:46:44 - No token provided
+ERROR: GET /online 400 - 14:31:22 - No token provided
+ERROR: GET /online 400 - 14:32:42 - No token provided
+ERROR: GET /online 400 - 14:47:00 - No token provided
+ERROR: GET /online 400 - 14:47:46 - No token provided
+ERROR: GET /online 400 - 14:47:52 - No token provided
+ERROR: GET /online 400 - 14:47:57 - No token provided
+ERROR: GET /online 400 - 14:48:02 - No token provided
+ERROR: GET /online 400 - 14:48:08 - No token provided
+ERROR: GET /online 400 - 14:48:34 - No token provided
+ERROR: GET /online 400 - 14:48:48 - No token provided
+ERROR: POST /api/users/password undefined . 15:00:11 Error: Invalid credentials
+ERROR: GET /online 400 - 15:02:01 - No token provided
+ERROR: GET /online 400 - 15:03:14 - No token provided
+ERROR: GET /online 400 - 15:03:19 - No token provided
+ERROR: GET /online 400 - 15:03:22 - No token provided
+ERROR: GET /online 400 - 15:03:24 - No token provided
+ERROR: GET /online 400 - 15:05:53 - No token provided
+ERROR: GET /online 400 - 15:16:13 - No token provided
+ERROR: POST /api/password undefined . 15:16:17 ReferenceError: readByEmailService is not defined
+ERROR: POST /api/password undefined . 15:16:29 ReferenceError: readByEmailService is not defined
+ERROR: GET /online 400 - 15:16:32 - No token provided
+ERROR: GET /online 400 - 15:16:35 - No token provided
+ERROR: GET /online 400 - 15:16:37 - No token provided
+ERROR: POST /api/password undefined . 15:16:42 ReferenceError: readByEmailService is not defined
+ERROR: GET /online 400 - 15:17:06 - No token provided
+ERROR: GET /online 400 - 15:17:52 - No token provided
+ERROR: GET /online 400 - 15:17:55 - No token provided
+ERROR: POST /api/password undefined . 15:18:00 ReferenceError: readByEmailService is not defined
+ERROR: POST /api/password undefined . 15:18:06 ReferenceError: readByEmailService is not defined
+ERROR: GET /online 400 - 15:19:38 - No token provided
+ERROR: GET /online 400 - 15:19:44 - No token provided
+ERROR: GET /online 400 - 15:20:51 - No token provided
+ERROR: GET /online 400 - 15:22:47 - No token provided
+ERROR: GET /online 400 - 15:23:52 - No token provided
+ERROR: GET /online 400 - 15:29:15 - No token provided
+ERROR: GET /online 400 - 15:29:17 - No token provided
+ERROR: GET /online 400 - 15:29:20 - No token provided
+ERROR: GET /online 400 - 15:29:24 - No token provided
+ERROR: GET /online 400 - 15:29:39 - No token provided
+ERROR: GET /online 400 - 15:30:01 - No token provided
+ERROR: GET /online 400 - 15:30:47 - No token provided
+ERROR: GET /online 400 - 15:30:56 - No token provided
+ERROR: GET /online 400 - 15:30:58 - No token provided
+ERROR: GET /online 400 - 15:31:00 - No token provided
+ERROR: POST /api/password undefined . 15:31:18 TypeError: Cannot read property 'toUpperCase' of undefined
+ERROR: GET /online 400 - 15:32:30 - No token provided
+ERROR: GET /online 400 - 15:32:31 - No token provided
+ERROR: GET /online 400 - 15:32:33 - No token provided
+ERROR: GET /online 400 - 15:32:35 - No token provided
+ERROR: GET /online 400 - 15:32:59 - No token provided
+ERROR: GET /online 400 - 15:33:40 - No token provided
+ERROR: GET /online 400 - 15:33:41 - No token provided
+ERROR: GET /online 400 - 15:33:42 - No token provided
+ERROR: GET /online 400 - 15:33:44 - No token provided
+ERROR: GET /online 400 - 15:34:07 - No token provided
+ERROR: GET /online 400 - 15:34:30 - No token provided
+ERROR: DELETE /api/carts/667c0c85ee20c7f01c0bc4b6 undefined . 15:35:27 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/667b3cbab9e66ea79717575e undefined . 15:35:33 TypeError: res.response is not a function
+ERROR: GET /online 400 - 15:50:14 - No token provided
+ERROR: GET /online 400 - 15:50:15 - No token provided
+ERROR: GET /online 400 - 15:50:20 - No token provided
+ERROR: GET /online 400 - 15:51:53 - No token provided
+ERROR: GET /online 400 - 15:51:55 - No token provided
+ERROR: GET /online 400 - 15:52:03 - No token provided
+ERROR: GET /online 400 - 15:52:22 - No token provided
+ERROR: GET /online 400 - 15:52:40 - No token provided
+ERROR: GET /online 400 - 16:06:06 - No token provided
+ERROR: GET /online 400 - 16:22:14 - No token provided
+ERROR: GET /online 400 - 16:22:14 - No token provided
+ERROR: GET /api/carts/paginate?user_id=undefined undefined . 16:22:14 CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user_id" for model "carts"
+ERROR: GET /online 400 - 18:46:34 - No token provided
+ERROR: GET /online 400 - 18:47:20 - No token provided
+ERROR: GET /online 400 - 18:47:25 - No token provided
+ERROR: GET /online 400 - 18:48:08 - No token provided
+ERROR: GET /online 400 - 18:48:13 - No token provided
+ERROR: GET /online 400 - 18:50:57 - No token provided
+ERROR: GET /online 400 - 18:52:18 - No token provided
+ERROR: GET /online 400 - 18:52:24 - No token provided
+ERROR: GET /online 400 - 18:52:36 - No token provided
+ERROR: GET /online 400 - 19:08:03 - No token provided
+ERROR: GET /online 400 - 19:08:13 - No token provided
+ERROR: GET /online 400 - 19:08:59 - No token provided
+ERROR: GET /online 400 - 19:09:15 - No token provided
+ERROR: GET /online 400 - 19:09:29 - No token provided
+ERROR: GET /online 400 - 19:09:40 - No token provided
+ERROR: GET /online 400 - 19:09:46 - No token provided
+ERROR: GET /online 400 - 19:09:48 - No token provided
+ERROR: GET /online 400 - 19:09:49 - No token provided
+ERROR: GET /online 400 - 19:12:09 - No token provided
+ERROR: GET /online 400 - 19:12:33 - No token provided
+ERROR: GET /online 400 - 19:12:40 - No token provided
+ERROR: GET /online 400 - 19:12:53 - No token provided
+ERROR: GET /online 400 - 19:13:20 - No token provided
+ERROR: GET /online 400 - 19:14:38 - No token provided
+ERROR: GET /online 400 - 19:15:15 - No token provided
+ERROR: GET /online 400 - 19:15:19 - No token provided
+ERROR: GET /online 400 - 19:19:14 - No token provided
+ERROR: GET /online 400 - 19:19:15 - No token provided
+ERROR: POST /api/sessions/login undefined . 19:19:19 Error: Bad auth from login
+ERROR: GET /online 400 - 19:19:27 - No token provided
+ERROR: GET /online 400 - 19:19:28 - No token provided
+ERROR: GET /online 400 - 19:19:30 - No token provided
+ERROR: GET /online 400 - 19:19:36 - No token provided
+ERROR: GET /online 400 - 19:19:53 - No token provided
+ERROR: GET /online 400 - 19:20:14 - No token provided
+ERROR: GET /online 400 - 19:20:16 - No token provided
+ERROR: GET /online 400 - 19:20:25 - No token provided
+ERROR: GET /online 400 - 19:20:32 - No token provided
+ERROR: POST /api/sessions/login undefined . 19:20:36 Error: Bad auth from login
+ERROR: GET /online 400 - 19:20:42 - No token provided
+ERROR: GET /online 400 - 19:20:43 - No token provided
+ERROR: GET /online 400 - 19:20:50 - No token provided
+ERROR: GET /online 400 - 19:21:48 - No token provided
+ERROR: GET /online 400 - 19:23:40 - No token provided
+ERROR: GET /online 400 - 19:23:48 - No token provided
+ERROR: GET /online 400 - 19:24:50 - No token provided
+ERROR: GET /online 400 - 19:25:11 - No token provided
+ERROR: GET /online 400 - 19:25:28 - No token provided
+ERROR: GET /online 400 - 19:25:29 - No token provided
+ERROR: GET /online 400 - 19:25:37 - No token provided
+ERROR: GET /online 400 - 19:27:22 - No token provided
+ERROR: POST /api/users/password undefined . 19:27:32 Error: Invalid credentials
+ERROR: GET /online 400 - 19:27:33 - No token provided
+ERROR: GET /online 400 - 19:27:44 - No token provided
+ERROR: GET /online 400 - 19:27:50 - No token provided
+ERROR: GET /online 400 - 19:27:56 - No token provided
+ERROR: GET /online 400 - 19:28:11 - No token provided
+ERROR: GET /online 400 - 19:28:17 - No token provided
+ERROR: GET /online 400 - 19:28:26 - No token provided
+ERROR: GET /online 400 - 19:28:36 - No token provided
+ERROR: GET /online 400 - 19:28:39 - No token provided
+ERROR: GET /online 400 - 19:34:39 - No token provided
+ERROR: GET /online 400 - 19:34:42 - No token provided
+ERROR: GET /online 400 - 19:34:46 - No token provided
+ERROR: GET /online 400 - 19:34:57 - No token provided

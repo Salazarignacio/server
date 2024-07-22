@@ -18,7 +18,7 @@ async function recoverPass(data){
             subject: `verify password`,
             html: `<h1>Recovery password</h1>
             <p>VERIFY CODE: ${data.code}</p>
-            <a href="http://localhost:8080/verify">Follow this link to cahnge your password</a>`
+            <a href="http://localhost:8080/recovery">Click here to change your password</a>`
         })
     } catch (error) {
         throw error

@@ -1,5 +1,6 @@
-async function recovery() {
+async function recovery(e) {
   try {
+    e.preventDefault();
     const verifyCode = document.querySelector("#code").value;
     const password = document.querySelector("#password").value;
     const email = document.querySelector("#email").value;
@@ -9,7 +10,7 @@ async function recovery() {
       email: email,
       verifyCode: verifyCode,
     };
-console.log(data);
+
     const url = "http://localhost:8080/api/users/password";
     const opts = {
       method: "POST",
@@ -29,13 +30,14 @@ console.log(data);
     // Llamar a la función para mostrar la alerta
     if (response.statusCode == 200) {
       showSuccessAlert("success", "Exito!", response.response);
+      setTimeout(() => {
+        window.location.replace("login");
+      }, 2500);
     } else {
-      console.log(response);
-
       showSuccessAlert("error", "Error", response.message);
     }
   } catch (error) {
     console.log(error);
   }
 }
-document.querySelector("#rec").addEventListener("click", () => recovery());
+document.querySelector("#rec").addEventListener("click", (e) => recovery(e));
