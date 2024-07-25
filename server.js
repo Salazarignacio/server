@@ -20,6 +20,9 @@ import cors from "cors";
 import compression from "express-compression";
 import { cpus } from "os";
 import cluster from "cluster";
+import swaggerOptions from "./utils/swagger.utils.js";
+import swaggerJSDoc from "swagger-jsdoc";
+import { serve, setup } from "swagger-ui-express";
 
 const server = express();
 
@@ -48,8 +51,12 @@ server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
 server.set("views", __dirname + "/src/views");
 
+/* swagger */
+const specs = swaggerJSDoc(swaggerOptions)
+
 /* middlewares */
 server.use(cors({ origin: true, credentials: true }));
+server.use('/api/docs', serve, setup(specs))
 server.use(
   compression({
     brotli: { enabled: true, zlib: {} },

@@ -45,9 +45,7 @@ class CustomRouter {
       const errorMessage = `${req.method} ${
         req.url
       } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!`;
-
       winston.ERROR(errorMessage);
-
       return res.json({
         statusCode: 401,
         message: "Bad auth from poliecies!",
@@ -57,11 +55,11 @@ class CustomRouter {
     res.error403 = () => {
       const errorMessage = `${req.method} ${
         req.url
-      } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!!!!`;
+      } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!`;
       winston.ERROR(errorMessage);
       return res.json({
         statusCode: 403,
-        message: "Forbidden from poliecies!¿",
+        message: "Forbidden from poliecies!",
       });
     };
     res.error404 = () => {

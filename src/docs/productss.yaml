@@ -1,0 +1,166 @@
+components:
+  schemas: 
+    Products:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Product title
+        photo:
+          type: string
+          description: URL product image
+        category:
+          type: string
+          description: product category
+        price:
+          type: integer
+          format: int64
+          description: product price
+        stock:
+          type: integer
+          format: int64
+          description: stock available from product
+      example:
+        title: t-shirt
+        category: shirt
+        price: 11
+        stock: 1000
+  responses:
+    Message 200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: State code from success
+        response:
+          type: string
+          description: Descriptive text from success operation
+      example:
+        statusCode: 200
+        response: Product
+    Message 201:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Creation success code
+        message: 
+          type: string
+          description: Creation descriptive text 
+      example: 
+        - "_id": "6632d0069984c35bb08075e2",
+          "id": "3c1b38d558be8ed3e8ed9e3c",
+          "title": "boots asics",
+          "photo": "https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$",
+          "category": "shoes",
+          "price": 185,
+          "stock": 3000
+        - "_id": "6632d0069984c35bb08075de",
+          "id": "928a067f37974a8fdaf6295d",
+          "title": "campera nieve",
+          "photo": "https://m.media-amazon.com/images/I/81R0hKzj53L._AC_UY1000_.jpg",
+          "category": "shirt",
+          "price": 165,
+          "stock": 1000
+        statusCode: 201
+        message: created succesfully
+    Response 200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al exito devolviendo datos
+        message:
+          type: object
+          description: Objeto con los datos solicitados 
+      example:
+        statusCode: 200
+        message: created succesfully
+          statusCode: 200 
+    Paginate:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al exito de datos paginados
+        response:
+          type: string
+          description: Texto descriptivo con 
+        info:
+          type: object
+          description: Datos de la paginacion
+      example:
+        statusCode: 200
+        message:
+          - "_id": "6632d0069984c35bb08075e2",
+            "id": "3c1b38d558be8ed3e8ed9e3c",
+            "title": "boots asics",
+            "photo": "https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$",
+            "category": "shoes",
+            "price": 185,
+            "stock": 3000
+          - "_id": "6632d0069984c35bb08075de",
+            "id": "928a067f37974a8fdaf6295d",
+            "title": "campera nieve",
+            "photo": "https://m.media-amazon.com/images/I/81R0hKzj53L._AC_UY1000_.jpg",
+            "category": "shirt",
+            "price": 165,
+            "stock": 1000
+    Error 400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por problemas del cliente
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error por parte del cliente 
+      example:
+        statusCode: 400
+        message: Incomplete data on mid
+    Error 401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso de autoenticacion
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autenticacion
+      example:
+        statusCode: 401 
+        message: Bad auth from policies!
+    Error 403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso de autorizacion
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autorizacion
+      example:
+        statusCode: 403
+        message: Forbidden from poliecies!
+    Error 404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por no encontrar lo solicitado
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de no encontrado el recurso
+      example:
+        statusCode: 404
+        message: Not found docs
+    
+ 
