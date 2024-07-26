@@ -262,3 +262,15 @@ ERROR: GET /online 400 - 19:34:46 - No token provided
 ERROR: GET /online 400 - 19:34:57 - No token provided
 ERROR: GET /online 400 - 05:38:40 - No token provided
 ERROR: GET /online 400 - 07:18:56 - No token provided
+ERROR: GET /online 400 - 17:02:45 - No token provided
+ERROR: GET /online 400 - 17:02:52 - No token provided
+ERROR: GET /online 400 - 17:28:29 - No token provided
+ERROR: GET /online 400 - 15:39:27 - No token provided
+ERROR: GET /online 400 - 15:40:10 - No token provided
+ERROR: POST / 400 - 15:40:44 - No token provided
+ERROR: POST / 400 - 15:49:34 - No token provided
+ERROR: POST / 400 - 16:09:51 - No token provided
+ERROR: POST / 400 - 16:12:41 - No token provided
+ERROR: POST / 400 - 16:17:26 - No token provided
+ERROR: GET /online 400 - 16:25:04 - No token provided
+ERROR: GET /online 400 - 16:25:07 - No token provided
