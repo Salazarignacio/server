@@ -274,3 +274,5 @@ ERROR: POST / 400 - 16:12:41 - No token provided
 ERROR: POST / 400 - 16:17:26 - No token provided
 ERROR: GET /online 400 - 16:25:04 - No token provided
 ERROR: GET /online 400 - 16:25:07 - No token provided
+ERROR: POST / 400 - 05:52:03 - No token provided
+ERROR: POST / 400 - 05:52:47 - No token provided
