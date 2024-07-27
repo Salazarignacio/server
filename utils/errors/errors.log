@@ -276,3 +276,6 @@ ERROR: GET /online 400 - 16:25:04 - No token provided
 ERROR: GET /online 400 - 16:25:07 - No token provided
 ERROR: POST / 400 - 05:52:03 - No token provided
 ERROR: POST / 400 - 05:52:47 - No token provided
+ERROR: PUT /66a3f825fde03d406b463ec0 400 - 21:50:34 - No token provided
+ERROR: GET /online 400 - 21:51:07 - No token provided
+ERROR: GET /online 400 - 21:51:09 - No token provided
