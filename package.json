@@ -20,17 +20,19 @@
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
     "report": "artillery report ./test/artillery/flow.json",
     "image": "docker build -t server .",
-    "container": "docker run -p 8888:8080 server"
+    "container": "docker run -p 8888:8080 server",
+    "mocha": "mocha ./test/mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "mocha": "^10.7.0",
     "nodemon": "^3.1.4"
   },
   "dependencies": {
-    "artillery": "^2.0.17",
+    "artillery": "^1.7.4",
     "artillery-plugin-metrics-by-endpoint": "^1.11.0",
     "bcrypt": "^5.1.1",
     "commander": "^12.1.0",
