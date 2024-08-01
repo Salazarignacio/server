@@ -22,7 +22,8 @@
     "image": "docker build -t server .",
     "container": "docker run -p 8888:8080 server",
     "mocha": "mocha ./test/mocha",
-    "chai": "mocha ./test/chai"
+    "chai": "mocha ./test/chai",
+    "super": "mocha ./test/supertest"
   },
   "keywords": [],
   "author": "",
@@ -31,7 +32,8 @@
     "@faker-js/faker": "^8.4.1",
     "chai": "^5.1.1",
     "mocha": "^10.7.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
     "artillery": "^1.7.4",
