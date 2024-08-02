@@ -1,8 +1,10 @@
-const socket = io(); 
+const socket = io();
 
-socket.on('realUsers', data=>{
+socket.on("realUsers", (data) => {
   let template = ``;
-  template = data.map(element=> ` 
+  template = data
+    .map(
+      (element) => ` 
 
   <div class="card mb-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="max-width: 940px;">
   <div class="row g-0">
@@ -19,21 +21,25 @@ socket.on('realUsers', data=>{
       </div>
     </div>
   </div>
-</div>`).join('')
-document.querySelector('#realUsers').innerHTML = template
-})
+</div>`
+    )
+    .join("");
+  document.querySelector("#realUsers").innerHTML = template;
+});
 
-function destroyUser(id)
-{ socket.emit('destroyUser', id) }; 
-
-function runUser()
-{
-
-const photo = document.querySelector('#photoUser').value; 
-const email = document.querySelector('#email').value; 
-const password= document.querySelector('#password').value; 
-const role= document.querySelector('#role').value ;
-socket.emit('createUser', {id:id, photo: photo, email: email, password: password, role: role})
+function destroyUser(id) {
+  socket.emit("destroyUser", id);
 }
 
-
+function runUser() {
+  const photo = document.querySelector("#photoUser").value;
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  const role = document.querySelector("#role").value;
+  socket.emit("createUser", {
+    photo: photo,
+    email: email,
+    password: password,
+    role: role,
+  });
+}

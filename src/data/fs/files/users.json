@@ -26,5 +26,15 @@
     "photo": "https://img.a.transfermarkt.technology/portrait/big/8542-1570439638.jpg?lm=1",
     "password": "123456",
     "role": "striker"
+  },
+  {
+    "_id": "fdefde4aed44acc316948b84",
+    "email": "momwo@gmail.com",
+    "password": "4a0",
+    "role": 1,
+    "age": 12,
+    "verify": false,
+    "verifyCode": "65732e6e791371b0c04355b2",
+    "photo": "https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
   }
 ]

@@ -1,10 +1,24 @@
-import { Router } from "express";
+import CustomRouter from "./CustomRouter.js";
+
 import productsRouter from "./products.router.js";
 import usersRouter from "./user.router.js";
+import cartRouter from "./carts.router.js";
+import ticketsRouter from "./tickets.router.js";
+import cookiesRouter from "./cookies.router.js";
+import sessionsRouter from "./sessions.router.js";
+import artillery from "./artillery.js";
 
-const apiRouter = Router();
+class ApiRouter extends CustomRouter {
+  init() {
+    this.use("/products", productsRouter);
+    this.use("/users", usersRouter);
+    this.use("/carts", cartRouter);
+    this.use("/tickets", ticketsRouter);
+    this.use("/cookies", cookiesRouter);
+    this.use("/sessions", sessionsRouter);
+    this.use("/loggers", artillery);
+  }
+}
+const apiRouter = new ApiRouter();
 
-apiRouter.use('/products', productsRouter)
-apiRouter.use('/users', usersRouter)
-
-export default apiRouter
+export default apiRouter.getRouter();

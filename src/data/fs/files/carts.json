@@ -1,0 +1,9 @@
+[
+  {
+    "id": 2,
+    "user_id": 3,
+    "product_id": 4,
+    "quantity": 1,
+    "state": "reserved"
+  }
+]

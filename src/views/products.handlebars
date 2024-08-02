@@ -1,11 +1,19 @@
- {{#each products}}
-    <div class="card mb-2" style="width: 28rem;"> 
-<img src={{this.photo}} class="card-img-top" alt={{this.id}}> 
-<div class="card-body"> <h5 class="card-title">{{this.title}}</h5> 
-<p class="card-text">${{this.price}}</p> 
 
-<a href="/products/details/{{this.id}}" class="btn btn-outline-secondary">Details</a>
- </div> </div>
-{{/each}}     
-      </div>
-    </article>
+{{!--     <div id="products"></div> --}}
+
+
+<section class="container-fluid d-flex bg-light">
+
+  {{! Products }}
+  <article id="products" class="bg-body-secondary d-flex flex-wrap justify-content-center">
+ <div class="spinner-grow" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+  </article>
+  
+
+</section>
+<script src="https://kit.fontawesome.com/02894371fc.js" crossorigin="anonymous"></script>
+
+
+<script src="/scripts/products.js"></script>

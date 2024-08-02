@@ -1,0 +1,333 @@
+components:
+  schemas: 
+    Products:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Product title
+        photo:
+          type: string
+          description: URL product image
+        category:
+          type: string
+          description: product category
+        price:
+          type: integer
+          format: int32
+          description: product price
+        stock:
+          type: integer
+          format: int32
+          description: stock available from product
+      example:
+        title: t-shirt
+        category: shirt
+        photo: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3UPfGlTCdWJBSMxh5wKzmtp1uZ8fFUeek6Q&usqp=CAU
+        price: 11
+        stock: 1000
+  responses:
+    Message200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        response:
+          type: string
+          description: Descriptive text from successful operation
+      example:
+        statusCode: 200
+        response:
+        - _id: 6632d0069984c35bb08075e2,
+          id: 3c1b38d558be8ed3e8ed9e3c,
+          title: boots asics,
+          photo: https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$,
+          category: shoes,
+          price: 185,
+          stock: 3000
+    Message201:
+      type: object
+      properties:
+        statusCode: 
+          type: integer
+          format: int32
+        message: 
+          type: string
+      example: 
+        statusCode: 201
+        message: created succesfully
+    Response200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          description: Codigo de estado correspondiente al exito devolviendo datos
+        message:
+          type: object
+          description: Objeto con los datos solicitados 
+      example:
+        statusCode: 200
+        message:
+        - _id: 6632d0069984c35bb08075e2,
+          id: 3c1b38d558be8ed3e8ed9e3c,
+          title: boots asics,
+          photo: https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$,
+          category: shoes,
+          price: 185,
+          stock: 3000
+    Paginate:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          description: Codigo de estado correspondiente al exito de datos paginados
+        response:
+          type: string
+          description: Texto descriptivo con 
+        info:
+          type: object
+          description: Datos de la paginacion
+      example:
+        statusCode: 200
+        message:
+          - _id: 6632d0069984c35bb08075e2,
+            id: 3c1b38d558be8ed3e8ed9e3c,
+            title: boots asics,
+            photo: https://images.asics.com/is/image/asics/1103A031_300_SR_RT_GLB-1?$sfcc-product$,
+            category: shoes,
+            price: 185,
+            stock: 3000
+          - _id: 6632d0069984c35bb08075de,
+            id: 928a067f37974a8fdaf6295d,
+            title: campera nieve,
+            photo: https://m.media-amazon.com/images/I/81R0hKzj53L._AC_UY1000_.jpg,
+            category: shirt,
+            price: 165,
+            stock: 1000
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 400
+        message: No token provided
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 401 
+        message: Bad auth from policies!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 403
+        message: Forbidden from poliecies!
+    Error404:
+    
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 404
+        message: Not found docs
+  securitySchemes:
+    cookieAuth: 
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/products:
+    post: 
+      summary: Ruta para la creacion de un nuevo producto
+      tags: 
+        - Products
+      security: 
+        - cookieAuth: []
+      requestBody:
+        required: true
+        description: Datos para crear un nuevo producto
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        201:
+          description: Created
+          content: 
+            application/json: 
+              schema: 
+                $ref: '#/components/responses/Message201'
+        400:
+          description: No token
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error400'
+  /api/products/:
+    get:
+      summary: Get all products
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Products get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200'
+
+  /api/products/{pid}:
+    get:
+      summary: Get product by ID
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'       
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+         
+    put:
+      summary: Update a product by ID
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        '200':
+          description: Successfully updated the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+
+    delete:
+      summary: Delete a product by ID
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to delete
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully updated the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Err403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'

@@ -1,0 +1,34 @@
+components:
+  schemas: 
+    Coso:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nombre del usuario que quiere registrarse
+        last_name:
+          type: string
+          description: apellido del usuario que quiere registrarse
+        password:
+          type: string
+          description: contraseña del usuario que quiere registrarse
+        avatar:
+          type: string
+          description: url de la foto que el usuario usará como perfil
+        role:
+          type: string
+          description: para definir los permisos según el rol
+        verify:
+          type: boolean
+          description: para definir si una cuenta fue o no verificada
+        verifyCode:
+          type: string
+          description: para definir el código de verificación de la cuenta
+      example:
+        first_name: igna
+        last_name: borraz
+        email: igna@coder.com
+        password: hola1234
+        avatar: https://www.mifoto.com/igna.png
+  responses:
+    

@@ -76,7 +76,7 @@ instanceOfProducts.create({
   title: "zapatillas",
   photo: "zapatillas.jpg",
   category: "shoes",
-  price: 65,
+  price: 165,
   stock: 1000,
 });
 
@@ -111,4 +111,8 @@ instanceOfProducts.create({
 });
 /* console.log(instanceOfProducts.destroy(1)); */
 console.log(instanceOfProducts.update(1, {title: 'new title'}));
+
+const productsManagerMem = new ProductManager()
+
+export default productsManagerMem
 

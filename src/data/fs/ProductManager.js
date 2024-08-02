@@ -9,11 +9,11 @@ class ProductManager {
   }
   init() {
     if (fs.existsSync(this.path)) {
-      console.log("EXISTING PRODUCT");
     } else {
       fs.writeFileSync(this.path, JSON.stringify([], null, 2));
     }
   }
+
   /* metodo create */
   async create(data) {
     try {
@@ -53,9 +53,9 @@ class ProductManager {
       if (readFile) {
         /* parseo el archivo */
         readFile = JSON.parse(readFile);
-      if(category){
-        readFile = readFile.filter((element)=> element.category == category)
-      }
+        if (category) {
+          readFile = readFile.filter((element) => element.category == category);
+        }
         return readFile;
       } else {
         throw new Error("CAN NOT READ PRODUCT");
@@ -107,6 +107,6 @@ class ProductManager {
   }
 }
 
-const iProducts = new ProductManager();
+const productsManagerFs = new ProductManager();
 
-export default iProducts;
+export default productsManagerFs;
