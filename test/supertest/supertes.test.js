@@ -7,6 +7,7 @@ import productsRepository from "../../src/repositories/products.rep.js";
 const requester = supertest(`http://localhost:8080/api`); /* cambiar aca luego */
 
 describe("Testeando SERVER", ()=>{
+    let id;
     let token = ""
     const superProduct = {
         id:1,
@@ -23,19 +24,24 @@ describe("Testeando SERVER", ()=>{
     it("Inicio de sesion de un usuario", async()=>{
         const response = await requester.post("/sessions/login").send(user)
         const {_body, headers} = response
-        console.log(_body, headers);
+        
         token = headers["set-cookie"][0].split(";")[0];
         expect(_body.statusCode).to.be.equals(200)
     })
     it("Creando product con el user logueado", async ()=>{
         const response = await requester.post("/products").send(superProduct).set("Cookie", token)
         const { _body } = response;
+        
         expect(_body.statusCode).to.be.equals(201);
     })
     
     it("Eliminando product con el user logueado", async ()=>{
-        const response = await requester.delete("/products/66aba4d98ee713cb534044e6").set("Cookie", token)
-        const { _body } = response;
-        expect(_body.statusCode).to.be.equals(200);
-    }) 
+        let searchProduct = await requester.get("/products")
+        let {_body} = searchProduct
+        searchProduct = _body.response[_body.response.length-1]._id
+         const response = await requester.delete(`/products/${searchProduct}`).set("Cookie", token)
+          _body  = response._body;
+        
+        expect(_body.statusCode).to.be.equals(200); 
+    })  
 })

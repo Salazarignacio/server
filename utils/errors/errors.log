@@ -284,3 +284,4 @@ ERROR: GET /online 400 - 10:53:39 - No token provided
 ERROR: GET /online 400 - 11:28:09 - No token provided
 ERROR: GET /online 400 - 11:28:13 - No token provided
 ERROR: GET /online 400 - 11:28:26 - No token provided
+ERROR: DELETE /api/products/66aba4d98ee713cb534044e6 undefined . 05:12:01 TypeError: Cannot read properties of null (reading '_id')
