@@ -48,7 +48,9 @@ fetch("http://localhost:8080/api/sessions/online")
             aceptOrCancelPurchase(res, false);
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   });
 
 async function destroy(oid) {

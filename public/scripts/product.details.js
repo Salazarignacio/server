@@ -22,15 +22,21 @@ async function addToCart(id) {
     let fetch_id = await fetch("http://localhost:8080/api/sessions/online");
     fetch_id = await fetch_id.json();
     let user_id = fetch_id.user_id;
-console.log(user_id);
-if(!user_id){
-  Swal.fire({
-    title: 'User not logged',
-    text: 'Please sign in',
-    icon: 'error',
-    confirmButtonText: 'Cool'
-  })
-} 
+    if (!user_id) {
+      Swal.fire({
+        title: "User not logged",
+        text: "Please sign in",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    } else {
+      Swal.fire({
+        title: "Ok",
+        text: "Added to cart",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+    }
     const data = {
       user_id: user_id,
       product_id: id,
@@ -42,9 +48,20 @@ if(!user_id){
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
     };
-    let response = await fetch(url, opts);
-    response = await response.json();
+    /* si existe hacer un post, sino un update */
+    let getProducts = await fetch(url);
+    getProducts = await getProducts.json();
+    const searchProduct = getProducts.response.find((element) => 
+      element.product_id._id == id
+    );
+    
+    if (!searchProduct) {
+      let response = await fetch(url, opts);
+      response = await response.json();
+    } else {
+      console.log("cantidad ++")
+    }
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
