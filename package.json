@@ -18,6 +18,7 @@
     "simplex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/simplex\" -o ./test/artillery/simplex.json",
     "complex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/complex\" -o ./test/artillery/complex.json",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
+    "stress": "artillery run ./test/artillery/stress.yaml -o ./test/artillery/stress.json",
     "report": "artillery report ./test/artillery/flow.json",
     "image": "docker build -t server .",
     "container": "docker run -p 8888:8080 server",

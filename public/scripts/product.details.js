@@ -48,18 +48,31 @@ async function addToCart(id) {
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
     };
-    /* si existe hacer un post, sino un update */
+
     let getProducts = await fetch(url);
     getProducts = await getProducts.json();
-    const searchProduct = getProducts.response.find((element) => 
-      element.product_id._id == id
+    const searchProduct = getProducts.response.find(
+      (element) => element.product_id._id == id
     );
-    
+
     if (!searchProduct) {
       let response = await fetch(url, opts);
       response = await response.json();
     } else {
-      console.log("cantidad ++")
+      const updateData = {
+        user_id: user_id,
+        product_id: id,
+        quantity: searchProduct.quantity + 1,
+      };
+      const updateOpts = {
+        method: "PUT",
+        body: JSON.stringify(updateData),
+        headers: { "Content-Type": "application/json" },
+      };
+
+      const updateUrl = `${url}/${searchProduct._id}`;
+      let updateResponse = await fetch(updateUrl, updateOpts);
+      updateResponse = await updateResponse.json();
     }
   } catch (error) {
     throw error;
