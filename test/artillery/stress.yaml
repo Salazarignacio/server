@@ -1,0 +1,22 @@
+config:
+  plugins:
+    metrics-by-endpoint : {}
+  target: http://localhost:8080/api
+  phases:
+    - duration: 10
+      arrivalRate: 20
+scenarios:
+  - name: stress
+    flow:
+      - log: stress
+      - post:
+          url: /sessions/login
+          json: 
+            email: ignaciosalazar986@gmail.com
+            password: "123"
+      - log: read all products
+      - get: 
+          url: /products
+      - log: read one product
+      - get:
+          url: /products/6632d0069984c35bb08075d9

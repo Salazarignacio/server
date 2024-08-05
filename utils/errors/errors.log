@@ -287,3 +287,36 @@ ERROR: GET /online 400 - 11:28:26 - No token provided
 ERROR: DELETE /api/products/66aba4d98ee713cb534044e6 undefined . 05:12:01 TypeError: Cannot read properties of null (reading '_id')
 ERROR: GET /online 400 - 06:16:50 - No token provided
 ERROR: GET /online 400 - 11:24:05 - No token provided
+ERROR: GET /online 400 - 11:55:03 - No token provided
+ERROR: GET /online 400 - 11:55:35 - No token provided
+ERROR: GET /online 400 - 11:56:09 - No token provided
+ERROR: GET /online 400 - 11:56:14 - No token provided
+ERROR: GET /online 400 - 11:58:11 - No token provided
+ERROR: GET /online 400 - 11:58:16 - No token provided
+ERROR: GET /api/sessions/online undefined . 12:00:12 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 12:00:15 TokenExpiredError: jwt expired
+ERROR: POST /api/carts undefined . 12:00:15 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 12:00:23 TokenExpiredError: jwt expired
+ERROR: DELETE /api/carts/66ae410ceb86023bcc23155f undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae439b27a115f8962277bd undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae40a54ff517213a76cb56 undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae4328277c5de1b06f0d22 undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae41c43d8fe86c008f4ec1 undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae43bd4b8614226b85821a undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae454805b25098d743d4c9 undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae434e7f8ddc046bdc175d undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae454405b25098d743d4c1 undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae461fbe86946b4d5d144a undefined . 12:24:59 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae4661b19b4804efb369e4 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae46ab7fbf6d0b68728a92 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae479d70049b989d72e627 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae48d4182ecf195b7895ed undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae4763297f1721f6963db2 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae490c79368a1263f9bd56 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae49c757ea305e0235948f undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae494513b83873c57505c4 undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ae47eb3d8ff494b375df1a undefined . 12:25:10 TypeError: res.response is not a function
+ERROR: GET /api/sessions/online undefined . 12:41:50 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 12:42:17 TokenExpiredError: jwt expired
+ERROR: GET /online 400 - 02:03:42 - No token provided
+ERROR: GET /online 400 - 02:03:46 - No token provided
