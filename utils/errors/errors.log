@@ -327,3 +327,17 @@ ERROR: GET /api/sessions/online undefined . 10:52:17 TokenExpiredError: jwt expi
 ERROR: GET /api/sessions/online undefined . 10:52:24 TokenExpiredError: jwt expired
 =======
 >>>>>>> 3eaf098772fa26d55ab22dd974ad890548ffdb48
+ERROR: DELETE /api/carts/66b4d1b06563f9c2c4e3bf90 undefined . 11:10:08 TypeError: res.response is not a function
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 12:43:56 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /online 400 - 12:43:56 - No token provided
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 12:44:12 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /online 400 - 12:44:12 - No token provided
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 12:45:04 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /online 400 - 12:45:04 - No token provided
+ERROR: GET /online 400 - 12:45:14 - No token provided
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 12:45:16 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /online 400 - 12:45:16 - No token provided
+ERROR: GET /online 400 - 12:46:38 - No token provided
+ERROR: GET /online 400 - 12:46:44 - No token provided
+ERROR: GET /online 400 - 12:48:03 - No token provided
+ERROR: GET /online 400 - 12:50:19 - No token provided

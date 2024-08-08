@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import mongoosePaginate from 'mongoose-paginate-v2'
+import { Schema, model, Types } from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const collection = "products";
 const schema = new Schema(
@@ -13,10 +13,15 @@ const schema = new Schema(
     category: { type: String, default: "shoes" },
     price: { type: Number, default: 0 },
     stock: { type: Number, default: 0 },
+    supplier_id: { type: Types.ObjectId, required: true, ref: "users" }, 
   },
   { timestamps: true }
 );
 
-schema.plugin(mongoosePaginate)
+/* schema.pre("find", function(){
+  this.populate("user_id", "email")
+}) */
+
+schema.plugin(mongoosePaginate);
 const Product = model(collection, schema);
 export default Product;
