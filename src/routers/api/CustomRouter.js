@@ -111,8 +111,9 @@ class CustomRouter {
 
   /* policies */
   policies = (policies) => async (req, res, next) => {
-    if (policies.includes("PUBLIC")) {return next()}
-    else {
+    if (policies.includes("PUBLIC")) {
+      return next();
+    } else {
       let token = req.cookies["token"];
       if (!token) return res.error400("No token provided");
       else {
