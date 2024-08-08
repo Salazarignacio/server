@@ -15,6 +15,7 @@
     "mock_products": "node ./src/mocks/products.mock.js",
     "mock_users": "node ./src/mocks/users.mock.js",
     "uu": "node ./src/mocks/updateUsers.js",
+    "up": "node ./utils/updateProducts.js",
     "simplex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/simplex\" -o ./test/artillery/simplex.json",
     "complex": "artillery quick --count 20 --num 100 \"http://localhost:8080/api/artillery/complex\" -o ./test/artillery/complex.json",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",

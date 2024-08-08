@@ -341,3 +341,27 @@ ERROR: GET /online 400 - 12:46:38 - No token provided
 ERROR: GET /online 400 - 12:46:44 - No token provided
 ERROR: GET /online 400 - 12:48:03 - No token provided
 ERROR: GET /online 400 - 12:50:19 - No token provided
+ERROR: GET /online 400 - 14:56:42 - No token provided
+ERROR: GET /online 400 - 14:57:03 - No token provided
+ERROR: GET /online 400 - 14:57:05 - No token provided
+ERROR: POST /api/sessions/login 401 . 14:57:22 Error: Bad auth from login
+ERROR: GET /online 400 - 14:57:57 - No token provided
+ERROR: GET /online 400 - 14:59:06 - No token provided
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 15:22:22 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /api/products undefined . 15:22:48 StrictPopulateError: Cannot populate path `user_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: POST /api/products/ undefined . 15:32:40 error
+ERROR: DELETE /api/products/66b50f9139357df410c9dd92 undefined . 15:34:12 TypeError: Cannot read property '_id' of null
+ERROR: POST /api/products/ undefined . 16:01:46 error
+ERROR: POST /api/products/ undefined . 16:07:13 error
+ERROR: POST /api/products/ undefined . 16:42:54 error
+ERROR: POST /api/products/ undefined . 16:45:28 error
+ERROR: POST /api/products/ undefined . 16:45:50 error
+ERROR: POST /api/products/ undefined . 16:46:13 error
+ERROR: POST /api/products/ undefined . 16:47:48 error
+ERROR: POST /api/products/ undefined . 16:49:59 error
+ERROR: POST /api/products/ undefined . 17:00:57 error
+ERROR: POST /api/products/ 400 . 17:02:55 SyntaxError: Unexpected token { in JSON at position 220
+ERROR: POST /api/products/ undefined . 17:04:39 error
+ERROR: POST /api/products/ 400 . 17:04:48 SyntaxError: Unexpected end of JSON input
+ERROR: POST /api/products/ undefined . 17:05:00 error
+ERROR: POST /api/products/ undefined . 17:05:19 error
