@@ -14,17 +14,11 @@ import cookiesRouter from "./cookies.router.js";
 class SessionsRouter extends CustomRouter {
   init() {
     this.create("/verify", ["PUBLIC"], verifyCode);
-    
     this.read("/cookies", ["PUBLIC"], cookiesRouter);
-
     this.create("/register", ["PUBLIC"], passportCb("register"), register);
-
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
-
-    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), online);
-
-    this.read("/signOut", ["USER", "ADMIN"], signOut);
-
+    this.read("/online", ["USER", "ADMIN", "PREM"], passportCb("jwt"), online);
+    this.read("/signOut", ["USER", "ADMIN", "PREM"], signOut);
     this.read(
       "/google",
       ["PUBLIC"],

@@ -395,3 +395,5 @@ ERROR: POST /api/products/ undefined . 04:17:54 error
 ERROR: POST /api/products/ undefined . 04:19:01 error
 ERROR: POST /api/products/ undefined . 04:20:49 error
 ERROR: POST /api/products/ undefined . 04:23:45 error
+ERROR: GET /online 400 - 06:38:44 - No token provided
+ERROR: GET /online 400 - 06:38:47 - No token provided

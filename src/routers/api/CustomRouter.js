@@ -122,7 +122,8 @@ class CustomRouter {
           const { role, email } = token;
           if (
             (policies.includes("USER") && role == 0) ||
-            (policies.includes("ADMIN") && role == 1)
+            (policies.includes("ADMIN") && role == 1) ||
+            (policies.includes("PREM") && role == 2)
           ) {
             const user = await usersRepository.readByEmailRepository(email);
             req.user = user;
