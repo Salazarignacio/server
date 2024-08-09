@@ -41,5 +41,12 @@ productsViewRouter.get("/real", async (req, res, next) => {
     next(error);
   }
 });
+productsViewRouter.get("/create", async (req, res, next) => {
+  try {
+    return res.render("createProduct", { title: "real" });
+  } catch (error) {
+    next(error);
+  }
+});
 
 export default productsViewRouter;

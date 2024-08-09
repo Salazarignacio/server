@@ -1,4 +1,6 @@
 import CustomRouter from "./CustomRouter.js";
+import passport from '../../middlewares/passport.mid.js'
+import passportCb from "../../middlewares/passportCb.mid.js";
 import {
   create,
   paginate,
@@ -13,7 +15,7 @@ class ProductsRouter extends CustomRouter {
     this.read("/", ["PUBLIC"], read);
     this.read("/paginate", ["PUBLIC"], paginate);
     this.read("/:pid", ["PUBLIC"], readOne);
-    this.create("/", ["ADMIN"], create); 
+    this.create("/", ["ADMIN"],create);
     this.destroy("/:pid", ["ADMIN"], destroy);
     this.update("/:pid", ["ADMIN"], update);
     

@@ -1,4 +1,3 @@
-
 import {
   paginateService,
   createService,
@@ -8,7 +7,7 @@ import {
   updateService,
 } from "../services/products.services.js";
 
- async function paginate(req, res, next) {
+async function paginate(req, res, next) {
   try {
     const filter = {};
     const opts = {};
@@ -44,7 +43,7 @@ async function create(req, res, next) {
   try {
     const data = req.body;
     const create = await createService(data);
-    return res.response201("created succesfully");
+    return res.response201("created");
   } catch (error) {
     return next("error");
   }

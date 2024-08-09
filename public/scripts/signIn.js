@@ -37,7 +37,7 @@ async function signIn() {
       showSuccessAlert("error", "Error", response.message);
     }
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 document.querySelector("#reg").addEventListener("click", () => signIn());

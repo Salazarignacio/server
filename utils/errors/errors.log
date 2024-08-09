@@ -365,3 +365,33 @@ ERROR: POST /api/products/ undefined . 17:04:39 error
 ERROR: POST /api/products/ 400 . 17:04:48 SyntaxError: Unexpected end of JSON input
 ERROR: POST /api/products/ undefined . 17:05:00 error
 ERROR: POST /api/products/ undefined . 17:05:19 error
+ERROR: GET /online 400 - 10:58:22 - No token provided
+ERROR: GET /online 400 - 11:05:17 - No token provided
+ERROR: GET /online 400 - 11:07:57 - No token provided
+ERROR: POST /api/products/ undefined . 11:08:32 TokenExpiredError: jwt expired
+ERROR: GET /online 400 - 11:37:03 - No token provided
+ERROR: GET /online 400 - 11:39:11 - No token provided
+ERROR: GET /online 400 - 11:40:00 - No token provided
+ERROR: GET /online 400 - 11:42:06 - No token provided
+ERROR: GET /online 400 - 11:42:13 - No token provided
+ERROR: GET /online 400 - 11:42:43 - No token provided
+ERROR: GET /online 400 - 11:43:17 - No token provided
+ERROR: GET /online 400 - 11:45:54 - No token provided
+ERROR: GET /online 400 - 11:46:44 - No token provided
+ERROR: GET /online 400 - 11:46:57 - No token provided
+ERROR: GET /online 400 - 11:47:13 - No token provided
+ERROR: GET /online 400 - 11:47:38 - No token provided
+ERROR: GET /online 400 - 12:09:10 - No token provided
+ERROR: GET /online 400 - 12:12:12 - No token provided
+ERROR: GET /online 400 - 12:16:01 - No token provided
+ERROR: GET /online 400 - 12:17:05 - No token provided
+ERROR: POST /api/products/ undefined . 04:16:53 error
+ERROR: POST /api/products/ undefined . 04:17:48 error
+ERROR: POST /api/products/ undefined . 04:17:53 error
+ERROR: POST /api/products/ undefined . 04:17:54 error
+ERROR: POST /api/products/ undefined . 04:17:54 error
+ERROR: POST /api/products/ undefined . 04:17:54 error
+ERROR: POST /api/products/ undefined . 04:17:54 error
+ERROR: POST /api/products/ undefined . 04:19:01 error
+ERROR: POST /api/products/ undefined . 04:20:49 error
+ERROR: POST /api/products/ undefined . 04:23:45 error
