@@ -436,3 +436,7 @@ ERROR: POST /api/products/ undefined . 12:27:10 error
 ERROR: POST /api/products/ undefined . 12:29:12 error
 ERROR: POST /api/products/ undefined . 12:29:48 error
 ERROR: POST /api/products/ undefined . 13:30:32 TokenExpiredError: jwt expired
+ERROR: DELETE /api/products/66b79fd7315ac8d97e95305d undefined . 14:15:12 TypeError: Cannot read property 'supplier_id' of null
+ERROR: DELETE /api/products/66801c1fbebbb33bb842582f undefined . 14:22:32 Error: NOoo
+ERROR: GET /online 400 - 14:42:09 - No token provided
+ERROR: GET /online 400 - 14:43:09 - No token provided

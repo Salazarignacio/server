@@ -16,7 +16,7 @@ async function createProduct(e) {
       photo: photo,
       price: price,
       stock: stock,
-      supplier_id: { _id: user_id } /* no me toma esta propiedad */,
+      supplier_id: { _id: user_id } 
     };
     const opts = {
       method: "POST",
@@ -25,20 +25,7 @@ async function createProduct(e) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
-    /* creo un update y le agrego la propiedad "supplier_id" */
-    const product_id = response.response;
-    const updateUrl = `http://localhost:8080/api/products/${product_id}`;
-    const updateData = {
-      supplier_id: { _id: user_id },
-    };
-    const updateOpts = {
-      method: "PUT",
-      body: JSON.stringify(updateData),
-      headers: { "Content-Type": "application/json" },
-    };
-    let updateResponse = await fetch(updateUrl, updateOpts);
-    updateResponse = await updateResponse.json();
-
+    
     function showSuccessAlert(bool, title, text) {
       Swal.fire({
         icon: bool,

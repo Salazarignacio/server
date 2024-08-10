@@ -1,6 +1,14 @@
+let role = 0;
+fetch("http://localhost:8080/api/sessions/online")
+  .then((data) => data.json())
+  .then((user) => {
+    role = user.role;
+  });
+console.log(role);
 const queries = new URL(location.href);
 let split = queries.pathname.split("/");
 split = split[split.length - 1];
+
 fetch(`http://localhost:8080/api/products/${split}`)
   .then((response) => {
     return response.json();
@@ -13,6 +21,14 @@ fetch(`http://localhost:8080/api/products/${split}`)
   <button " class="btn btn-outline-secondary" onclick="addToCart('${split}')">Add to Cart</button>
   <button class="btn btn-outline-secondary" onclick="destroy('${data.response.id}')"
   type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
+    if (role == 1) {
+      template = `<div class="card m-1 " style="width: 25rem;"> 
+  <img src=${data.response.photo} class="card-img-top" alt=${data.response.id}> 
+  <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
+  <p class="card-text">$${data.response.price}</p> 
+  <button class="btn btn-outline-secondary" onclick="destroy('${data.response.id}')"
+  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
+    }
     const container = document.getElementById("container");
     container.innerHTML = template;
   });

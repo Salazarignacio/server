@@ -30,6 +30,7 @@ class SessionsController {
           message: "is Online",
           user_id: req.user._id,
           email: req.user.email,
+          role: req.user.role
         });
       } else {
         return res.error400("Bad bad");

@@ -12,7 +12,7 @@ async function isPremium(req, res, next) {
     if (one.supplier_id._id == _id) {
       return next();
     } else {
-      throw new Error("NOoo");
+      throw new Error("You do not own this product.");
     }
   } catch (error) {
     next(error);
