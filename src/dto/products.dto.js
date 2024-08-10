@@ -9,10 +9,11 @@ class ProductsDTO {
       (this._id = crypto.randomBytes(12).toString("hex"));
     this.title = data.title;
     this.description = data.description;
-    this.photo = data.photo
+    this.photo = data.photo || "https://panaderiadonbosco.web.app/assets/sinImagen.jpg"
     this.price = data.price || 1;
     this.category = data.category;
     this.stock = data.stock || 10;
+    this.supplier_id = data.supplier_id;
     persistence !== "mongo" && (this.createdAt = new Date());
     persistence !== "mongo" && (this.updatedAt = new Date());
   }

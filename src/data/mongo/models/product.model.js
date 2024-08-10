@@ -4,7 +4,7 @@ import mongoosePaginate from "mongoose-paginate-v2";
 const collection = "products";
 const schema = new Schema(
   {
-    supplier_id: { type: String, required: true, },
+    supplier_id: { type: Types.ObjectId, required: true, ref: "users"  },
     title: { type: String, required: true },
     photo: {
       type: String,
