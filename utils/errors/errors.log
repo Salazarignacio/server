@@ -397,3 +397,41 @@ ERROR: POST /api/products/ undefined . 04:20:49 error
 ERROR: POST /api/products/ undefined . 04:23:45 error
 ERROR: GET /online 400 - 06:38:44 - No token provided
 ERROR: GET /online 400 - 06:38:47 - No token provided
+ERROR: GET /online 400 - 07:22:09 - No token provided
+ERROR: GET /online 400 - 07:22:13 - No token provided
+ERROR: GET /online 400 - 07:24:15 - No token provided
+ERROR: GET /online 400 - 07:24:18 - No token provided
+ERROR: GET /online 400 - 07:47:41 - No token provided
+ERROR: GET /online 400 - 07:47:45 - No token provided
+ERROR: GET /online 400 - 07:47:48 - No token provided
+ERROR: GET /online 400 - 10:01:04 - No token provided
+ERROR: GET /online 400 - 10:01:10 - No token provided
+ERROR: POST /api/products/ undefined . 10:26:04 error
+ERROR: POST /api/products/ undefined . 10:26:27 error
+ERROR: POST /api/products/ undefined . 10:26:58 error
+ERROR: POST /api/products/ undefined . 10:31:29 error
+ERROR: POST /api/products/ undefined . 10:31:45 error
+ERROR: POST /api/products/ undefined . 10:36:02 error
+ERROR: POST /api/products/ undefined . 10:37:51 error
+ERROR: POST /api/carts undefined . 10:41:53 ValidationError: product_id: Cast to ObjectId failed for value "122" (type number) at path "product_id" because of "BSONError"
+ERROR: POST /api/products/ undefined . 10:45:24 error
+ERROR: POST /api/products/ undefined . 10:51:07 error
+ERROR: POST /api/products/ undefined . 10:55:26 error
+ERROR: POST /api/products/ undefined . 10:59:56 error
+ERROR: POST /api/products/ undefined . 11:02:22 error
+ERROR: GET /api/products undefined . 11:22:38 StrictPopulateError: Cannot populate path `supplier_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: GET /api/products undefined . 11:23:02 StrictPopulateError: Cannot populate path `supplier_id` because it is not in your schema. Set the `strictPopulate` option to false to override.
+ERROR: POST /api/products/ undefined . 11:34:48 error
+ERROR: POST /api/products/ undefined . 11:34:56 error
+ERROR: POST /api/products/ undefined . 11:56:43 error
+ERROR: POST /api/products/ undefined . 11:57:44 error
+ERROR: POST /api/products/ undefined . 11:59:03 error
+ERROR: POST /api/products/ undefined . 11:59:34 error
+ERROR: POST /api/products/ undefined . 12:02:58 error
+ERROR: POST /api/products/ undefined . 12:03:39 error
+ERROR: POST /api/products/ undefined . 12:15:33 error
+ERROR: POST /api/products/ undefined . 12:22:51 error
+ERROR: POST /api/products/ undefined . 12:26:10 error
+ERROR: POST /api/products/ undefined . 12:27:10 error
+ERROR: POST /api/products/ undefined . 12:29:12 error
+ERROR: POST /api/products/ undefined . 12:29:48 error

@@ -36,7 +36,7 @@ async function read(req, res, next) {
 async function create(req, res, next) {
   try {
     const create = await createService(req.body);
-    return res.response201("created succesfully");
+    return res.response201(`created succesfully ID: ${create._id}`);
   } catch (error) {
     next(error);
   }

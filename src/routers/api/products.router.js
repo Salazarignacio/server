@@ -1,4 +1,5 @@
 import CustomRouter from "./CustomRouter.js";
+import isPremium from "../../middlewares/isPremium.mid.js";
 import {
   create,
   paginate,
@@ -13,9 +14,9 @@ class ProductsRouter extends CustomRouter {
     this.read("/", ["PUBLIC"], read);
     this.read("/paginate", ["PUBLIC"], paginate);
     this.read("/:pid", ["PUBLIC"], readOne);
-    this.create("/", ["ADMIN, PREM"],create);
-    this.destroy("/:pid", ["ADMIN"], destroy);
-    this.update("/:pid", ["ADMIN"], update);
+    this.create("/", ["ADMIN"],create);
+    this.destroy("/:pid", ["ADMIN, PREM"], isPremium, destroy); /* middle aca */
+    this.update("/:pid", ["ADMIN, PREM"], update); /* middle aca */
     
   }
 }
