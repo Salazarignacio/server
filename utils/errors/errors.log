@@ -440,3 +440,135 @@ ERROR: DELETE /api/products/66b79fd7315ac8d97e95305d undefined . 14:15:12 TypeEr
 ERROR: DELETE /api/products/66801c1fbebbb33bb842582f undefined . 14:22:32 Error: NOoo
 ERROR: GET /online 400 - 14:42:09 - No token provided
 ERROR: GET /online 400 - 14:43:09 - No token provided
+ERROR: GET /online 400 - 12:28:24 - No token provided
+ERROR: GET /online 400 - 12:28:26 - No token provided
+ERROR: POST /api/sessions/login undefined . 12:28:45 Error: Bad auth from login
+ERROR: GET /online 400 - 12:30:43 - No token provided
+ERROR: GET /online 400 - 12:30:45 - No token provided
+ERROR: GET /readone/66ae40a54ff517213a76cb56 400 - 12:36:38 - Id not found
+ERROR: GET /online 400 - 12:41:37 - No token provided
+ERROR: GET /online 400 - 12:41:40 - No token provided
+ERROR: DELETE /api/carts/66b8d90acc96f60257595cbf undefined . 12:53:05 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8d8e9cc96f60257595c7c undefined . 12:53:11 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8dc9ad3af823de55ad1c8 undefined . 12:53:11 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66afb57b7a28b8cff3ed8818 undefined . 12:53:30 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8de89630874257d051996 undefined . 12:55:36 TypeError: res.response is not a function
+ERROR: GET /online 400 - 12:56:51 - No token provided
+ERROR: GET /online 400 - 12:56:53 - No token provided
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 12:58:46 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 13:03:05 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 13:04:30 - No token provided
+ERROR: GET /online 400 - 13:04:32 - No token provided
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:21 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:26 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:31 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b7839f811f33a81b1551ce,%20()=%3Ewindow.location.reload() undefined . 13:05:35 CastError: Cast to ObjectId failed for value "66b7839f811f33a81b1551ce, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:38 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:42 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:05:48 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66afa1a6b6561d5c9ba377c6,%20()=%3Ewindow.location.reload() undefined . 13:05:56 CastError: Cast to ObjectId failed for value "66afa1a6b6561d5c9ba377c6, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:07:37 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa,%20()=%3Ewindow.location.reload() undefined . 13:08:04 CastError: Cast to ObjectId failed for value "66b76e7ccc0126d95bd7d9aa, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b8e1fb8055c598b11545e1,%20()=%3Ewindow.location.reload() undefined . 13:08:32 CastError: Cast to ObjectId failed for value "66b8e1fb8055c598b11545e1, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66afa1a6b6561d5c9ba377c6 undefined . 13:08:43 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b76e7ccc0126d95bd7d9aa undefined . 13:08:43 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e1fb8055c598b11545e1 undefined . 13:08:43 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b7839f811f33a81b1551ce undefined . 13:08:43 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e2158fd9fd6e783b87ee,%20()=%3Ewindow.location.reload() undefined . 13:08:57 CastError: Cast to ObjectId failed for value "66b8e2158fd9fd6e783b87ee, ()=>window.location.reload()" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66b8e2158fd9fd6e783b87ee undefined . 13:13:09 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e33d48f2d3a6ddb2a5d4 undefined . 13:13:51 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e35848f2d3a6ddb2a621 undefined . 13:14:18 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e34948f2d3a6ddb2a5f8 undefined . 13:14:18 TypeError: res.response is not a function
+ERROR: GET /online 400 - 13:15:04 - No token provided
+ERROR: GET /online 400 - 13:15:07 - No token provided
+ERROR: GET /online 400 - 13:15:08 - No token provided
+ERROR: DELETE /api/carts/66b8e3967dfe4c7c541c6e40 undefined . 13:15:22 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e3847dfe4c7c541c6e2a undefined . 13:20:04 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e4cecfb78244e4590988 undefined . 13:20:35 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e4c5cfb78244e4590975 undefined . 13:20:40 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e4bbe9d42371adaad230 undefined . 13:20:48 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e51603f962521158b252 undefined . 13:21:46 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b8e51003f962521158b23f undefined . 13:21:50 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b9114903f962521158b282 undefined . 16:30:21 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66b9115903f962521158b2a6 undefined . 16:31:41 TypeError: res.response is not a function
+ERROR: GET /online 400 - 16:31:42 - No token provided
+ERROR: GET /online 400 - 16:31:44 - No token provided
+ERROR: GET /online 400 - 16:32:16 - No token provided
+ERROR: GET /online 400 - 16:32:18 - No token provided
+ERROR: GET /online 400 - 16:33:32 - No token provided
+ERROR: GET /online 400 - 16:33:34 - No token provided
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 16:35:27 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 16:36:03 - No token provided
+ERROR: GET /online 400 - 16:36:06 - No token provided
+ERROR: GET /online 400 - 16:45:08 - No token provided
+ERROR: GET /online 400 - 16:45:10 - No token provided
+ERROR: GET /products/details/drmartens1460.jpg undefined . 16:58:47 CastError: Cast to ObjectId failed for value "drmartens1460.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/carts/5b5e25d72ee456d19de9a99d undefined . 16:58:49 TypeError: Cannot read property '_id' of null
+ERROR: DELETE /api/carts/5b5e25d72ee456d19de9a99d undefined . 16:58:54 TypeError: Cannot read property '_id' of null
+ERROR: GET /products/details/drmartens1460.jpg undefined . 16:58:57 CastError: Cast to ObjectId failed for value "drmartens1460.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/carts/5b5e25d72ee456d19de9a99d undefined . 16:59:20 TypeError: Cannot read property '_id' of null
+ERROR: GET /products/details/drmartens1460.jpg undefined . 16:59:30 CastError: Cast to ObjectId failed for value "drmartens1460.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/carts/00eed056947d19e0da274262 undefined . 16:59:41 TypeError: Cannot read property '_id' of null
+ERROR: DELETE /api/carts/00eed056947d19e0da274262 undefined . 17:00:02 TypeError: Cannot read property '_id' of null
+ERROR: DELETE /api/carts/6632d0069984c35bb08075d9 undefined . 17:02:06 TypeError: Cannot read property '_id' of null
+ERROR: DELETE /api/carts/6632d0069984c35bb08075d9 undefined . 17:02:31 TypeError: Cannot read property '_id' of null
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:03:37 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075ed undefined . 17:03:40 Error: You do not own this product.
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:03:46 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:04:35 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:07:58 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:08:06 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:09:04 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:09:45 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:10:49 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /66b91b0e6f5eae849a650ddf 404 - 17:17:18 - Not found docs
+ERROR: DELETE /api/products/6632d0069984c35bb08075d9 undefined . 17:17:50 Error: You do not own this product.
+ERROR: DELETE /api/products/6632d0069984c35bb08075d9 undefined . 17:19:50 Error: You do not own this product.
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:21:02 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075f8 undefined . 17:21:03 Error: You do not own this product.
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:21:07 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 17:21:27 - No token provided
+ERROR: GET /online 400 - 17:21:28 - No token provided
+ERROR: GET /online 400 - 17:21:29 - No token provided
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:21:40 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075f8 undefined . 17:21:41 Error: You do not own this product.
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:22:21 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075f8 undefined . 17:22:23 Error: You do not own this product.
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:23:01 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:23:03 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075f8 undefined . 17:23:05 Error: You do not own this product.
+ERROR: GET /products/details/merrellmoab2waterproof.jpg undefined . 17:23:56 CastError: Cast to ObjectId failed for value "merrellmoab2waterproof.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /6632d0069984c35bb08075f8 404 - 17:24:01 - Not found docs
+ERROR: GET /products/details/kappa.jpg undefined . 17:24:11 CastError: Cast to ObjectId failed for value "kappa.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/vansoldskool05.jpg undefined . 17:24:20 CastError: Cast to ObjectId failed for value "vansoldskool05.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/adidassuperstar04.jpg undefined . 17:24:33 CastError: Cast to ObjectId failed for value "adidassuperstar04.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 17:25:00 - No token provided
+ERROR: GET /online 400 - 17:25:02 - No token provided
+ERROR: GET /online 400 - 17:25:09 - No token provided
+ERROR: GET /online 400 - 17:25:27 - No token provided
+ERROR: GET /products/details/pumasuedeclassic01.jpg undefined . 17:25:42 CastError: Cast to ObjectId failed for value "pumasuedeclassic01.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075ec undefined . 17:25:47 Error: You do not own this product.
+ERROR: GET /products/details/pumasuedeclassic01.jpg undefined . 17:25:54 CastError: Cast to ObjectId failed for value "pumasuedeclassic01.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 17:26:57 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: DELETE /api/products/6632d0069984c35bb08075f5 undefined . 17:26:58 Error: You do not own this product.
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 17:27:00 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 17:29:56 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 17:49:09 - No token provided
+ERROR: GET /online 400 - 17:49:12 - No token provided
+ERROR: GET /online 400 - 17:54:26 - No token provided
+ERROR: GET /online 400 - 17:54:27 - No token provided
+ERROR: GET /online 400 - 17:54:28 - No token provided
+ERROR: GET /online 400 - 17:57:57 - No token provided
+ERROR: GET /online 400 - 17:58:14 - No token provided
+ERROR: GET /online 400 - 17:58:17 - No token provided
+ERROR: GET /online 400 - 18:07:15 - No token provided
+ERROR: GET /online 400 - 18:07:18 - No token provided
+ERROR: GET /online 400 - 18:16:10 - No token provided
+ERROR: GET /online 400 - 18:16:15 - No token provided
+ERROR: GET /online 400 - 18:17:41 - No token provided
+ERROR: GET /online 400 - 18:17:43 - No token provided
+ERROR: GET /online 400 - 18:17:45 - No token provided
+ERROR: GET /online 400 - 18:18:07 - No token provided
+ERROR: GET /online 400 - 18:18:08 - No token provided
+ERROR: GET /online 400 - 18:18:27 - No token provided
+ERROR: GET /online 400 - 18:18:28 - No token provided

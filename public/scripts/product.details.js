@@ -3,36 +3,42 @@ fetch("http://localhost:8080/api/sessions/online")
   .then((data) => data.json())
   .then((user) => {
     role = user.role;
-  });
-console.log(role);
-const queries = new URL(location.href);
-let split = queries.pathname.split("/");
-split = split[split.length - 1];
 
-fetch(`http://localhost:8080/api/products/${split}`)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    let template = `<div class="card m-1 " style="width: 25rem;"> 
-  <img src=${data.response.photo} class="card-img-top" alt=${data.response.id}> 
+    console.log(role);
+    const queries = new URL(location.href);
+    let split = queries.pathname.split("/");
+    split = split[split.length - 1];
+
+    fetch(`http://localhost:8080/api/products/${split}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.response.supplier_id);
+        console.log( user.user_id == data.response.supplier_id);
+        let template = `<div class="card m-1 " style="width: 25rem;"> 
+  <img src=${data.response.photo} class="card-img-top" alt=${data.response._id}> 
   <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
   <p class="card-text">$${data.response.price}</p> 
   <button " class="btn btn-outline-secondary" onclick="addToCart('${split}')">Add to Cart</button>
-  <button class="btn btn-outline-secondary" onclick="destroy('${data.response.id}')"
-  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
-    if (role == 1) {
-      template = `<div class="card m-1 " style="width: 25rem;"> 
-  <img src=${data.response.photo} class="card-img-top" alt=${data.response.id}> 
+ </div> </div>`;
+        if (role == 1) {
+          template = `<div class="card m-1 " style="width: 25rem;"> 
+  <img src=${data.response.photo} class="card-img-top" alt=${data.response._id}> 
   <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
   <p class="card-text">$${data.response.price}</p> 
-  <button class="btn btn-outline-secondary" onclick="destroy('${data.response.id}')"
+  <button class="btn btn-outline-secondary" onclick="destroy('${data.response._id}')"
   type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
-    }
-    const container = document.getElementById("container");
-    container.innerHTML = template;
+        } else if(user.user_id == data.response.supplier_id){ template = `<div class="card m-1 " style="width: 25rem;"> 
+  <img src=${data.response.photo} class="card-img-top" alt=${data.response._id}> 
+  <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
+  <p class="card-text">$${data.response.price}</p> 
+  <button class="btn btn-outline-secondary" onclick="destroy('${data.response._id}')"
+  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`}
+        const container = document.getElementById("container");
+        container.innerHTML = template;
+      });
   });
-
 async function addToCart(id) {
   try {
     let fetch_id = await fetch("http://localhost:8080/api/sessions/online");
@@ -75,6 +81,7 @@ async function addToCart(id) {
       let response = await fetch(url, opts);
       response = await response.json();
     } else {
+      console.log(searchProduct._id);
       const updateData = {
         user_id: user_id,
         product_id: id,
@@ -90,6 +97,20 @@ async function addToCart(id) {
       let updateResponse = await fetch(updateUrl, updateOpts);
       updateResponse = await updateResponse.json();
     }
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function destroy(pid) {
+  try {
+    const url = `http://localhost:8080/api/products/${pid}`;
+    const opts = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+    let response = await fetch(url, opts);
+    response = await response.json();
   } catch (error) {
     throw error;
   }

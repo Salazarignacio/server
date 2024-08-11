@@ -20,14 +20,13 @@ function fetchProducts(page) {
         <div class="card-body"> <h5 class="card-title">${element.title}</h5> 
         <p class="card-text">$${element.price}</p> 
         <a href="/products/details/${element._id}" class="btn btn-outline-secondary">Details</a>
-        <button class="btn btn-outline-secondary" onclick="destroy('${element.id}')"
-        type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`
+ </div> </div>`
         )
         .join("");
-      let prev = `<button class="btn btn-primary" id="prevB"> Prev </button>`;
-      let next = `<button class="btn btn-primary" id="nextB"> Next </button>`;
+      let prev = `<div><button class="btn btn-primary" id="prevB"> Prev </button></div>`;
+      let next = `<div><button class="btn btn-primary" id="nextB"> Next </button></div>`;
 
-      document.querySelector("#products").innerHTML = prev + next + template;
+      document.querySelector("#products").innerHTML = template+prev + next ;
       document
         .querySelector("#nextB")
         .addEventListener("click", () => fetchProducts(data.info.page + 1));

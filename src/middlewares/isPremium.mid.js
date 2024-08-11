@@ -6,12 +6,13 @@ async function isPremium(req, res, next) {
     /* necesito ID del user */
     let token = req.cookies["token"];
     token = verifyToken(token);
-    const { _id } = token;
+    const { _id, role } = token;
     const { pid } = req.params;
     const one = await productsRepository.readOneRepository(pid);
-    if (one.supplier_id._id == _id) {
+    if (one.supplier_id._id == _id || role == 1) {
       return next();
     } else {
+      
       throw new Error("You do not own this product.");
     }
   } catch (error) {

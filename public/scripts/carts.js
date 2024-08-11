@@ -27,7 +27,7 @@ fetch("http://localhost:8080/api/sessions/online")
       <label for="quantity">Cantidad:</label>
 <input type="number" class="form-control" id="quantity" value=${element.quantity} min="1">
         
-        <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
+        <button class="btn btn-outline-secondary" '${onclick=()=>{destroy(element._id)}}'
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
         });
         const totalDisplay = `<p>Total Acumulado: $${total.toFixed(2)}</p>`;
@@ -63,7 +63,7 @@ async function destroy(oid) {
     let response = await fetch(url, opts);
     response = await response.json();
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
@@ -71,5 +71,7 @@ async function aceptOrCancelPurchase(res, bool) {
   bool
     ? console.log("Purchase done succesfully")
     : console.log("Purchace was cancelled");
-  res.response.map((element) => destroy(element._id));
+  res.response.map((element) => {destroy(element._id);
+    window.location.reload();
+    });
 }
