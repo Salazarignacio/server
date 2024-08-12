@@ -14,8 +14,6 @@ fetch("http://localhost:8080/api/sessions/online")
         return response.json();
       })
       .then((data) => {
-        console.log(data.response.supplier_id);
-        console.log( user.user_id == data.response.supplier_id);
         let template = `<div class="card m-1 " style="width: 25rem;"> 
   <img src=${data.response.photo} class="card-img-top" alt=${data.response._id}> 
   <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
@@ -29,12 +27,14 @@ fetch("http://localhost:8080/api/sessions/online")
   <p class="card-text">$${data.response.price}</p> 
   <button class="btn btn-outline-secondary" onclick="destroy('${data.response._id}')"
   type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
-        } else if(user.user_id == data.response.supplier_id){ template = `<div class="card m-1 " style="width: 25rem;"> 
+        } else if (user.user_id == data.response.supplier_id) {
+          template = `<div class="card m-1 " style="width: 25rem;"> 
   <img src=${data.response.photo} class="card-img-top" alt=${data.response._id}> 
   <div class="card-body"> <h5 class="card-title">${data.response.title}</h5> 
   <p class="card-text">$${data.response.price}</p> 
   <button class="btn btn-outline-secondary" onclick="destroy('${data.response._id}')"
-  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`}
+  type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
+        }
         const container = document.getElementById("container");
         container.innerHTML = template;
       });

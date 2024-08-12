@@ -28,18 +28,18 @@ async function print() {
     if (online.statusCode === 200) {
       console.log(online.role);
       template = `<a class="btn btn-primary" aria-current="page" href="/carts/?user_id=662ed0fe4b699c3de2b9da62">Go to Cart <i class="fa-solid fa-cart-shopping"></i></a>`;
-      let create;
-      /* if (online.role == 1) {
+      let create = "";
+      if (online.role == 1) {
         template = ``;
-        create = `<a class="btn btn-primary" aria-current="page" href="/products/create">Create Product<i class="fa-solid fa-cart-shopping"></i></a>`;
+        create = `<a class="btn btn-primary" aria-current="page" href="/products/create">Create Product <i class="fa-solid fa-square-plus"></i> </a>`;
       } else if (online.role == 2) {
         create = `<a class="btn btn-primary" aria-current="page" href="/products/create">Create Product<i class="fa-solid fa-cart-shopping"></i></a>`;
-      } */
+      }
       loginHTML = `<a class="nav-link active" id="signOut" aria-current="page">Sign Out</a>`;
-      document.querySelector("#miDiv").innerHTML = template;
       document.querySelector("#login").innerHTML = loginHTML;
       document.querySelector("#userLogged").innerHTML = online.email;
-      /* document.querySelector("#miDiv2").innerHTML = create; */
+      document.querySelector("#miDiv2").innerHTML = create + template;
+      /* document.querySelector("#miDiv1").innerHTML = template;  */
 
       document.querySelector("#signOut").addEventListener("click", () => {
         outline();
@@ -47,15 +47,11 @@ async function print() {
     } else {
       loginHTML = `<a class="nav-link active" aria-current="page" href="/register">Sign In</a>
       <a class="nav-link active" aria-current="page" href="/login">Log In</a>`;
-      document.querySelector("#miDiv").innerHTML = template;
+      document.querySelector("#miDiv1").innerHTML = template;
       document.querySelector("#login").innerHTML = loginHTML;
     }
   } catch (error) {
-    console.log("Error en print:", error.message);
-    // Mostrar mensaje de error al usuario
-    let loginHTML = `<a class="nav-link active" aria-current="page" href="/register">Sign In</a>
-    <a class="nav-link active" aria-current="page" href="/login">Log In</a>`;
-    document.querySelector("#login").innerHTML = loginHTML;
+    throw error;
   }
 }
 

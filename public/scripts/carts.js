@@ -22,12 +22,12 @@ fetch("http://localhost:8080/api/sessions/online")
       </div>
       
       <div class="card-body"> <h5 class="card-title">${element.user_id.email}</h5> 
-      <img src=${element.product_id.photo} " style="width: 8rem;"class="card-img-top" alt=${element.id}> 
+      <img src=${element.product_id.photo} " style="width: 8rem;"class="card-img-top" alt=${element._id}> 
       <p class="card-text">$${element.product_id.price}</p> 
       <label for="quantity">Cantidad:</label>
 <input type="number" class="form-control" id="quantity" value=${element.quantity} min="1">
         
-        <button class="btn btn-outline-secondary" '${onclick=()=>{destroy(element._id)}}'
+        <button class="btn btn-outline-secondary" onclick="destroy('${element._id}')"
         type="button"><i class="fa-regular fa-trash-can"></i></button> </div> </div>`;
         });
         const totalDisplay = `<p>Total Acumulado: $${total.toFixed(2)}</p>`;

@@ -572,3 +572,53 @@ ERROR: GET /online 400 - 18:18:07 - No token provided
 ERROR: GET /online 400 - 18:18:08 - No token provided
 ERROR: GET /online 400 - 18:18:27 - No token provided
 ERROR: GET /online 400 - 18:18:28 - No token provided
+ERROR: GET /api/sessions/online undefined . 09:50:56 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 09:57:45 TokenExpiredError: jwt expired
+ERROR: DELETE /api/carts/66ba06e285e1afc3ae6a53c5 undefined . 09:58:17 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba06e285e1afc3ae6a53c5 undefined . 09:58:20 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba06f685e1afc3ae6a53e5 undefined . 09:59:44 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba06f685e1afc3ae6a53e5 undefined . 09:59:46 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba07484762d70d936ff357 undefined . 10:00:07 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba07b8cd8f155c746d3f05 undefined . 10:01:51 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba07b8cd8f155c746d3f05 undefined . 10:01:52 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba07c7cd8f155c746d3f2d undefined . 10:03:36 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba07c7cd8f155c746d3f2d undefined . 10:03:37 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba083022d30d28116b42fc undefined . 10:03:54 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba083022d30d28116b42fc undefined . 10:03:55 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba084222d30d28116b4324 undefined . 10:06:25 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba084222d30d28116b4324 undefined . 10:06:26 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba08d9145c5b8559a8e686 undefined . 10:07:23 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba08d9145c5b8559a8e686 undefined . 10:07:24 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba097af022cfbd014a95e7 undefined . 10:09:19 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba09a62567c8231a05e1b6 undefined . 10:10:05 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66ba09a62567c8231a05e1b6 undefined . 10:10:07 TypeError: Cannot read properties of null (reading '_id')
+ERROR: DELETE /api/carts/66ba0b78b9e791efa03f8d2d undefined . 10:18:55 TypeError: res.response is not a function
+ERROR: GET /online 400 - 10:21:47 - No token provided
+ERROR: GET /online 400 - 10:25:06 - No token provided
+ERROR: GET /products/details/caterpillarworkboot.jpg undefined . 10:36:39 CastError: Cast to ObjectId failed for value "caterpillarworkboot.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/drmartens1460.jpg undefined . 10:36:54 CastError: Cast to ObjectId failed for value "drmartens1460.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /6632d0069984c35bb08075f0 404 - 10:36:59 - Not found docs
+ERROR: GET /products/details/brooksgoast13.jpg undefined . 10:37:16 CastError: Cast to ObjectId failed for value "brooksgoast13.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /online 400 - 10:37:57 - No token provided
+ERROR: GET /online 400 - 10:38:02 - No token provided
+ERROR: GET /online 400 - 11:06:12 - No token provided
+ERROR: GET /online 400 - 11:07:30 - No token provided
+ERROR: GET /online 400 - 11:07:38 - No token provided
+ERROR: DELETE /api/carts/66ba19575f38a5736f75c67e undefined . 11:17:36 TypeError: res.response is not a function
+ERROR: GET /66b795e507ff24b325a6b64a 404 - 11:19:44 - Not found docs
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 11:20:13 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 11:20:41 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /66ba19af5f38a5736f75c6ba 404 - 11:24:02 - Not found docs
+ERROR: GET /66b795b2b3fb4f73c9aefff6 404 - 11:24:42 - Not found docs
+ERROR: GET /online 400 - 11:26:49 - No token provided
+ERROR: GET /online 400 - 11:26:54 - No token provided
+ERROR: GET /66b79fb3315ac8d97e953059 404 - 11:28:35 - Not found docs
+ERROR: GET /online 400 - 11:29:16 - No token provided
+ERROR: GET /online 400 - 11:29:20 - No token provided
+ERROR: DELETE /api/carts/66ba1c685f38a5736f75c793 undefined . 11:30:08 TypeError: res.response is not a function
+ERROR: GET /online 400 - 12:25:01 - No token provided
+ERROR: GET /online 400 - 12:25:08 - No token provided
+ERROR: GET /online 400 - 12:25:08 - No token provided
+ERROR: GET /online 400 - 12:25:13 - No token provided
+ERROR: POST / 400 - 12:25:14 - No token provided
+ERROR: GET /online 400 - 12:25:31 - No token provided
