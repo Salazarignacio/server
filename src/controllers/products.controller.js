@@ -23,6 +23,9 @@ async function paginate(req, res, next) {
     if (req.query.category) {
       filter.category = req.query.category;
     }
+    if(req.query.supplier_id){
+      filter.supplier_id = req.query.supplier_id
+    }
 
     const all = await paginateService({ filter, opts });
     const info = {
