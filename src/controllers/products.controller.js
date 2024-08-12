@@ -24,6 +24,7 @@ async function paginate(req, res, next) {
       filter.category = req.query.category;
     }
     if(req.query.supplier_id){
+      /* $ne */
       filter.supplier_id = req.query.supplier_id
     }
 
