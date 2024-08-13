@@ -642,3 +642,25 @@ ERROR: GET /products/create undefined . 11:29:28 ReferenceError: create is not d
 ERROR: GET /products/create undefined . 11:30:14 ReferenceError: create is not defined
 ERROR: GET /products/create undefined . 11:32:40 ReferenceError: create is not defined
 ERROR: GET /products/create undefined . 11:33:40 ReferenceError: create is not defined
+ERROR: GET /api/sessions/online undefined . 11:47:08 TypeError: this.model.readByEmail is not a function
+ERROR: GET /api/products/paginate/?category=&page=1 undefined . 11:47:09 TypeError: this.model.paginate is not a function
+ERROR: GET /online 400 - 12:18:09 - No token provided
+ERROR: GET /online 400 - 12:18:09 - No token provided
+ERROR: GET /online 400 - 12:18:14 - No token provided
+ERROR: GET /online 400 - 12:18:19 - No token provided
+ERROR: GET /online 400 - 12:18:20 - No token provided
+ERROR: GET /online 400 - 12:18:25 - No token provided
+ERROR: GET /online 400 - 12:18:27 - No token provided
+ERROR: GET /online 400 - 12:18:28 - No token provided
+ERROR: GET /online 400 - 12:18:29 - No token provided
+ERROR: GET /online 400 - 12:18:31 - No token provided
+ERROR: GET /online 400 - 12:18:32 - No token provided
+ERROR: GET /online 400 - 12:18:33 - No token provided
+ERROR: GET /online 400 - 12:18:34 - No token provided
+ERROR: GET /online 400 - 12:18:35 - No token provided
+ERROR: GET /online 400 - 12:18:42 - No token provided
+ERROR: GET /products/details/asicsgelkayano27.jpg undefined . 12:19:25 CastError: Cast to ObjectId failed for value "asicsgelkayano27.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /6632d0069984c35bb08075f5 404 - 12:19:36 - Not found docs
+ERROR: GET /online 400 - 12:19:43 - No token provided
+ERROR: GET /online 400 - 12:19:43 - No token provided
+ERROR: GET /online 400 - 12:19:46 - No token provided
