@@ -29,17 +29,19 @@ async function print() {
       console.log(online.role);
       template = `<a class="btn btn-primary" aria-current="page" href="/carts/?user_id=662ed0fe4b699c3de2b9da62">Go to Cart <i class="fa-solid fa-cart-shopping"></i></a>`;
       let create = "";
+      let me = "";
       if (online.role == 1) {
         template = ``;
         create = `<a class="btn btn-primary" aria-current="page" href="/products/create">Create Product <i class="fa-solid fa-square-plus"></i> </a>`;
+        me = `<a class="btn btn-primary" aria-current="page" href="/me">My Products<i class="fa-solid fa-cart-shopping"></i></a>`;
       } else if (online.role == 2) {
         create = `<a class="btn btn-primary" aria-current="page" href="/products/create">Create Product<i class="fa-solid fa-cart-shopping"></i></a>`;
+        me = `<a class="btn btn-primary" aria-current="page" href="/me">My Products<i class="fa-solid fa-cart-shopping"></i></a>`;
       }
       loginHTML = `<a class="nav-link active" id="signOut" aria-current="page">Sign Out</a>`;
       document.querySelector("#login").innerHTML = loginHTML;
       document.querySelector("#userLogged").innerHTML = online.email;
-      document.querySelector("#miDiv2").innerHTML = create + template;
-      /* document.querySelector("#miDiv1").innerHTML = template;  */
+      document.querySelector("#miDiv2").innerHTML = create + me + template;
 
       document.querySelector("#signOut").addEventListener("click", () => {
         outline();

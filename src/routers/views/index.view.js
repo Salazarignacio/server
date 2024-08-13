@@ -15,6 +15,13 @@ viewsRouter.get("/", (req, res, next) => {
     return next(error);
   }
 });
+viewsRouter.get("/me", (req, res, next) => {
+  try {
+    return res.render("products", { title: "ME" });
+  } catch (error) {
+    return next(error);
+  }
+});
 /* por ahora declaro el endpoint aca */
 viewsRouter.get("/login", async (req, res, next) => {
   try {

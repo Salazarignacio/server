@@ -1,26 +1,33 @@
 const queries = new URL(location.href);
 
 let split = queries.pathname.split("/");
+
 split = split[split.length - 1];
+console.log(split);
 let actualPage = 1;
 
 function fetchProducts(page) {
-  fetch(`http://localhost:8080/api/sessions/online`)
+  fetch(`/api/sessions/online`)
     .then((data) => data.json())
     .then((data) => {
       let user_role = data.role;
       let user_id = data.user_id;
-      let url = `http://localhost:8080/api/products/paginate/?category=${split}&page=${page}`;
+      let url = `/api/products/paginate/?category=${split}&page=${page}`;
+
       if (user_role == 2) {
-        url = `http://localhost:8080/api/products/paginate/?category=${split}&page=${page}&supplier_id=${user_id}`;
+        url = `/api/products/paginate/?category=${split}&page=${page}&supplier_id=${user_id}`;
+        if (split == "me") {
+          url = `/api/products/paginate/?page=${page}&supplier_id=${user_id}&me=true`;
+        }
       }
       fetch(url)
         .then((response) => {
           return response.json();
         })
         .then((data) => {
+          console.log(data);
+          console.log(url);
           let template = ``;
-
           template = data.response
             .map((element) => {
               return `<div class="card m-1 " style="width: 25rem;"> 

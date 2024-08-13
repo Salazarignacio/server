@@ -627,3 +627,18 @@ ERROR: GET /api/sessions/online undefined . 18:50:37 TokenExpiredError: jwt expi
 ERROR: GET /api/sessions/online undefined . 18:50:54 TokenExpiredError: jwt expired
 ERROR: GET /api/products/paginate/?category=pants&page=1&supplier_id=!667b3772802ca3bea0430100 undefined . 20:06:50 CastError: Cast to ObjectId failed for value "!667b3772802ca3bea0430100" (type string) at path "supplier_id" for model "products"
 ERROR: GET /api/products/paginate/?category=pants&page=1&supplier_id=!667b3772802ca3bea0430100 undefined . 20:06:57 CastError: Cast to ObjectId failed for value "!667b3772802ca3bea0430100" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 400 - 09:36:36 - No token provided
+ERROR: GET /online 400 - 09:36:36 - No token provided
+ERROR: GET /online 400 - 09:36:45 - No token provided
+ERROR: GET /products/me undefined . 10:09:27 Error: Failed to lookup view "home" in views directory "C:\Users\Salacrack\Desktop\server/src/views"
+ERROR: GET /products/me undefined . 10:10:46 Error: Failed to lookup view "home" in views directory "C:\Users\Salacrack\Desktop\server/src/views"
+ERROR: GET /products/ undefined . 10:14:23 Error: Failed to lookup view "home" in views directory "C:\Users\Salacrack\Desktop\server/src/views"
+ERROR: DELETE /api/carts/66ba1a3d5f38a5736f75c6d4 undefined . 10:15:50 TypeError: res.response is not a function
+ERROR: GET /products undefined . 10:16:33 Error: Failed to lookup view "home" in views directory "C:\Users\Salacrack\Desktop\server/src/views"
+ERROR: GET /online 400 - 11:08:01 - No token provided
+ERROR: GET /online 400 - 11:08:02 - No token provided
+ERROR: GET /online 400 - 11:08:07 - No token provided
+ERROR: GET /products/create undefined . 11:29:28 ReferenceError: create is not defined
+ERROR: GET /products/create undefined . 11:30:14 ReferenceError: create is not defined
+ERROR: GET /products/create undefined . 11:32:40 ReferenceError: create is not defined
+ERROR: GET /products/create undefined . 11:33:40 ReferenceError: create is not defined

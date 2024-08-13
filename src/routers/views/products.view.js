@@ -1,14 +1,11 @@
 import { Router } from "express";
-import iProducts from "../../data/fs/ProductManager.js";
 import ProductsManagerMongo from '../../data/mongo/ProductsManager.js'
 
 const productsViewRouter = Router();
 
-productsViewRouter.get("/", async (req, res, next) => {
+productsViewRouter.get("/create", async (req, res, next) => {
   try {
-    const products = await ProductsManagerMongo.read();
-    console.log(products);
-    return res.render("home", { products });
+    return res.render("createProduct", {title: "Create"});
   } catch (error) {
     return next(error);
   }
@@ -37,13 +34,6 @@ productsViewRouter.get("/details/:pid", async (req, res, next) => {
 productsViewRouter.get("/real", async (req, res, next) => {
   try {
     return res.render("realProduct", { title: "real" });
-  } catch (error) {
-    next(error);
-  }
-});
-productsViewRouter.get("/create", async (req, res, next) => {
-  try {
-    return res.render("createProduct", { title: "real" });
   } catch (error) {
     next(error);
   }

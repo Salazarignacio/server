@@ -23,9 +23,11 @@ async function paginate(req, res, next) {
     if (req.query.category) {
       filter.category = req.query.category;
     }
-    if(req.query.supplier_id){
-      /* $ne */
-      filter.supplier_id = req.query.supplier_id
+    if (req.query.supplier_id) {
+      filter.supplier_id = { $ne: req.query.supplier_id };
+    }
+    if (req.query.me) {
+      filter.supplier_id = req.query.supplier_id;
     }
 
     const all = await paginateService({ filter, opts });

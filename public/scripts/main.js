@@ -1,4 +1,4 @@
-fetch('http://localhost:8080/api/products/paginate/')
+fetch('/api/products/paginate/')
     .then((data) => {
         return data.json()
     }).then((data) => {
