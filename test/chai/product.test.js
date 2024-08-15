@@ -31,7 +31,7 @@ describe("testing", () => {
     id = response._id;
     expect(response).to.have.property("_id");
   });
-  it("Testeando la actualizacion de una mascota", async () => {
+  it("Testeando la actualizacion de un product", async () => {
     const response = await products.readOne(id);
     const update = await products.update(id, { title: "modificado en chai" });
     expect(response.title).is.not.equal(update.title);
