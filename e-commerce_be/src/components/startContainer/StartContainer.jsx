@@ -1,6 +1,5 @@
 import Start from "../start/Start";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import "./startContainer.css";
 
 function StartContainer() {
@@ -11,7 +10,7 @@ function StartContainer() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
 
-  const { product_id} = useParams()
+  
 
   useEffect(() => {
     fetch(
@@ -26,20 +25,12 @@ function StartContainer() {
   }, [page]);
   return (
     <div>
-      <h1>Hola</h1>
+      
       {/* aca va la imagen */}
       <div className="cont">
-        {products.map((product) => (
-          <div className="productsContainer">
-            <Start
-              key={product._id}
-              title={product.title}
-              photo={product.photo}
-              price={product.price}
-              id={product._id}
-            ></Start>
-          </div>
-        ))}
+        <div className="productsContainer">
+          <Start data={products}></Start>
+        </div>
       </div>
     </div>
   );
