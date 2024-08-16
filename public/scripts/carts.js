@@ -53,7 +53,7 @@ fetch("http://localhost:8080/api/sessions/online")
       });
   });
 
-async function destroy(oid) {
+async function destroy(oid, bool) {
   try {
     const url = "/api/carts/" + oid;
     const opts = {
@@ -62,6 +62,7 @@ async function destroy(oid) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    location.reload();
   } catch (error) {
     throw error;
   }
@@ -71,7 +72,8 @@ async function aceptOrCancelPurchase(res, bool) {
   bool
     ? console.log("Purchase done succesfully")
     : console.log("Purchace was cancelled");
-  res.response.map((element) => {destroy(element._id);
+  res.response.map((element) => {
+    destroy(element._id);
     window.location.reload();
-    });
+  });
 }

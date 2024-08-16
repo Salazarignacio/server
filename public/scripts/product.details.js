@@ -1,5 +1,5 @@
 let role = 0;
-fetch("http://localhost:8080/api/sessions/online")
+fetch("/api/sessions/online")
   .then((data) => data.json())
   .then((user) => {
     role = user.role;
@@ -9,7 +9,7 @@ fetch("http://localhost:8080/api/sessions/online")
     let split = queries.pathname.split("/");
     split = split[split.length - 1];
 
-    fetch(`http://localhost:8080/api/products/${split}`)
+    fetch(`/api/products/${split}`)
       .then((response) => {
         return response.json();
       })
@@ -41,24 +41,10 @@ fetch("http://localhost:8080/api/sessions/online")
   });
 async function addToCart(id) {
   try {
-    let fetch_id = await fetch("http://localhost:8080/api/sessions/online");
+    let fetch_id = await fetch("/api/sessions/online");
     fetch_id = await fetch_id.json();
     let user_id = fetch_id.user_id;
-    if (!user_id) {
-      Swal.fire({
-        title: "User not logged",
-        text: "Please sign in",
-        icon: "error",
-        confirmButtonText: "Cool",
-      });
-    } else {
-      Swal.fire({
-        title: "Ok",
-        text: "Added to cart",
-        icon: "success",
-        confirmButtonText: "Cool",
-      });
-    }
+
     const data = {
       user_id: user_id,
       product_id: id,
@@ -76,12 +62,35 @@ async function addToCart(id) {
     const searchProduct = getProducts.response.find(
       (element) => element.product_id._id == id
     );
+    if (!user_id) {
+      Swal.fire({
+        title: "User not logged",
+        text: "Please sign in",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    } else if (user_id && !searchProduct){
+      Toastify({
+        text: "Added to cart",
+        duration: 3000, // Duración en milisegundos
+        gravity: "bottom", // `top` o `bottom`
+        position: "left", // `left`, `center` o `right`
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Colores del fondo
+      }).showToast(); 
+    } else if (user_id && searchProduct){
+      Toastify({
+        text: "+1",
+        duration: 3000, // Duración en milisegundos
+        gravity: "bottom", // `top` o `bottom`
+        position: "left", // `left`, `center` o `right`
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Colores del fondo
+      }).showToast(); 
+    }
 
     if (!searchProduct) {
       let response = await fetch(url, opts);
       response = await response.json();
     } else {
-      console.log(searchProduct._id);
       const updateData = {
         user_id: user_id,
         product_id: id,
@@ -104,13 +113,14 @@ async function addToCart(id) {
 
 async function destroy(pid) {
   try {
-    const url = `http://localhost:8080/api/products/${pid}`;
+    const url = `/api/products/${pid}`;
     const opts = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    location.replace("/me");
   } catch (error) {
     throw error;
   }

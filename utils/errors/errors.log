@@ -664,3 +664,24 @@ ERROR: GET /6632d0069984c35bb08075f5 404 - 12:19:36 - Not found docs
 ERROR: GET /online 400 - 12:19:43 - No token provided
 ERROR: GET /online 400 - 12:19:43 - No token provided
 ERROR: GET /online 400 - 12:19:46 - No token provided
+ERROR: GET /api/sessions/online undefined . 10:54:43 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 10:54:43 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 10:54:49 TokenExpiredError: jwt expired
+ERROR: GET /online 400 - 10:55:07 - No token provided
+ERROR: GET /online 400 - 10:55:07 - No token provided
+ERROR: GET /online 400 - 10:55:10 - No token provided
+ERROR: DELETE /api/carts/true undefined . 10:55:53 CastError: Cast to ObjectId failed for value "true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/true undefined . 10:56:30 CastError: Cast to ObjectId failed for value "true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5a5d1dcef0bbe04a65dd undefined . 10:57:40 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408,%20true undefined . 10:58:49 CastError: Cast to ObjectId failed for value "66bf5b108b050d3eedc49408, true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408,%20true undefined . 10:59:41 CastError: Cast to ObjectId failed for value "66bf5b108b050d3eedc49408, true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408,%20true undefined . 10:59:44 CastError: Cast to ObjectId failed for value "66bf5b108b050d3eedc49408, true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408,%20true undefined . 11:00:22 CastError: Cast to ObjectId failed for value "66bf5b108b050d3eedc49408, true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408,%20true undefined . 11:02:41 CastError: Cast to ObjectId failed for value "66bf5b108b050d3eedc49408, true" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66bf5b108b050d3eedc49408 undefined . 11:03:52 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66bf5c8574582be7ac43eb65 undefined . 11:05:25 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66bf5c9874582be7ac43eb79 undefined . 11:05:25 TypeError: res.response is not a function
+ERROR: GET /products/details/underarmourhovrphantom2.jpg undefined . 11:09:34 CastError: Cast to ObjectId failed for value "underarmourhovrphantom2.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/underarmourhovrphantom2.jpg undefined . 11:11:03 CastError: Cast to ObjectId failed for value "underarmourhovrphantom2.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/reebokclassicleather02.jpg undefined . 11:12:18 CastError: Cast to ObjectId failed for value "reebokclassicleather02.jpg" (type string) at path "_id" for model "products"
+ERROR: GET /products/details/product.details.js undefined . 11:38:38 CastError: Cast to ObjectId failed for value "product.details.js" (type string) at path "_id" for model "products"
