@@ -1,5 +1,7 @@
 import Start from "../start/Start";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "./startContainer.css";
 
 function StartContainer() {
   const queries = new URL(location.href);
@@ -8,6 +10,8 @@ function StartContainer() {
 
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
+
+  const { product_id} = useParams()
 
   useEffect(() => {
     fetch(
@@ -21,17 +25,23 @@ function StartContainer() {
       });
   }, [page]);
   return (
-    <>
-      {products.map((product) => (
-        <Start
-          key={product.id}
-          title={product.title}
-          photo={product.photo}
-          price={product.price}
-          id={product.id}
-        ></Start>
-      ))}
-    </>
+    <div>
+      <h1>Hola</h1>
+      {/* aca va la imagen */}
+      <div className="cont">
+        {products.map((product) => (
+          <div className="productsContainer">
+            <Start
+              key={product._id}
+              title={product.title}
+              photo={product.photo}
+              price={product.price}
+              id={product._id}
+            ></Start>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 export default StartContainer;

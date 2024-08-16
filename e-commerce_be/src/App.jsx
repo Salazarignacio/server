@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginContainer from "./components/login/LoginContainer";
 import Register from "./components/register/Register";
 import Context from "./components/context/Context";
+import Start from "./components/start/Start";
+import PDetailCont from "./components/PDetailCont/PDetailCont";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<StartContainer />} />
+            <Route exact path="/products/details/:product_id" element={<PDetailCont />} />
+            
             <Route exact path="/login" element={<LoginContainer />} />
             <Route exact path="/register" element={<Register />} />
           </Routes>

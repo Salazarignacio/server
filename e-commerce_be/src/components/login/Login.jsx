@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-<<<<<<< HEAD
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,9 +31,6 @@ const Login = () => {
     }
   };
 
-=======
-const Login = ({ email, setEmail, password, setPassword, handleSubmit }) => {
->>>>>>> 106d72c443d97a1279a92d08a411263e6e9fda61
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">

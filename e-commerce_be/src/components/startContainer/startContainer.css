@@ -1,0 +1,31 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:  90%;
+}
+
+.productsContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(40, 105, 134);
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.productContainer {
+    background-color: palegreen;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+}
