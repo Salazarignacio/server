@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 export default function ItemDetailContainer() {
   const [product, setProduct] = useState({});
   const { product_id } = useParams();
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -14,15 +15,20 @@ export default function ItemDetailContainer() {
         const data = await response.json();
         setProduct(data.response);
       } catch (error) {
-        console.error("Error fetching product:", error);
+        throw error;
       }
     };
 
     fetchProduct();
   }, []);
+
   return (
     <>
-      <ItemDetail photo={product.photo} price={product.price} title={product.title}/>
+      <ItemDetail
+        photo={product.photo}
+        price={product.price}
+        title={product.title}
+      />
     </>
   );
 }

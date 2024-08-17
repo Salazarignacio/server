@@ -859,3 +859,41 @@ ERROR: GET /online 400 - 07:29:59 - No token provided
 ERROR: GET /online 400 - 07:29:59 - No token provided
 ERROR: GET /online 400 - 07:37:36 - No token provided
 ERROR: GET /online 400 - 07:37:36 - No token provided
+ERROR: GET /online 400 - 10:58:08 - No token provided
+ERROR: GET /online 400 - 10:58:09 - No token provided
+ERROR: GET /online 400 - 11:08:53 - No token provided
+ERROR: GET /online 400 - 11:08:54 - No token provided
+ERROR: GET /online 400 - 11:09:21 - No token provided
+ERROR: GET /online 400 - 11:09:21 - No token provided
+ERROR: GET /api/sessions/online undefined . 11:09:42 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 11:09:42 TokenExpiredError: jwt expired
+ERROR: GET /api/sessions/online undefined . 11:09:46 TokenExpiredError: jwt expired
+ERROR: GET /online 400 - 11:10:02 - No token provided
+ERROR: GET /online 400 - 11:10:02 - No token provided
+ERROR: GET /online 400 - 11:10:29 - No token provided
+ERROR: GET /online 400 - 11:10:29 - No token provided
+ERROR: GET /online 400 - 11:11:43 - No token provided
+ERROR: GET /online 400 - 11:11:43 - No token provided
+ERROR: GET /online 400 - 11:13:01 - No token provided
+ERROR: GET /online 400 - 11:13:01 - No token provided
+ERROR: GET /online 400 - 11:14:06 - No token provided
+ERROR: GET /online 400 - 11:14:06 - No token provided
+ERROR: GET /online 400 - 11:14:28 - No token provided
+ERROR: GET /online 400 - 11:14:29 - No token provided
+ERROR: GET /online 400 - 11:14:34 - No token provided
+ERROR: GET /online 400 - 11:14:35 - No token provided
+ERROR: GET /online 400 - 11:14:58 - No token provided
+ERROR: GET /online 400 - 11:14:58 - No token provided
+ERROR: GET /online 400 - 11:15:05 - No token provided
+ERROR: GET /online 400 - 11:15:05 - No token provided
+ERROR: GET /online 400 - 11:16:12 - No token provided
+ERROR: GET /online 400 - 11:16:12 - No token provided
+ERROR: GET /online 400 - 11:17:59 - No token provided
+ERROR: GET /online 400 - 11:17:59 - No token provided
+ERROR: GET /online 400 - 11:18:42 - No token provided
+ERROR: GET /online 400 - 11:18:42 - No token provided
+ERROR: GET /online 400 - 11:21:16 - No token provided
+ERROR: GET /online 400 - 11:21:17 - No token provided
+ERROR: GET /api/sessions/online undefined . 11:22:54 TokenExpiredError: jwt expired
+ERROR: GET /online 400 - 11:24:17 - No token provided
+ERROR: GET /online 400 - 11:24:17 - No token provided

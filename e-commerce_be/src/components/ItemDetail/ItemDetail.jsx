@@ -1,4 +1,4 @@
-function ItemDetail({ title, photo, price }) {
+function ItemDetail({ title, photo, price, addToCart }) {
   return (
     <div>
       <img src={photo} className="productsImg" alt={"img"} />
@@ -6,7 +6,7 @@ function ItemDetail({ title, photo, price }) {
         <h5 className="">{title}</h5>
         <p className="">${price}</p>
       </div>
-      <button>Add To Cart</button>
+      <button onClick={() => addToCart()}>Add To Cart</button>
     </div>
   );
 }
