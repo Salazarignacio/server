@@ -13,6 +13,7 @@ function passportCb(strategy) {
       return res.json({
         statusCode: info.statusCode || 401,
         message: info.message,
+        coso: user
       });
     })(req, res, next);
   };

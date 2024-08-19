@@ -1,41 +1,9 @@
-import React, { useState } from "react";
-
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      password: password,
-      email: email,
-    };
-    const opts = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-
-    let response = await fetch(
-      "http://localhost:8080/api/sessions/login",
-      opts
-    );
-
-    response = await response.json();
-
-    if (response.statusCode == 200) {
-      /* location.replace("/"); */
-      console.log(response);
-    } else {
-      console.log(response);
-    }
-  };
-
+const Login = ({ password, setPassword, email, setEmail, handleSubmit }) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h2>
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -70,6 +38,7 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
+            onClick={handleSubmit}
               type="submit"
               className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
             >

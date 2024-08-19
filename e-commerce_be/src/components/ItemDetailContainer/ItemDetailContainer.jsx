@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
+import { useContext } from "react";
+import { ThemeContext } from "../context/Context";
+
 export default function ItemDetailContainer() {
   const [product, setProduct] = useState({});
   const { product_id } = useParams();
-
+  const theme = useContext(ThemeContext);
+  const {user} = theme
+console.log(user);
   useEffect(() => {
     const fetchProduct = async () => {
       try {

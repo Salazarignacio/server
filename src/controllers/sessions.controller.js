@@ -15,7 +15,12 @@ class SessionsController {
   async login(req, res, next) {
     try {
       return res
-        .cookie("token", req.user.token, { httpOnly: true, signedCookie: true })
+        .cookie("token", req.user.token, {
+          httpOnly: true,
+          signedCookie: true,
+          secure: true, 
+          sameSite: "None",
+        })
         .response200("Logged In");
     } catch (error) {
       return next(error);
@@ -30,7 +35,7 @@ class SessionsController {
           message: "is Online",
           user_id: req.user._id,
           email: req.user.email,
-          role: req.user.role
+          role: req.user.role,
         });
       } else {
         return res.error400("Bad bad");
@@ -47,8 +52,8 @@ class SessionsController {
       const verify = code == one.verifyCode;
       console.log(verify);
       if (verify) {
-       const update =  updateService(one._id, { verify });
-        res.response200({  message: update });
+        const update = updateService(one._id, { verify });
+        res.response200({ message: update });
       } else {
         return res.error400("Invalid Crecre");
       }

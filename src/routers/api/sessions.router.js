@@ -17,7 +17,8 @@ class SessionsRouter extends CustomRouter {
     this.read("/cookies", ["PUBLIC"], cookiesRouter);
     this.create("/register", ["PUBLIC"], passportCb("register"), register);
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
-    this.read("/online", ["USER", "ADMIN", "PREM"], passportCb("jwt"), online);
+    this.read("/online", [ "PUBLIC"], passportCb("jwt"), online);
+    this.create("/on", [ "PUBLIC"], passportCb("jwt"), online);
     this.read("/signOut", ["USER", "ADMIN", "PREM"], signOut);
     this.read(
       "/google",
