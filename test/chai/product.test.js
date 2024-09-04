@@ -13,6 +13,7 @@ describe("testing", () => {
     category: "boots",
     price: 15,
     stock: 40000,
+    supplier_id: "667b3772802ca3bea0430100",
   };
   it("Testeando que el objeto recibido tenga la propiedad 'title'", () => {
     expect(data).to.have.property("title");
@@ -36,7 +37,7 @@ describe("testing", () => {
     const update = await products.update(id, { title: "modificado en chai" });
     expect(response.title).is.not.equal(update.title);
   });
-  it("Testeando la eliminacion de una mascota", async () => {
+  it("Testeando la eliminacion de un product", async () => {
     await products.destroy(id);
     const one = await products.readOne(id);
 

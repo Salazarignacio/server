@@ -949,3 +949,14 @@ ERROR: GET /online 400 - 16:40:44 - No token provided
 ERROR: GET /online 400 - 16:40:50 - No token provided
 ERROR: GET /ru 400 - 19:38:52 - No token provided
 ERROR: GET /ru 400 - 19:40:38 - No token provided
+ERROR: PUT /66bf5d33f6c155b70433fd8b 400 - 06:21:37 - No token provided
+ERROR: POST /api/sessions/login 401 . 06:24:41 Error: Bad auth from login
+ERROR: POST /api/sessions/login 401 . 06:25:01 Error: Bad auth from login
+ERROR: POST /api/sessions/login 401 . 06:25:18 Error: Bad auth from login
+ERROR: POST /api/sessions/login 401 . 06:26:07 Error: Bad auth from login
+ERROR: POST /api/sessions/register undefined . 06:26:27 Error: Invalid credentials
+ERROR: POST /api/sessions/register undefined . 06:26:32 Error: Invalid credentials
+ERROR: POST /api/sessions/login undefined . 06:26:43 Error: Bad auth from login
+ERROR: POST /api/sessions/login undefined . 06:26:46 Error: Bad auth from login
+ERROR: POST /api/sessions/login undefined . 06:28:33 Error: Bad auth from login
+ERROR: POST /api/sessions/login 401 . 06:32:01 Error: Bad auth from login

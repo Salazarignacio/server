@@ -49,7 +49,7 @@ async function create(req, res, next) {
   try {
     const data = req.body;
     const create = await createService(data);
-    return res.response201(create._id);
+    return res.response201(create );
   } catch (error) {
     return next("error");
   }

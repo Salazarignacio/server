@@ -19,6 +19,7 @@ describe("testing", () => {
     expect(data).to.have.property("quantity");
   });
   it("Testeando que la propiedad 'product_id' sea un objeto", () => {
+    
     expect(data.title).to.be.a("object");
   });
   it("Testeando que la propiedad 'quantity' sea un number", () => {
@@ -34,7 +35,7 @@ describe("testing", () => {
     const update = await carts.update(id, { title: "modificado en chai" });
     expect(response.title).is.not.equal(update.title);
   });
-  it("Testeando la eliminacion de una mascota", async () => {
+  it("Testeando la eliminacion de un product", async () => {
     await carts.destroy(id);
     const one = await carts.readOne(id);
 
