@@ -960,3 +960,49 @@ ERROR: POST /api/sessions/login undefined . 06:26:43 Error: Bad auth from login
 ERROR: POST /api/sessions/login undefined . 06:26:46 Error: Bad auth from login
 ERROR: POST /api/sessions/login undefined . 06:28:33 Error: Bad auth from login
 ERROR: POST /api/sessions/login 401 . 06:32:01 Error: Bad auth from login
+ERROR: GET /api/checkout/che undefined . 06:03:45 TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle
+ERROR: GET /api/checkout/che undefined . 06:03:53 TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle
+ERROR: POST /api/checkout/checkout 401 . 06:14:20 Error: You did not provide an API key. You need to provide your API key in the Authorization header, using Bearer auth (e.g. 'Authorization: Bearer YOUR_SECRET_KEY'). See https://stripe.com/docs/api#authentication for details, or we can help at https://support.stripe.com/.
+ERROR: POST /api/checkout/checkout 401 . 06:22:35 Error: You did not provide an API key. You need to provide your API key in the Authorization header, using Bearer auth (e.g. 'Authorization: Bearer YOUR_SECRET_KEY'). See https://stripe.com/docs/api#authentication for details, or we can help at https://support.stripe.com/.
+ERROR: POST /api/checkout/checkout 400 . 06:23:03 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/checkout/checkout 400 . 06:25:17 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/checkout/checkout 400 . 06:25:31 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/sessions/login 401 . 06:28:50 Error: Bad auth from login
+ERROR: POST /api/checkout/checkout undefined . 07:05:52 TypeError: callback.apply is not a function
+ERROR: POST /api/checkout/checkout undefined . 07:06:20 TypeError: callback.apply is not a function
+ERROR: GET /api/checkout/che undefined . 07:06:31 TypeError: callback.apply is not a function
+ERROR: POST /api/checkout/checkout undefined . 07:07:31 TypeError: callback.apply is not a function
+ERROR: GET /api/checkout/che undefined . 07:07:36 TypeError: callback.apply is not a function
+ERROR: POST /api/checkout/checkout undefined . 07:07:40 TypeError: callback.apply is not a function
+ERROR: POST /api/payment/checkout undefined . 07:08:28 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/che undefined . 07:08:38 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/che undefined . 07:09:19 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/che undefined . 07:09:21 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/chec undefined . 07:09:37 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/chec undefined . 07:09:39 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/chec undefined . 07:10:08 TypeError: callback.apply is not a function
+ERROR: GET /api/payment/che undefined . 07:12:05 TypeError: callback.apply is not a function
+ERROR: POST /api/payment/checkout undefined . 10:39:11 TypeError: CartsManagerMongo.readFilter is not a function
+ERROR: POST /api/payment/checkout 400 . 10:39:47 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:41:02 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:41:24 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:41:54 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout undefined . 10:42:19 ObjectParameterError: Parameter "filter" to find() must be an object, got "667ea47ae6a248c672008896" (type string)
+ERROR: POST /api/payment/checkout undefined . 10:43:11 ObjectParameterError: Parameter "filter" to find() must be an object, got "667ea47ae6a248c672008896" (type string)
+ERROR: POST /api/payment/checkout 400 . 10:43:29 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:44:08 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:44:51 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:45:34 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout undefined . 10:45:52 ObjectParameterError: Parameter "filter" to find() must be an object, got "667ea47ae6a248c672008896" (type string)
+ERROR: POST /api/payment/checkout undefined . 10:46:21 ObjectParameterError: Parameter "filter" to find() must be an object, got "667ea47ae6a248c672008896" (type string)
+ERROR: POST /api/payment/checkout undefined . 10:46:45 ObjectParameterError: Parameter "filter" to find() must be an object, got "667ea47ae6a248c672008896" (type string)
+ERROR: POST /api/payment/checkout 400 . 10:47:10 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/checkout 400 . 10:47:48 Error: The `line_items` parameter is required in payment mode.
+ERROR: DELETE /api/carts/66bf6b4b08af95de670ce376 undefined . 10:50:06 TypeError: res.response is not a function
+ERROR: POST /api/payment/checkout 400 . 10:52:15 Error: The `line_items` parameter is required in payment mode.

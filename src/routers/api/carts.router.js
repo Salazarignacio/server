@@ -5,6 +5,7 @@ import {
   destroy,
   readOne,
   update,
+  read
 } from "../../controllers/carts.controllers.js";
 
 class CartRouter extends CustomRouter {
@@ -15,6 +16,7 @@ class CartRouter extends CustomRouter {
     this.read("/readone/:oid", ["PUBLIC"], readOne);
     this.read("/paginate", ["USER", "PREM", "ADMIN"], paginate);
     this.update("/:oid", ["USER", "PREM", "ADMIN"], update);
+    this.read("/read", ["USER", "PREM", "ADMIN"], read);
   }
 }
 

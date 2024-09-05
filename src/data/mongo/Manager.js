@@ -20,7 +20,7 @@ class Manager {
   }
   async readFilter(filter) {
     try {
-      const all = await this.model.find(filter).lean();
+      const all = await this.model.find(filter);
       return all;
     } catch (error) {
       throw error;

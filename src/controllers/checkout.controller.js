@@ -1,14 +1,17 @@
+import { verifyToken } from "../../utils/token.utils.js";
 import checkoutService from "../services/checkout.services.js";
 
 const checkout = async (req, res, next) => {
   try {
-    const { user_id } = req.session;
-    /* revisar si era user_id la varibale */
-    const response = await checkoutService({ user_id });
+    let user = req.cookies["token"];
+    user = verifyToken(user);
+    const {_id} = user
+    const response = await checkoutService({ _id });
     return res.json(response);
   } catch (error) {
     return next(error);
   }
 };
 
-export default checkout;
+
+export { checkout };

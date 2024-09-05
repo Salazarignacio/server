@@ -1,5 +1,5 @@
 import CustomRouter from "./CustomRouter.js";
-import { checkoutRouter } from "./checkout.router.js";
+import checkoutRouter from "./checkout.router.js";
 import productsRouter from "./products.router.js";
 import usersRouter from "./user.router.js";
 import cartRouter from "./carts.router.js";
@@ -17,7 +17,7 @@ class ApiRouter extends CustomRouter {
     this.use("/cookies", cookiesRouter);
     this.use("/sessions", sessionsRouter);
     this.use("/loggers", artillery);
-    this.use("/checkout", checkoutRouter);
+    this.use("/payment", checkoutRouter);
   }
 }
 const apiRouter = new ApiRouter();

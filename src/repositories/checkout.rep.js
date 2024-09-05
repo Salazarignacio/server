@@ -5,9 +5,14 @@ import CheckoutProduct from "../dto/checkout.dto.js";
 const stripe = new Stripe(process.env.STRIPE_SECRET);
 const checkoutRepository = async (filter) => {
   try {
+    
     let productsOnCart = await CartsManagerMongo.readFilter(filter);
-    productsOnCart = productsOnCart.map((each) => new CheckoutProduct(each));
+    /* let productsOnCart = await CartsManagerMongo.read(); */
+    console.log(filter);
     console.log(productsOnCart);
+    
+
+    productsOnCart = productsOnCart.map((each) => new CheckoutProduct(each));
     const line_items = productsOnCart;
     const mode = "payment";
     const success_url = "http://localhost:8080/login"; /* cambiar */
