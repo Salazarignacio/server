@@ -15,13 +15,13 @@ const checkoutRepository = async (filter) => {
     productsOnCart = productsOnCart.map((each) => new CheckoutProduct(each));
     const line_items = productsOnCart;
     const mode = "payment";
-    const success_url = "http://localhost:8080/login"; /* cambiar */
+    const success_url = "http://localhost:8080/thanks"; /* cambiar */
     const intent = await stripe.checkout.sessions.create({
       line_items,
       mode,
       success_url,
     });
-    return intent;
+    return intent.url;
   } catch (error) {
     throw error;
   }

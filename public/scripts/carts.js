@@ -1,10 +1,10 @@
 let objeto = "";
-fetch("http://localhost:8080/api/sessions/online")
+fetch("/api/sessions/online")
   .then((online) => online.json())
   .then((online) => {
     user_id = online.user_id;
 
-    fetch(`http://localhost:8080/api/carts/paginate?user_id=${user_id}`)
+    fetch(`/api/carts/paginate?user_id=${user_id}`)
       .then((res) => res.json())
       .then((res) => {
         let template = ``;
@@ -40,12 +40,12 @@ fetch("http://localhost:8080/api/sessions/online")
         document
           .getElementById("acceptButton")
           .addEventListener("click", () => {
-            aceptOrCancelPurchase(res, true);
+            finalizePurchase();
           });
         document
           .getElementById("canceltButton")
           .addEventListener("click", () => {
-            aceptOrCancelPurchase(res, false);
+            cancelPurchase(res);
           });
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ fetch("http://localhost:8080/api/sessions/online")
       });
   });
 
-async function destroy(oid, bool) {
+async function destroy(oid) {
   try {
     const url = "/api/carts/" + oid;
     const opts = {
@@ -68,12 +68,20 @@ async function destroy(oid, bool) {
   }
 }
 
-async function aceptOrCancelPurchase(res, bool) {
-  bool
-    ? console.log("Purchase done succesfully")
-    : console.log("Purchace was cancelled");
+async function cancelPurchase(res) {
   res.response.map((element) => {
     destroy(element._id);
     window.location.reload();
   });
+}
+async function finalizePurchase() {
+  const opts = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  let payment = await fetch("/api/payment/", opts);
+  payment = await payment.json();
+  window.location.replace(payment);
 }

@@ -4,14 +4,7 @@ import { verifyToken } from "../../../utils/token.utils.js";
 
 const checkoutRouter = Router();
 
-async function che(req, res, next) {
-  let user = req.cookies["token"];
-  user = verifyToken(user);
-  return res.json({ saludo: user });
-}
-
-checkoutRouter.post("/checkout", checkout);
-checkoutRouter.get("/che", che);
+checkoutRouter.post("/", checkout);
 
 export default checkoutRouter;
 

@@ -1006,3 +1006,23 @@ ERROR: POST /api/payment/checkout 400 . 10:47:10 Error: The `line_items` paramet
 ERROR: POST /api/payment/checkout 400 . 10:47:48 Error: The `line_items` parameter is required in payment mode.
 ERROR: DELETE /api/carts/66bf6b4b08af95de670ce376 undefined . 10:50:06 TypeError: res.response is not a function
 ERROR: POST /api/payment/checkout 400 . 10:52:15 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/ 400 . 10:15:36 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/ 400 . 10:16:20 Error: The `line_items` parameter is required in payment mode.
+ERROR: GET /readone/66b5074b80880b63e6fae2f6 400 - 10:16:59 - Id not found
+ERROR: GET /readone/66ae40a54ff517213a76cb56 400 - 10:17:15 - Id not found
+ERROR: GET /readone/66b5074b80880b63e6fae2f6 400 - 10:17:25 - Id not found
+ERROR: POST /api/payment/ undefined . 10:25:06 TypeError: Cannot read properties of null (reading 'map')
+ERROR: POST /api/payment/ undefined . 10:30:56 TypeError: Cannot read properties of undefined (reading 'map')
+ERROR: POST /api/payment/ 400 . 10:31:43 Error: The `line_items` parameter is required in payment mode.
+ERROR: POST /api/payment/ undefined . 10:38:13 ReferenceError: email is not defined
+ERROR: DELETE /api/carts/66ba1a565f38a5736f75c6f3 undefined . 10:46:18 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66d90e805a65f11088c51c97 undefined . 10:46:18 TypeError: res.response is not a function
+ERROR: POST /carts/api/payment/ 400 . 10:59:27 SyntaxError: Unexpected end of JSON input
+ERROR: PUT /api/carts/paginate?user_id=667ea47ae6a248c672008896 undefined . 12:29:50 CastError: Cast to ObjectId failed for value "paginate" (type string) at path "_id" for model "carts"
+ERROR: PUT /api/carts/paginate?user_id=667ea47ae6a248c672008896 undefined . 12:31:47 CastError: Cast to ObjectId failed for value "paginate" (type string) at path "_id" for model "carts"
+ERROR: PUT /api/carts/paginate?user_id=667ea47ae6a248c672008896 undefined . 12:32:43 CastError: Cast to ObjectId failed for value "paginate" (type string) at path "_id" for model "carts"
+ERROR: PUT /api/carts/paginate?user_id=667ea47ae6a248c672008896 undefined . 12:33:20 CastError: Cast to ObjectId failed for value "paginate" (type string) at path "_id" for model "carts"
+ERROR: DELETE /api/carts/66d9b638d63030ccdc3ae5e7 undefined . 12:39:52 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66bf5d33f6c155b70433fd8b undefined . 12:42:36 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66d9d1846783d541a21f2210 undefined . 12:44:49 TypeError: res.response is not a function
+ERROR: DELETE /api/carts/66d9d1ad6a91f0df9233059e undefined . 12:44:49 TypeError: res.response is not a function

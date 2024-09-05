@@ -62,4 +62,12 @@ viewsRouter.get("/email", async(req,res,next)=>{
   }
 })
 
+viewsRouter.get("/thanks", async(req,res,next)=>{
+  try {
+    return res.render("thanks", {title:"Thank you!"})
+  } catch (error) {
+    return next(error)
+  }
+})
+
 export default viewsRouter;

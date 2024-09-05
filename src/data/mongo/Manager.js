@@ -18,14 +18,7 @@ class Manager {
       throw error;
     }
   }
-  async readFilter(filter) {
-    try {
-      const all = await this.model.find(filter);
-      return all;
-    } catch (error) {
-      throw error;
-    }
-  }
+
   async paginate({ filter, opts }) {
     try {
       const paginate = await this.model.paginate(filter, opts);
@@ -38,6 +31,14 @@ class Manager {
     try {
       const readOneFile = await this.model.findOne({ _id: id });
       return readOneFile;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async readFilter(id) {
+    try {
+      const all = await this.model.find();
+      return all.filter((each) => each.user_id._id == id._id);
     } catch (error) {
       throw error;
     }

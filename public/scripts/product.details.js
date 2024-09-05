@@ -4,7 +4,6 @@ fetch("/api/sessions/online")
   .then((user) => {
     role = user.role;
 
-    console.log(role);
     const queries = new URL(location.href);
     let split = queries.pathname.split("/");
     split = split[split.length - 1];
